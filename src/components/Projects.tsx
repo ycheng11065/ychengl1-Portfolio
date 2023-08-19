@@ -15,6 +15,7 @@ import { useId } from '@mantine/hooks';
 
 interface tool {
   name: string;
+  color: string;
   id: string;
 }
 
@@ -43,12 +44,12 @@ const Projects = () => {
       year: 2023,
       image: tower_img,
       tech: [
-        { name: 'JavaScript', id: useId() },
-        { name: 'MySQL', id: useId() },
-        { name: 'NodeJS', id: useId() },
-        { name: 'Express', id: useId() },
-        { name: 'ReactJS', id: useId() },
-        { name: 'ChakraUI', id: useId() },
+        { name: 'JavaScript', color: 'teal', id: useId() },
+        { name: 'NodeJS', color: 'teal', id: useId() },
+        { name: 'Express', color: 'teal', id: useId() },
+        { name: 'ReactJS', color: 'teal', id: useId() },
+        { name: 'ChakraUI', color: 'teal', id: useId() },
+        { name: 'MySQL', color: 'violet', id: useId() }
       ],
       id: useId(),
     },
@@ -65,12 +66,12 @@ const Projects = () => {
       year: 2023,
       image: desert_img,
       tech: [
-        { name: 'JavaScript', id: useId() },
-        { name: 'MySQL', id: useId() },
-        { name: 'NodeJS', id: useId() },
-        { name: 'Express', id: useId() },
-        { name: 'ReactJS', id: useId() },
-        { name: 'ChakraUI', id: useId() },
+        { name: 'JavaScript', color: 'teal', id: useId() },
+        { name: 'MySQL', color: 'teal', id: useId() },
+        { name: 'NodeJS', color: 'teal', id: useId() },
+        { name: 'Express', color: 'teal', id: useId() },
+        { name: 'ReactJS', color: 'teal', id: useId() },
+        { name: 'ChakraUI', color: 'teal', id: useId() },
       ],
       id: useId(),
     },
@@ -116,7 +117,7 @@ const Projects = () => {
                       >
                         {p.tech &&
                           p.tech.map((t) => (
-                            <Badge key={t.id} color="pink" variant="light">
+                            <Badge key={t.id} color={t.color} variant="light">
                               {t.name}
                             </Badge>
                           ))}
@@ -170,7 +171,7 @@ const Projects = () => {
                       >
                         {p.tech &&
                           p.tech.map((t) => (
-                            <Badge key={t.id} color="pink" variant="light">
+                            <Badge key={t.id} color={t.color} variant="light">
                               {t.name}
                             </Badge>
                           ))}
