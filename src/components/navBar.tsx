@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom';
 import {
   Text,
   Flex,
   Container,
   Button,
   useMantineColorScheme,
-  ActionIcon
+  ActionIcon,
 } from '@mantine/core';
 import { IconSun, IconMoon } from '@tabler/icons-react';
 
@@ -20,20 +21,23 @@ const NavBar = () => {
         </Container>
         <Container mx="0" mt="15px">
           <Flex gap="md">
-            <Button>Projects</Button>
-            <Button>Contacts</Button>
-            <Button>About</Button>
+            <Link to="/projects">
+              <Button>Projects</Button>
+            </Link>
+            <Link to="/contacts">
+              <Button>Contacts</Button>
+            </Link>
+            <Link to="/about">
+              <Button>About</Button>
+            </Link>
             <ActionIcon
+              size="2.2rem"
               variant="outline"
               color={dark ? 'yellow' : 'blue'}
               onClick={() => toggleColorScheme()}
               title="Toggle color scheme"
             >
-              {dark ? (
-                <IconSun size="1.1rem" />
-              ) : (
-                <IconMoon size="1.1rem" />
-              )}
+              {dark ? <IconSun size="2rem" /> : <IconMoon size="2rem" />}
             </ActionIcon>
           </Flex>
         </Container>

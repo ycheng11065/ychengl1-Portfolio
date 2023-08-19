@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
-import './App.css';
-import MainPage from './components/mainPage';
-import NavBar from './components/navBar';
+import MainPage from './components/MainPage';
+import NavBar from './components/NavBar';
+import Projects from './components/Projects';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import { AppShell, MantineProvider, ColorSchemeProvider, ColorScheme } from '@mantine/core';
+import {
+  AppShell,
+  MantineProvider,
+  ColorSchemeProvider,
+  ColorScheme,
+} from '@mantine/core';
 
 function App() {
   const [colorScheme, setColorScheme] = useState<ColorScheme>('light');
@@ -25,6 +30,7 @@ function App() {
           <AppShell header={<NavBar />}>
             <Routes>
               <Route path="/" element={<MainPage />} />
+              <Route path="/projects" element={<Projects />} />
             </Routes>
           </AppShell>
         </BrowserRouter>
