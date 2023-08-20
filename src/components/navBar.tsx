@@ -22,7 +22,7 @@ const useStyles = createStyles((theme) => ({
         ? theme.colors.dark[1]
         : theme.colors.gray[6],
     padding: '5px',
-    borderBottom: `4px solid transparent`,
+    borderBottom: `2px solid transparent`,
     transition: 'border-color 100ms ease, color 100ms ease',
     textDecoration: 'none',
 
@@ -53,7 +53,7 @@ const NavBar = () => {
         window.open(pdfUrl, '_blank');
       });
   };
-  
+
   return (
     <>
       <Flex mt="10px" direction="row" justify="space-between">
