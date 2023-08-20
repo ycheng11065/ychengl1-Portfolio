@@ -75,7 +75,7 @@ const NavBar = () => {
         <Container mx="0" mt="15px">
           <Flex gap="xl">
             <Link
-              to="/projects"
+              to="/"
               className={`${classes.linkButton} ${
                 activeLinkIndex === 0 ? classes.linkActive : ''
               }`}
@@ -83,15 +83,26 @@ const NavBar = () => {
                 setActiveLink(0);
               }}
             >
-              Project
+              Home
             </Link>
             <Link
-              to="/"
+              to="/project"
               className={`${classes.linkButton} ${
                 activeLinkIndex === 1 ? classes.linkActive : ''
               }`}
               onClick={(event) => {
                 setActiveLink(1);
+              }}
+            >
+              Project
+            </Link>
+            <Link
+              to="/about"
+              className={`${classes.linkButton} ${
+                activeLinkIndex === 2 ? classes.linkActive : ''
+              }`}
+              onClick={(event) => {
+                setActiveLink(2);
               }}
             >
               About

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import './App.css';
 import logo from './logo.svg';
-import MainPage from './components/MainPage';
+import About from './components/About';
 import NavBar from './components/NavBar';
 import Projects from './components/Projects';
 import Footer from './components/Footer';
+import MainPage from './components/MainPage';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import {
   AppShell,
@@ -37,7 +38,8 @@ function App() {
           >
             <Routes>
               <Route path="/" element={<MainPage />} />
-              <Route path="/projects" element={<Projects />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/project" element={<Projects />} />
             </Routes>
           </AppShell>
         </BrowserRouter>

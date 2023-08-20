@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Text, Box, Flex, createStyles, Anchor, Group } from '@mantine/core';
 import { IconBrandLinkedin } from '@tabler/icons-react';
 import { inherits } from 'util';
@@ -28,8 +28,10 @@ const useStyles = createStyles((theme) => ({
 
 const Footer = () => {
   const { classes } = useStyles();
+  const location = useLocation();
+  const isMainPage = location.pathname !== '/';
 
-  return (
+  return isMainPage ? (
     <>
       <Flex align="center" direction="column" >
         <Box w="80%" h="80px" className={classes.footerBorder}>
@@ -53,7 +55,7 @@ const Footer = () => {
         <Text mb="15px">Developed by ©2023 YChengLi</Text>
       </Flex>
     </>
-  );
+  ) : null;
 };
 
 export default Footer;
