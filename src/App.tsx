@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './App.css';
 import logo from './logo.svg';
 import MainPage from './components/MainPage';
 import NavBar from './components/NavBar';
@@ -13,7 +14,7 @@ import {
 } from '@mantine/core';
 
 function App() {
-  const [colorScheme, setColorScheme] = useState<ColorScheme>('light');
+  const [colorScheme, setColorScheme] = useState<ColorScheme>('dark');
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
 
@@ -31,6 +32,8 @@ function App() {
           <AppShell 
             header={<NavBar />}
             footer={<Footer />}
+            h="300px"
+            style={{ height: '10px' }}
           >
             <Routes>
               <Route path="/" element={<MainPage />} />

@@ -7,7 +7,6 @@ const useStyles = createStyles((theme) => ({
   linkButton: {
     fontSize: 'xl',
     marginTop: '4px',
-    // color: theme.colorScheme === 'dark' ? theme.colors.gray[5] : theme.black,
     transition: 'border-color 100ms ease, color 100ms ease',
     textDecoration: 'none',
 
@@ -21,6 +20,10 @@ const useStyles = createStyles((theme) => ({
     borderBottomColor:
       theme.colors[theme.primaryColor][theme.colorScheme === 'dark' ? 5 : 6],
   },
+  footerBorder: {
+    borderTop: '2px solid grey',
+    borderTopColor: theme.colorScheme === 'dark' ? theme.colors.gray[7] : theme.colors.gray[3],
+  }
 }));
 
 const Footer = () => {
@@ -28,8 +31,8 @@ const Footer = () => {
 
   return (
     <>
-      <Flex align="center" direction="column">
-        <Box w="80%" h="80px" style={{ borderTop: '2px solid grey' }}>
+      <Flex align="center" direction="column" >
+        <Box w="80%" h="80px" className={classes.footerBorder}>
           <Flex mt="10px" justify="space-between" gap="25px" px="30px">
             <Text mt="4px" fz="xl">
               Get in touch with me.

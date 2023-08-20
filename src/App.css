@@ -1,0 +1,12 @@
+
+@media (min-width: 75em) {
+  .mantine-AppShell-main {
+    min-height: 400px;
+  }
+}
+
+@media (min-width: 88em) {
+  .mantine-AppShell-main {
+    min-height: 800px;
+  }
+}
