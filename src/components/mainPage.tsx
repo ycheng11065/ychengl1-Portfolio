@@ -5,6 +5,7 @@ const MainPage = () => {
   return (
     <>
       <Grid
+        h="600px"
         mt="30px"
         p="0"
         justify="center"
@@ -21,7 +22,7 @@ const MainPage = () => {
                 ta="left"
                 style={{ fontSize: '3rem'}}
               >
-                Hi There,
+                Hi there,
               </Text>
               <Text
                 ta="left"
