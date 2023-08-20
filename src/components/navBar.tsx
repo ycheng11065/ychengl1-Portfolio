@@ -72,7 +72,7 @@ const NavBar = () => {
           </Link>
         </Container>
         <Container mx="0" mt="15px">
-          <Flex gap="md">
+          <Flex gap="xl">
             <Link
               to="/projects"
               className={`${classes.linkButton} ${
