@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import MainPage from './components/MainPage';
 import NavBar from './components/NavBar';
 import Projects from './components/Projects';
+import Footer from './components/Footer';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import {
   AppShell,
@@ -27,7 +28,10 @@ function App() {
         theme={{ colorScheme: colorScheme }}
       >
         <BrowserRouter>
-          <AppShell header={<NavBar />}>
+          <AppShell 
+            header={<NavBar />}
+            footer={<Footer />}
+          >
             <Routes>
               <Route path="/" element={<MainPage />} />
               <Route path="/projects" element={<Projects />} />

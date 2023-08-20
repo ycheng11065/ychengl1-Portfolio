@@ -53,6 +53,7 @@ const NavBar = () => {
         window.open(pdfUrl, '_blank');
       });
   };
+  
   return (
     <>
       <Flex mt="10px" direction="row" justify="space-between">
