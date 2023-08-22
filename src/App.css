@@ -1,4 +1,22 @@
 
+/* html,
+body, */
+/* #root {
+  width: 60px;
+  height: 60px;
+  margin: 0;
+  padding: 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background: #000000f6;
+} */
+
+
+
 @media (min-width: 75em) {
   .mantine-AppShell-main {
     min-height: 400px;

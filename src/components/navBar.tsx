@@ -1,4 +1,7 @@
-import { useState } from 'react';
+// @ts-nocheck
+
+import { useState, useContext } from 'react';
+import { ModeContext } from '../App';
 import { Link } from 'react-router-dom';
 import {
   Flex,
@@ -39,13 +42,14 @@ const useStyles = createStyles((theme) => ({
 }));
 
 const NavBar = () => {
+  const { changed, setChanged } = useContext(ModeContext);
   const { classes } = useStyles();
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const [activeLinkIndex, setActiveLink] = useState<number>(0);
   const dark = colorScheme === 'dark';
 
   const openPDF = () => {
-    const pdfPath = require('../resume/ychengli_2023winter_resume.pdf'); 
+    const pdfPath = require('../resume/ychengli_2023winter_resume.pdf');
     fetch(pdfPath)
       .then((response) => response.blob())
       .then((blob) => {
@@ -66,7 +70,7 @@ const NavBar = () => {
               fontSize: '2rem',
             }}
             onClick={(event) => {
-              setActiveLink(1);
+              setActiveLink(0);
             }}
           >
             YCL
@@ -112,7 +116,10 @@ const NavBar = () => {
               size="2.2rem"
               variant="outline"
               color={dark ? 'yellow' : 'blue'}
-              onClick={() => toggleColorScheme()}
+              onClick={() => {
+                toggleColorScheme();
+                setChanged(true);
+              }}
               title="Toggle color scheme"
             >
               {dark ? <IconSun size="2rem" /> : <IconMoon size="2rem" />}
