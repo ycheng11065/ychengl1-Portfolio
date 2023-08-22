@@ -166,14 +166,13 @@ const Projects = () => {
               key={p.id}
               maw="1000px"
               h="285px"
-              style={{ border: '1px solid grey' }}
+              // style={{ border: '1px solid grey' }}
             >
               {index % 2 === 0 ? (
                 <Flex h="100%" justify="space-between">
-                  <Box w="90%">
+                  <Box w="90%" mx="20px">
                     <Flex justify="space-between" pr="20px">
                       <Text
-                        fw="bold"
                         style={{ paddingBottom: '0', fontSize: '2rem' }}
                       >
                         {p.name}
@@ -231,7 +230,7 @@ const Projects = () => {
                   </Box>
                   <Box w="90%" pl="20px">
                     <Flex justify="space-between" pr="20px">
-                      <Text fw="bold" style={{ fontSize: '2rem' }}>
+                      <Text style={{ fontSize: '2rem' }}>
                         {p.name}
                       </Text>
                       <Group mt="md" mb="xs">

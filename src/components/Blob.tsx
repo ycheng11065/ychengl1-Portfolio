@@ -17,12 +17,6 @@ const Blob = () => {
     };
   }, []);
 
-  // useEffect(() => {
-  //   invalidate();
-
-  //   // mesh.current.addEventListener('change', invalidate);
-  //   // return () => mesh.current.removeEventListener('change', invalidate);
-  // }, changed);
 
   useFrame((state) => {
     const { clock } = state;
@@ -55,7 +49,7 @@ const Blob = () => {
       onPointerOver={() => (hover.current = true)}
       onPointerOut={() => (hover.current = false)}
     >
-      <icosahedronGeometry args={[2, 20]} />
+      <icosahedronGeometry args={[2.2, 20]} />
       <shaderMaterial
         vertexShader={vertexShader}
         fragmentShader={fragmentShader}

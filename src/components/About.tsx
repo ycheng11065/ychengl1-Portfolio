@@ -48,7 +48,7 @@ const About = () => {
           <Flex gap="20px" align="left" direction="column">
             <Flex direction="column">
               <Text ta="left" className={classes.titleDescription}>
-                Hi there
+                About Me
               </Text>
               <Text ta="left" className={classes.titleDescription}>
                 I'm YuCheng

@@ -19,7 +19,7 @@ body, */
 
 @media (min-width: 75em) {
   .mantine-AppShell-main {
-    min-height: 400px;
+    min-height: 500px;
   }
 }
 
