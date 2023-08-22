@@ -51,7 +51,6 @@ function App() {
                 <Routes>
                   <Route path="/" element={<MainPage />} />
                   <Route path="/about" element={<About />} />
-                  <Route path="/project" element={<Projects />} />
                 </Routes>
               </AppShell>
             </BrowserRouter>

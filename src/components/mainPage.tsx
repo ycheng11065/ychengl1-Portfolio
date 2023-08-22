@@ -28,7 +28,7 @@ const MainPage = () => {
           transform: 'translate(-50%, -55%)',
         }}
       >
-        Welcome, I'm YuCheng
+        Welcome, I'm Yu Cheng Li
       </Text>
       <Canvas
         style={{ height: '500px', width: '100%' }}
