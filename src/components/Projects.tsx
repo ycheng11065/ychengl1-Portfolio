@@ -16,6 +16,7 @@ import {
   BackgroundImage,
   Group,
   Badge,
+  useMantineColorScheme
 } from '@mantine/core';
 import { useId } from '@mantine/hooks';
 
@@ -36,6 +37,9 @@ interface project {
 }
 
 const Projects = () => {
+  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+  const dark = colorScheme === 'dark';
+
   const projectArray: project[] = [
     {
       name: 'Subletter',
@@ -163,14 +167,18 @@ const Projects = () => {
         {projectArray &&
           projectArray.map((p, index) => (
             <Card
+              radius="md"
               key={p.id}
               maw="1000px"
               h="285px"
-              // style={{ border: '1px solid grey' }}
+              // style={{ backgroundColor: "grey" }}
             >
               {index % 2 === 0 ? (
-                <Flex h="100%" justify="space-between">
-                  <Box w="90%" mx="20px">
+                <Flex h="100%" gap="10px" justify="space-between">
+                  <Box 
+                    w="70%"
+                    // mx="15px"
+                  >
                     <Flex justify="space-between" pr="20px">
                       <Text
                         style={{ paddingBottom: '0', fontSize: '2rem' }}
@@ -188,7 +196,11 @@ const Projects = () => {
                       direction="column"
                       style={{ position: 'relative' }}
                     >
-                      <Text mt="5px">{p.description}</Text>
+                      <Text 
+                        mt="5px"
+                      >
+                        {p.description}
+                      </Text>
                       <Flex
                         mt="55px"
                         gap="sm"
@@ -203,7 +215,13 @@ const Projects = () => {
                       </Flex>
                     </Flex>
                   </Box>
-                  <Box p="0" w="500px" h="250px" style={{ borderRadius: "10px" }}>
+                  <Box 
+                    p="0" 
+                    // mx="15px" 
+                    w="500px" 
+                    h="255px"  
+                    style={{ borderRadius: "10px" }}
+                  >
                     <BackgroundImage
                       style={{
                         width: '100%',

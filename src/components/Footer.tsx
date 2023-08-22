@@ -31,7 +31,7 @@ const Footer = () => {
   const location = useLocation();
   const isMainPage = location.pathname !== '/';
 
-  return isMainPage ? (
+  return (
     <>
       <Flex align="center" direction="column" >
         <Box w="80%" h="80px" className={classes.footerBorder}>
@@ -55,7 +55,7 @@ const Footer = () => {
         <Text mb="15px">Developed by ©2023 YChengLi</Text>
       </Flex>
     </>
-  ) : null;
+  );
 };
 
 export default Footer;

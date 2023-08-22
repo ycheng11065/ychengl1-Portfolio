@@ -89,7 +89,7 @@ const NavBar = () => {
             >
               Home
             </Link>
-            <Link
+            {/* <Link
               to="/project"
               className={`${classes.linkButton} ${
                 activeLinkIndex === 1 ? classes.linkActive : ''
@@ -99,14 +99,14 @@ const NavBar = () => {
               }}
             >
               Project
-            </Link>
+            </Link> */}
             <Link
               to="/about"
               className={`${classes.linkButton} ${
-                activeLinkIndex === 2 ? classes.linkActive : ''
+                activeLinkIndex === 1 ? classes.linkActive : ''
               }`}
               onClick={(event) => {
-                setActiveLink(2);
+                setActiveLink(1);
               }}
             >
               About
