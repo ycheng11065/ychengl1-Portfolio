@@ -16,7 +16,8 @@ import {
   BackgroundImage,
   Group,
   Badge,
-  useMantineColorScheme
+  useMantineColorScheme,
+  createStyles,
 } from '@mantine/core';
 import { useId } from '@mantine/hooks';
 
@@ -36,7 +37,17 @@ interface project {
   id: string;
 }
 
+const useStyles = createStyles((theme) => ({
+  projectCard: {
+    backgroundColor:
+      theme.colorScheme === 'dark'
+        ? theme.colors.dark[6]
+        : theme.colors.gray[1],
+  },
+}));
+
 const Projects = () => {
+  const { classes } = useStyles();
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const dark = colorScheme === 'dark';
 
@@ -59,7 +70,7 @@ const Projects = () => {
         { name: 'Express', color: 'teal', id: useId() },
         { name: 'ReactJS', color: 'teal', id: useId() },
         { name: 'ChakraUI', color: 'teal', id: useId() },
-        { name: 'MySQL', color: 'violet', id: useId() }
+        { name: 'MySQL', color: 'violet', id: useId() },
       ],
       id: useId(),
     },
@@ -97,7 +108,7 @@ const Projects = () => {
       image: snake_img,
       tech: [
         { name: 'Python', color: 'orange', id: useId() },
-        { name: 'DigitalOcean', color: 'pink', id: useId() }
+        { name: 'DigitalOcean', color: 'pink', id: useId() },
       ],
       id: useId(),
     },
@@ -116,7 +127,7 @@ const Projects = () => {
       tech: [
         { name: 'JavaScript', color: 'teal', id: useId() },
         { name: 'HTML5', color: 'teal', id: useId() },
-        { name: 'CSS3', color: 'teal', id: useId() }
+        { name: 'CSS3', color: 'teal', id: useId() },
       ],
       id: useId(),
     },
@@ -155,7 +166,7 @@ const Projects = () => {
         { name: 'HTML5', color: 'teal', id: useId() },
         { name: 'CSS3', color: 'teal', id: useId() },
         { name: 'Flask', color: 'teal', id: useId() },
-        { name: 'Bootstrap', color: 'teal', id: useId() }
+        { name: 'Bootstrap', color: 'teal', id: useId() },
       ],
       id: useId(),
     },
@@ -163,26 +174,25 @@ const Projects = () => {
 
   return (
     <>
-      <Flex gap="md" direction="column" align="center" my="40px">
+      <Flex gap="lg" direction="column" align="center" my="40px">
         {projectArray &&
           projectArray.map((p, index) => (
             <Card
+              // p="20px"
+              // pt="30px"
+              // pt="30px"
+              // pb="30px"
               radius="md"
               key={p.id}
               maw="1000px"
               h="285px"
-              // style={{ backgroundColor: "grey" }}
+              className={classes.projectCard}
             >
               {index % 2 === 0 ? (
-                <Flex h="100%" gap="10px" justify="space-between">
-                  <Box 
-                    w="70%"
-                    // mx="15px"
-                  >
+                <Flex h="100%" gap="10px" justify="space-between" mb="100px">
+                  <Box w="70%">
                     <Flex justify="space-between" pr="20px">
-                      <Text
-                        style={{ paddingBottom: '0', fontSize: '2rem' }}
-                      >
+                      <Text style={{ paddingBottom: '0', fontSize: '2rem' }}>
                         {p.name}
                       </Text>
                       <Group mt="md" mb="xs">
@@ -196,11 +206,7 @@ const Projects = () => {
                       direction="column"
                       style={{ position: 'relative' }}
                     >
-                      <Text 
-                        mt="5px"
-                      >
-                        {p.description}
-                      </Text>
+                      <Text mt="5px">{p.description}</Text>
                       <Flex
                         mt="55px"
                         gap="sm"
@@ -215,18 +221,18 @@ const Projects = () => {
                       </Flex>
                     </Flex>
                   </Box>
-                  <Box 
-                    p="0" 
-                    // mx="15px" 
-                    w="500px" 
-                    h="255px"  
-                    style={{ borderRadius: "10px" }}
+                  <Box
+                    p="0"
+                    // mx="15px"
+                    w="500px"
+                    h="255px"
+                    style={{ borderRadius: '10px' }}
                   >
                     <BackgroundImage
                       style={{
                         width: '100%',
                         height: '100%',
-                        border: "1px solid grey"
+                        border: '1px solid grey',
                       }}
                       radius="md"
                       src={p.image}
@@ -235,12 +241,17 @@ const Projects = () => {
                 </Flex>
               ) : (
                 <Flex h="100%" justify="space-between" mr="0">
-                  <Box p="0" w="500px" h="250px" style={{ borderRadius: "10px" }}>
+                  <Box
+                    p="0"
+                    w="500px"
+                    h="250px"
+                    style={{ borderRadius: '10px' }}
+                  >
                     <BackgroundImage
                       style={{
                         width: '100%',
                         height: '100%',
-                        border: "1px solid grey"
+                        border: '1px solid grey',
                       }}
                       radius="md"
                       src={p.image}
@@ -248,9 +259,7 @@ const Projects = () => {
                   </Box>
                   <Box w="90%" pl="20px">
                     <Flex justify="space-between" pr="20px">
-                      <Text style={{ fontSize: '2rem' }}>
-                        {p.name}
-                      </Text>
+                      <Text style={{ fontSize: '2rem' }}>{p.name}</Text>
                       <Group mt="md" mb="xs">
                         <Badge color="blue" variant="outline">
                           {p.category}

@@ -5,7 +5,7 @@ import { useLoader } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
-import { Text, Box, Flex } from '@mantine/core';
+import { Text, Box, Flex, createStyles } from '@mantine/core';
 import Blob from './Blob';
 import { ModeContext } from '../App';
 import Project from './Projects';

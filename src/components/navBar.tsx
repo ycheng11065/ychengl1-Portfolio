@@ -89,17 +89,6 @@ const NavBar = () => {
             >
               Home
             </Link>
-            {/* <Link
-              to="/project"
-              className={`${classes.linkButton} ${
-                activeLinkIndex === 1 ? classes.linkActive : ''
-              }`}
-              onClick={(event) => {
-                setActiveLink(1);
-              }}
-            >
-              Project
-            </Link> */}
             <Link
               to="/about"
               className={`${classes.linkButton} ${
@@ -111,7 +100,12 @@ const NavBar = () => {
             >
               About
             </Link>
-            <Button onClick={openPDF}>Resume</Button>
+            <Link className={classes.linkButton} onClick={ openPDF }>
+              Resume
+            </Link>
+            {/* <Button variant="outline" onClick={ openPDF() }>
+              Resume
+            </Button> */}
             <ActionIcon
               size="2.2rem"
               variant="outline"
