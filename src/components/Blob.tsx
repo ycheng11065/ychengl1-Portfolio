@@ -45,7 +45,7 @@ const Blob = () => {
     <mesh
       ref={mesh}
       scale={1.5}
-      position={[0, 0, 0]}
+      position={[0, 0.5, 0]}
       onPointerOver={() => (hover.current = true)}
       onPointerOut={() => (hover.current = false)}
     >

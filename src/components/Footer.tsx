@@ -52,7 +52,7 @@ const Footer = () => {
             </Group>
           </Flex>
         </Box>
-        <Text mb="15px">Developed by ©2023 YChengLi</Text>
+        <Text mb="15px">Developed by ©2023 YuChengLi</Text>
       </Flex>
     </>
   );

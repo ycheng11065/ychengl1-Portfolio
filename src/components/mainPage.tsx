@@ -10,32 +10,49 @@ import Blob from './Blob';
 import { ModeContext } from '../App';
 import Project from './Projects';
 import About from './About';
+import { IconChevronsDown } from '@tabler/icons-react';
 
 const MainPage = () => {
   // const gltf = useLoader(GLTFLoader, 'model/low_poly_praying_temple.glb');
 
   return (
     <Box style={{ height: '100%', width: '100%' }}>
-      <Text
-        fz="xl"
-        fw="300"
-        style={{
-          fontSize: '2.7rem',
-          position: 'absolute',
-          zIndex: '1',
-          left: '50%',
-          top: '55%',
-          transform: 'translate(-50%, -55%)',
-        }}
-      >
-        Welcome, I'm Yu Cheng Li
-      </Text>
-      <Canvas
-        style={{ height: '500px', width: '100%' }}
-        camera={{ position: [0.0, 0.0, 8.0] }}
-      >
-        <Blob />
-      </Canvas>
+      <Box w="100%" height="100%" style={{ position: 'relative' }}>
+        <IconChevronsDown
+          size="2rem"
+          style={{
+            zIndex: '1',
+            position: 'absolute',
+            left: '50%',
+            top: '95%',
+            transform: 'translate(-50%, -95%)',
+          }}
+        />
+        <Text
+          fz="xl"
+          fw="300"
+          style={{
+            fontSize: '2.7rem',
+            position: 'absolute',
+            zIndex: '1',
+            left: '50%',
+            top: '42%',
+            transform: 'translate(-50%, -42%)',
+          }}
+        >
+          Welcome, I'm Yu Cheng Li
+        </Text>
+        <Canvas
+          style={{
+            height: '500px',
+            width: '100%',
+            // border: '1px solid yellow',
+          }}
+          camera={{ position: [0.0, 0.0, 8.0] }}
+        >
+          <Blob />
+        </Canvas>
+      </Box>
       <Flex mt="200px" justify="center" alignItems="center">
         <Box
           style={{
