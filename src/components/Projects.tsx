@@ -107,9 +107,9 @@ const Projects = () => {
     {
       name: 'Navi-Bot',
       category: 'ChatBot',
-      description: `A creation for the 2022 NwHacks, our Discord bot revolutionizes UBC student degree planning. 
-      Through a user-friendly interface, it enhances the accessibility of crucial degree-related information, delivering a 
-      more streamlined and efficient planning experience.`,
+      description: `Developed collaboratively by my team and me during the 2022 NwHacks, our Discord bot brings 
+      innovation to UBC degree planning. It offers a user-friendly interface, simplifying access to essential 
+      degree-related information and enhancing the planning experience for all UBC students.`,
       year: 2023,
       image: naviBot_img,
       tech: [
@@ -136,13 +136,10 @@ const Projects = () => {
     {
       name: 'Spotify Collage',
       category: 'Web Application',
-      description: `Amidst the ever-changing landscape of technology, my
-                  fascination for innovation continues to thrive. From crafting
-                  elegant lines of code to diving deep into complex algorithms,
-                  I find solace in the art of problem-solving. Each challenge
-                  presents an opportunity to create, learn, and grow. With an
-                  unwavering curiosity, I embrace the digital realm, driven to
-                  shape the future one algorithm at a time.`,
+      description: `A creation built by me and my team during our first hackathon at the NwHacks 2021.  
+      This application enabled users to craft captivating collages using album covers accessed through Spotify's API. 
+      The collages could be tailored to different categories, encompassing options like a compilation of the user's favorite songs, 
+      trending tracks, and an artist's top 10.`,
       year: 2023,
       image: spotify_img,
       tech: [
