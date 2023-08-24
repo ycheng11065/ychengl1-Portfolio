@@ -23,6 +23,12 @@ const useStyles = createStyles((theme) => ({
   footerBorder: {
     borderTop: '2px solid grey',
     borderTopColor: theme.colorScheme === 'dark' ? theme.colors.gray[7] : theme.colors.gray[3],
+  },
+  footer: {
+    backgroundColor:
+      theme.colorScheme === 'dark'
+        ? "black"
+        : "white",
   }
 }));
 
@@ -33,7 +39,7 @@ const Footer = () => {
 
   return (
     <>
-      <Flex align="center" direction="column" >
+      <Flex align="center" direction="column" className={classes.footer}>
         <Box w="80%" h="80px" className={classes.footerBorder}>
           <Flex mt="10px" justify="space-between" gap="25px" px="30px">
             <Text mt="4px" fz="xl">

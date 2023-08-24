@@ -14,10 +14,10 @@ import { IconChevronsDown, IconChevronDown } from '@tabler/icons-react';
 
 const useStyles = createStyles((theme) => ({
   mainPageBox: {
-    // backgroundColor:
-    //   theme.colorScheme === 'dark'
-    //     ? "black"
-    //     : theme.colors.gray[0],
+    backgroundColor:
+      theme.colorScheme === 'dark'
+        ? "black"
+        : "white",
   },
 }));
 
@@ -26,7 +26,7 @@ const MainPage = () => {
   // const gltf = useLoader(GLTFLoader, 'model/low_poly_praying_temple.glb');
 
   return (
-    <Box 
+    <Box
       mx="0" 
       style={{ 
         height: '100%', 
@@ -57,6 +57,7 @@ const MainPage = () => {
             left: '50%',
             top: '42%',
             transform: 'translate(-50%, -42%)',
+            fontColor: "white",
           }}
         >
           Welcome, I'm Yu Cheng Li

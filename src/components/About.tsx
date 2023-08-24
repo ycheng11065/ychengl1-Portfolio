@@ -9,6 +9,12 @@ import {
 import profile from '../images/me.jpg';
 
 const useStyles = createStyles((theme) => ({
+  aboutPage: {
+    backgroundColor:
+      theme.colorScheme === 'dark'
+        ? "black"
+        : "white",
+  },
   titleDescription: {
     fontSize: '3rem',
 
@@ -33,10 +39,11 @@ const About = () => {
     <>
       <Grid
         h={{ lg: '600px', xl: '650px' }}
-        mt={{ lg: '20px', xl: '40px' }}
+        pt={{ lg: '30px', xl: '40px' }}
         mb="0"
         p="0"
         justify="center"
+        className={classes.aboutPage}
         // style={{ border:"2px solid red" }}
       >
         <Grid.Col

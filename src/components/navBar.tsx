@@ -44,6 +44,12 @@ const useStyles = createStyles((theme) => ({
     theme.colorScheme === 'dark'
       ? theme.colors.dark[1]
       : theme.colors.gray[6],
+  },
+  navBar: {
+    backgroundColor:
+      theme.colorScheme === 'dark'
+        ? "black"
+        : "white",
   }
 }));
 
@@ -67,9 +73,11 @@ const NavBar = () => {
   return (
     <>
       <Flex 
-        mt="10px" 
+        pt="15px"
+        // mt="10px" 
         direction="row" 
         justify="space-between" 
+        className={classes.navBar}
         // style={{ backgroundColor:"black" }}
       >
         <Container ml="10px" mr="0">

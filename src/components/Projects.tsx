@@ -41,8 +41,24 @@ const useStyles = createStyles((theme) => ({
   projectCard: {
     backgroundColor:
       theme.colorScheme === 'dark'
-        ? theme.colors.dark[6]
+        ? theme.colors.dark[9]
         : theme.colors.gray[1],
+    backgroundImage:
+      theme.colorScheme === 'dark'
+        ? 'linear-gradient(to bottom right, #101113, #101113, #101113, #7C44FF)'
+        : 'linear-gradient(to bottom right, #F1F3F5, #F1F3F5, #F1F3F5, #7C44FF)',
+
+    // border: "3px solid linear-gradient(to bottom right, #101113, #101113, #101113, #101113, #101113, #101113, #7C44FF, #BC2EFF)"
+  },
+  projectCardOdd: {
+    backgroundColor:
+      theme.colorScheme === 'dark'
+        ? theme.colors.dark[9]
+        : theme.colors.gray[1],
+    backgroundImage:
+      theme.colorScheme === 'dark'
+        ? 'linear-gradient(to bottom left, #101113, #101113, #101113, #7C44FF)'
+        : 'linear-gradient(to bottom left, #F1F3F5, #F1F3F5, #F1F3F5, #7C44FF)',
   },
 }));
 
@@ -155,20 +171,18 @@ const Projects = () => {
 
   return (
     <>
-      <Flex gap="lg" direction="column" align="center" my="40px">
+      <Flex pb="40px" gap="lg" direction="column" align="center" mt="40px">
         {projectArray &&
           projectArray.map((p, index) => (
             <Card
-              // p="20px"
-              // pt="30px"
-              // pt="30px"
-              // pb="30px"
               radius="md"
               key={p.id}
               maw="1000px"
               w="1100px"
               h="285px"
-              className={classes.projectCard}
+              className={
+                index % 2 === 0 ? classes.projectCard : classes.projectCardOdd
+              }
             >
               {index % 2 === 0 ? (
                 <Flex h="100%" gap="10px" justify="space-between" mb="100px">
