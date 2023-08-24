@@ -20,6 +20,7 @@ import {
   createStyles,
 } from '@mantine/core';
 import { useId } from '@mantine/hooks';
+import { useNavigate } from 'react-router-dom';
 
 interface tool {
   name: string;
@@ -34,31 +35,41 @@ interface project {
   year: number;
   image: string;
   tech: tool[];
+  url: string;
   id: string;
 }
 
 const useStyles = createStyles((theme) => ({
   projectCard: {
+    cursor: "pointer",
     backgroundColor:
       theme.colorScheme === 'dark'
         ? theme.colors.dark[9]
         : theme.colors.gray[1],
     backgroundImage:
       theme.colorScheme === 'dark'
-        ? 'linear-gradient(to bottom right, #101113, #101113, #101113, #7C44FF)'
-        : 'linear-gradient(to bottom right, #F1F3F5, #F1F3F5, #F1F3F5, #7C44FF)',
+        ? 'linear-gradient(to bottom right, #101113, #101113, #101113, #101113, #7C44FF)'
+        : 'linear-gradient(to bottom right, #F1F3F5, #F1F3F5, #F1F3F5, #F1F3F5, #7C44FF)',
 
     // border: "3px solid linear-gradient(to bottom right, #101113, #101113, #101113, #101113, #101113, #101113, #7C44FF, #BC2EFF)"
   },
   projectCardOdd: {
+    cursor: "pointer",
     backgroundColor:
       theme.colorScheme === 'dark'
         ? theme.colors.dark[9]
         : theme.colors.gray[1],
     backgroundImage:
       theme.colorScheme === 'dark'
-        ? 'linear-gradient(to bottom left, #101113, #101113, #101113, #7C44FF)'
-        : 'linear-gradient(to bottom left, #F1F3F5, #F1F3F5, #F1F3F5, #7C44FF)',
+        ? 'linear-gradient(to bottom left, #101113, #101113, #101113, #101113, #7C44FF)'
+        : 'linear-gradient(to bottom left, #F1F3F5, #F1F3F5, #F1F3F5, #F1F3F5, #7C44FF)',
+  },
+  projectTitle: {
+    color:
+      theme.colorScheme === 'dark'
+        ? "white"
+        : "black",
+    fontSize: '2rem'
   },
 }));
 
@@ -86,6 +97,7 @@ const Projects = () => {
         { name: 'ChakraUI', color: 'teal', id: useId() },
         { name: 'MySQL', color: 'violet', id: useId() },
       ],
+      url: 'https://github.com/imaadj10/subletter',
       id: useId(),
     },
     {
@@ -103,6 +115,7 @@ const Projects = () => {
         { name: 'HTML5', color: 'teal', id: useId() },
         { name: 'CSS3', color: 'teal', id: useId() },
       ],
+      url: 'https://github.com/ycheng11065/Resume-Builder',
       id: useId(),
     },
     {
@@ -118,6 +131,7 @@ const Projects = () => {
         { name: 'Python', color: 'orange', id: useId() },
         { name: 'DigitalOcean', color: 'pink', id: useId() },
       ],
+      url: 'https://github.com/ycheng11065/2023-python-snake',
       id: useId(),
     },
     {
@@ -132,6 +146,7 @@ const Projects = () => {
         { name: 'Python', color: 'orange', id: useId() },
         { name: 'JSON', color: 'pink', id: useId() },
       ],
+      url: 'https://github.com/ycheng11065/UBC-stack-BOT',
       id: useId(),
     },
     {
@@ -147,6 +162,7 @@ const Projects = () => {
         { name: 'HTML5', color: 'teal', id: useId() },
         { name: 'CSS3', color: 'teal', id: useId() },
       ],
+      url: 'https://github.com/ycheng11065/TicTacToe_app',
       id: useId(),
     },
     {
@@ -165,9 +181,14 @@ const Projects = () => {
         { name: 'Flask', color: 'teal', id: useId() },
         { name: 'Bootstrap', color: 'teal', id: useId() },
       ],
+      url: 'https://github.com/imaadj10/spotify-collage',
       id: useId(),
     },
   ];
+
+  const redirect = (url: string) => {
+    window.open(url, '_blank');
+  };
 
   return (
     <>
@@ -183,12 +204,13 @@ const Projects = () => {
               className={
                 index % 2 === 0 ? classes.projectCard : classes.projectCardOdd
               }
+              onClick={(event) => redirect(p.url)}
             >
               {index % 2 === 0 ? (
                 <Flex h="100%" gap="10px" justify="space-between" mb="100px">
                   <Box w="70%">
                     <Flex justify="space-between" pr="20px">
-                      <Text style={{ paddingBottom: '0', fontSize: '2rem' }}>
+                      <Text className={classes.projectTitle}>
                         {p.name}
                       </Text>
                       <Group mt="md" mb="xs">
@@ -261,7 +283,9 @@ const Projects = () => {
                   </Box>
                   <Box w="70%" pl="20px">
                     <Flex justify="space-between" pr="20px">
-                      <Text style={{ fontSize: '2rem' }}>{p.name}</Text>
+                      <Text className={classes.projectTitle}>
+                        {p.name}
+                      </Text>
                       <Group mt="md" mb="xs">
                         <Badge color="blue" variant="outline">
                           {p.category}

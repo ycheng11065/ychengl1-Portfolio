@@ -14,6 +14,9 @@ import { IconChevronsDown, IconChevronDown } from '@tabler/icons-react';
 
 const useStyles = createStyles((theme) => ({
   mainPageBox: {
+    color: theme.colorScheme === 'dark'
+        ? "white"
+        : "black",
     backgroundColor:
       theme.colorScheme === 'dark'
         ? "black"
@@ -57,7 +60,6 @@ const MainPage = () => {
             left: '50%',
             top: '42%',
             transform: 'translate(-50%, -42%)',
-            fontColor: "white",
           }}
         >
           Welcome, I'm Yu Cheng Li
@@ -66,7 +68,6 @@ const MainPage = () => {
           style={{
             height: '500px',
             width: '100%',
-            // border: '1px solid yellow',
           }}
           camera={{ position: [0.0, 0.0, 8.0] }}
         >
@@ -98,6 +99,7 @@ const MainPage = () => {
           fz="xl"
           fw="300"
           style={{
+            fontColor: "white",
             fontSize: '2.7rem',
             zIndex: 1, // Ensure the text is on top of the lines
           }}

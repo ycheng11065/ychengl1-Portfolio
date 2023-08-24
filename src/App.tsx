@@ -20,15 +20,16 @@ type ModeContextType = {
   setChanged: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export const ModeContext = createContext<ModeContextType | undefined>(undefined);
+export const ModeContext = createContext<ModeContextType | undefined>(
+  undefined
+);
 
-function App() {  
+function App() {
   const [changed, setChanged] = useState(false);
   const [colorScheme, setColorScheme] = useState<ColorScheme>('dark');
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
 
-   
   return (
     <>
       <ModeContext.Provider value={{ changed, setChanged }}>
@@ -39,15 +40,15 @@ function App() {
           <MantineProvider
             withGlobalStyles
             withNormalizeCSS
-            theme={{ 
-              colorScheme: colorScheme
+            theme={{
+              colorScheme: colorScheme,
             }}
           >
             <BrowserRouter>
               <NavBar />
               <Routes>
-                  <Route path="/" element={<MainPage />} />
-                  <Route path="/about" element={<About />} />
+                <Route path="/" element={<MainPage />} />
+                <Route path="/about" element={<About />} />
               </Routes>
               <Footer />
               {/* <AppShell

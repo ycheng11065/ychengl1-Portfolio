@@ -17,6 +17,9 @@ import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 // import resume from '../resume/ychengli_2023winter_resume.pdf';
 
 const useStyles = createStyles((theme) => ({
+  navBar: {
+    backgroundColor: theme.colorScheme === 'dark' ? 'black' : 'white',
+  },
   linkButton: {
     textTransform: 'uppercase',
     fontSize: '15px',
@@ -41,16 +44,15 @@ const useStyles = createStyles((theme) => ({
   },
   colorModeButton: {
     color:
-    theme.colorScheme === 'dark'
-      ? theme.colors.dark[1]
-      : theme.colors.gray[6],
-  },
-  navBar: {
-    backgroundColor:
       theme.colorScheme === 'dark'
-        ? "black"
-        : "white",
-  }
+        ? theme.colors.dark[1]
+        : theme.colors.gray[6],
+  },
+  logoButton: {
+    textDecoration: 'none',
+    color: theme.colorScheme === 'dark' ? 'white' : 'black',
+    fontSize: '2rem',
+  },
 }));
 
 const NavBar = () => {
@@ -72,25 +74,21 @@ const NavBar = () => {
 
   return (
     <>
-      <Flex 
-        pt="15px"
-        // mt="10px" 
-        direction="row" 
-        justify="space-between" 
+      <Flex
+        pt="10px"
+        // mt="10px"
+        direction="row"
+        justify="space-between"
         className={classes.navBar}
         // style={{ backgroundColor:"black" }}
       >
         <Container ml="10px" mr="0">
           <Link
             to="./"
-            style={{
-              textDecoration: 'none',
-              color: 'inherit',
-              fontSize: '2rem',
-            }}
             onClick={(event) => {
               setActiveLink(0);
             }}
+            className={classes.logoButton}
           >
             YCL
           </Link>
@@ -119,7 +117,7 @@ const NavBar = () => {
             >
               About
             </Link>
-            <Link className={classes.linkButton} onClick={ openPDF }>
+            <Link className={classes.linkButton} onClick={openPDF}>
               Resume
             </Link>
             {/* <Button variant="outline" onClick={ openPDF() }>
