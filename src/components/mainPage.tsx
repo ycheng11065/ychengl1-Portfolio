@@ -12,20 +12,28 @@ import Project from './Projects';
 import About from './About';
 import { IconChevronsDown, IconChevronDown } from '@tabler/icons-react';
 
-
 const useStyles = createStyles((theme) => ({
-  downIcon: {
-
-  }
+  mainPageBox: {
+    // backgroundColor:
+    //   theme.colorScheme === 'dark'
+    //     ? "black"
+    //     : theme.colors.gray[0],
+  },
 }));
-
 
 const MainPage = () => {
   const { classes } = useStyles();
   // const gltf = useLoader(GLTFLoader, 'model/low_poly_praying_temple.glb');
 
   return (
-    <Box style={{ height: '100%', width: '100%' }}>
+    <Box 
+      mx="0" 
+      style={{ 
+        height: '100%', 
+        width: '100%', 
+        // border:"1px solid red" 
+      }} 
+      className={classes.mainPageBox}>
       <Box w="100%" height="100%" style={{ position: 'relative' }}>
         <IconChevronsDown
           size="2rem"

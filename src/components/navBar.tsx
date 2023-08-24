@@ -39,6 +39,12 @@ const useStyles = createStyles((theme) => ({
     borderBottomColor:
       theme.colors[theme.primaryColor][theme.colorScheme === 'dark' ? 5 : 6],
   },
+  colorModeButton: {
+    color:
+    theme.colorScheme === 'dark'
+      ? theme.colors.dark[1]
+      : theme.colors.gray[6],
+  }
 }));
 
 const NavBar = () => {
@@ -60,7 +66,12 @@ const NavBar = () => {
 
   return (
     <>
-      <Flex mt="10px" direction="row" justify="space-between">
+      <Flex 
+        mt="10px" 
+        direction="row" 
+        justify="space-between" 
+        // style={{ backgroundColor:"black" }}
+      >
         <Container ml="10px" mr="0">
           <Link
             to="./"
@@ -115,6 +126,7 @@ const NavBar = () => {
                 setChanged(true);
               }}
               title="Toggle color scheme"
+              // className={classes.colorModeButton}
             >
               {dark ? <IconSun size="2rem" /> : <IconMoon size="2rem" />}
             </ActionIcon>

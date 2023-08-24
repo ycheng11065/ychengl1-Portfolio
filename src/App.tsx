@@ -39,10 +39,18 @@ function App() {
           <MantineProvider
             withGlobalStyles
             withNormalizeCSS
-            theme={{ colorScheme: colorScheme }}
+            theme={{ 
+              colorScheme: colorScheme
+            }}
           >
             <BrowserRouter>
-              <AppShell
+              <NavBar />
+              <Routes>
+                  <Route path="/" element={<MainPage />} />
+                  <Route path="/about" element={<About />} />
+              </Routes>
+              <Footer />
+              {/* <AppShell
                 header={<NavBar />}
                 footer={<Footer />}
                 h="300px"
@@ -52,7 +60,7 @@ function App() {
                   <Route path="/" element={<MainPage />} />
                   <Route path="/about" element={<About />} />
                 </Routes>
-              </AppShell>
+              </AppShell> */}
             </BrowserRouter>
           </MantineProvider>
         </ColorSchemeProvider>
