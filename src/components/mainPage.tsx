@@ -10,9 +10,18 @@ import Blob from './Blob';
 import { ModeContext } from '../App';
 import Project from './Projects';
 import About from './About';
-import { IconChevronsDown } from '@tabler/icons-react';
+import { IconChevronsDown, IconChevronDown } from '@tabler/icons-react';
+
+
+const useStyles = createStyles((theme) => ({
+  downIcon: {
+
+  }
+}));
+
 
 const MainPage = () => {
+  const { classes } = useStyles();
   // const gltf = useLoader(GLTFLoader, 'model/low_poly_praying_temple.glb');
 
   return (
@@ -24,9 +33,11 @@ const MainPage = () => {
             zIndex: '1',
             position: 'absolute',
             left: '50%',
-            top: '95%',
-            transform: 'translate(-50%, -95%)',
+            top: '90%',
+            transform: 'translate(-50%, -90%)',
+            animation: 'bounce 1s infinite',
           }}
+          className={classes.downIcon}
         />
         <Text
           fz="xl"

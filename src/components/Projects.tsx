@@ -55,13 +55,11 @@ const Projects = () => {
     {
       name: 'Subletter',
       category: 'Virtual Marketplace',
-      description: `Amidst the ever-changing landscape of technology, my
-                  fascination for innovation continues to thrive. From crafting
-                  elegant lines of code to diving deep into complex algorithms,
-                  I find solace in the art of problem-solving. Each challenge
-                  presents an opportunity to create, learn, and grow. With an
-                  unwavering curiosity, I embrace the digital realm, driven to
-                  shape the future one algorithm at a time.`,
+      description: `A fullstack app developed for UBC's CPSC 304 database class, 
+      streamlines UBC dorm subletting. Addressing Facebook Marketplace's inefficiencies, 
+      it offers UBC-exclusive sublet postings and detailed dormitory information,
+      including Airbnb-like ratings for dorms and users.
+      `,
       year: 2023,
       image: subletter_img,
       tech: [
@@ -77,13 +75,10 @@ const Projects = () => {
     {
       name: 'Resume Builder',
       category: 'Web Tool',
-      description: `Amidst the ever-changing landscape of technology, my
-      fascination for innovation continues to thrive. From crafting
-      elegant lines of code to diving deep into complex algorithms,
-      I find solace in the art of problem-solving. Each challenge
-      presents an opportunity to create, learn, and grow. With an
-      unwavering curiosity, I embrace the digital realm, driven to
-      shape the future one algorithm at a time.`,
+      description: `An automated resume templator that seamlessly formats your resume, 
+       primarily for software engineer CVs. Additionally, it offers the convenience of one-click PDF.
+       I use it for all my resumes, saved me from a lot of headaches. 
+       `,
       year: 2023,
       image: resumeBuilder_img,
       tech: [
@@ -97,13 +92,10 @@ const Projects = () => {
     {
       name: 'BattleSnake',
       category: 'AI',
-      description: `Amidst the ever-changing landscape of technology, my
-                  fascination for innovation continues to thrive. From crafting
-                  elegant lines of code to diving deep into complex algorithms,
-                  I find solace in the art of problem-solving. Each challenge
-                  presents an opportunity to create, learn, and grow. With an
-                  unwavering curiosity, I embrace the digital realm, driven to
-                  shape the future one algorithm at a time.`,
+      description: `An AI competition at RBC where I participated twice back when I was an intern.
+      The challenge involves four snakes, whoever survives the longest wins. My team and I crafted both showcased 
+      snakes: SSSShark (blue), clinching the 2022 1st prize, and the more advanced Orion's Fang (purple), securing 2nd 
+      place in 2023`,
       year: 2023,
       image: snake_img,
       tech: [
@@ -113,39 +105,31 @@ const Projects = () => {
       id: useId(),
     },
     {
+      name: 'Navi-Bot',
+      category: 'ChatBot',
+      description: `A creation for the 2022 NwHacks, our Discord bot revolutionizes UBC student degree planning. 
+      Through a user-friendly interface, it enhances the accessibility of crucial degree-related information, delivering a 
+      more streamlined and efficient planning experience.`,
+      year: 2023,
+      image: naviBot_img,
+      tech: [
+        { name: 'Python', color: 'orange', id: useId() },
+        { name: 'JSON', color: 'pink', id: useId() },
+      ],
+      id: useId(),
+    },
+    {
       name: 'Tic-Tac-Toe',
       category: 'Web Application',
-      description: `Amidst the ever-changing landscape of technology, my
-                  fascination for innovation continues to thrive. From crafting
-                  elegant lines of code to diving deep into complex algorithms,
-                  I find solace in the art of problem-solving. Each challenge
-                  presents an opportunity to create, learn, and grow. With an
-                  unwavering curiosity, I embrace the digital realm, driven to
-                  shape the future one algorithm at a time.`,
+      description: `A simple web-app with a very self explanatory name. Created back when I was still learning
+      the fundamentals of web development. Test yourself against AI adversaries with varying difficulties.
+      `,
       year: 2023,
       image: tictactoe_img,
       tech: [
         { name: 'JavaScript', color: 'teal', id: useId() },
         { name: 'HTML5', color: 'teal', id: useId() },
         { name: 'CSS3', color: 'teal', id: useId() },
-      ],
-      id: useId(),
-    },
-    {
-      name: 'Navi-Bot',
-      category: 'ChatBot',
-      description: `Amidst the ever-changing landscape of technology, my
-                  fascination for innovation continues to thrive. From crafting
-                  elegant lines of code to diving deep into complex algorithms,
-                  I find solace in the art of problem-solving. Each challenge
-                  presents an opportunity to create, learn, and grow. With an
-                  unwavering curiosity, I embrace the digital realm, driven to
-                  shape the future one algorithm at a time.`,
-      year: 2023,
-      image: naviBot_img,
-      tech: [
-        { name: 'Python', color: 'orange', id: useId() },
-        { name: 'JSON', color: 'pink', id: useId() },
       ],
       id: useId(),
     },
@@ -185,6 +169,7 @@ const Projects = () => {
               radius="md"
               key={p.id}
               maw="1000px"
+              w="1100px"
               h="285px"
               className={classes.projectCard}
             >
@@ -206,7 +191,8 @@ const Projects = () => {
                       direction="column"
                       style={{ position: 'relative' }}
                     >
-                      <Text mt="5px">{p.description}</Text>
+                      {/* <Text>August 2023</Text> */}
+                      <Text mt="15px">{p.description}</Text>
                       <Flex
                         mt="55px"
                         gap="sm"
@@ -223,7 +209,6 @@ const Projects = () => {
                   </Box>
                   <Box
                     p="0"
-                    // mx="15px"
                     w="500px"
                     h="255px"
                     style={{ borderRadius: '10px' }}
@@ -240,11 +225,17 @@ const Projects = () => {
                   </Box>
                 </Flex>
               ) : (
-                <Flex h="100%" justify="space-between" mr="0">
+                <Flex
+                  h="100%"
+                  gap="10px"
+                  justify="space-between"
+                  mb="100px"
+                  mr="0"
+                >
                   <Box
                     p="0"
                     w="500px"
-                    h="250px"
+                    h="255px"
                     style={{ borderRadius: '10px' }}
                   >
                     <BackgroundImage
@@ -257,7 +248,7 @@ const Projects = () => {
                       src={p.image}
                     />
                   </Box>
-                  <Box w="90%" pl="20px">
+                  <Box w="70%" pl="20px">
                     <Flex justify="space-between" pr="20px">
                       <Text style={{ fontSize: '2rem' }}>{p.name}</Text>
                       <Group mt="md" mb="xs">
