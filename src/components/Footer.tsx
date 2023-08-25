@@ -4,6 +4,19 @@ import { IconBrandLinkedin } from '@tabler/icons-react';
 import { inherits } from 'util';
 
 const useStyles = createStyles((theme) => ({
+  footer: {
+    color: theme.colorScheme === 'dark'
+    ? "white"
+    : "black",
+    backgroundColor:
+      theme.colorScheme === 'dark'
+        ? "black"
+        : "white",
+    // backgroundImage:
+    // theme.colorScheme === 'dark'
+    //   ? 'linear-gradient(to bottom, #000000, #000000, #000000, #000000, #000000, #000000, #000000, #7C44FF)'
+    //   : 'linear-gradient(to bottom right, #F1F3F5, #F1F3F5, #F1F3F5, #F1F3F5, #7C44FF)',
+  },
   linkButton: {
     fontSize: 'xl',
     marginTop: '4px',
@@ -23,12 +36,6 @@ const useStyles = createStyles((theme) => ({
   footerBorder: {
     borderTop: '2px solid grey',
     borderTopColor: theme.colorScheme === 'dark' ? theme.colors.gray[7] : theme.colors.gray[3],
-  },
-  footer: {
-    backgroundColor:
-      theme.colorScheme === 'dark'
-        ? "black"
-        : "white",
   }
 }));
 
@@ -40,8 +47,16 @@ const Footer = () => {
   return (
     <>
       <Flex align="center" direction="column" className={classes.footer}>
-        <Box w="80%" h="80px" className={classes.footerBorder}>
-          <Flex mt="10px" justify="space-between" gap="25px" px="30px">
+        <Box 
+          w="80%" 
+          h="50px" 
+          className={classes.footerBorder}
+        >
+          <Flex 
+            mt="10px" 
+            justify="space-between" 
+            px="30px"
+          >
             <Text mt="4px" fz="xl">
               Get in touch with me.
             </Text>
@@ -58,7 +73,7 @@ const Footer = () => {
             </Group>
           </Flex>
         </Box>
-        <Text mb="15px">Developed by ©2023 YuChengLi</Text>
+        <Text mb="15px">Developed by ©YuChengLi 2023</Text>
       </Flex>
     </>
   );

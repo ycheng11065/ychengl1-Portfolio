@@ -201,12 +201,13 @@ const Projects = () => {
               maw="1000px"
               w="1100px"
               h="285px"
-              className={
-                index % 2 === 0 ? classes.projectCard : classes.projectCardOdd
-              }
+              className={ classes.projectCard}
+              // className={
+              //   index % 2 === 0 ? classes.projectCard : classes.projectCardOdd
+              // }
               onClick={(event) => redirect(p.url)}
             >
-              {index % 2 === 0 ? (
+              {/* {index % 2 === 0 ? ( */}
                 <Flex h="100%" gap="10px" justify="space-between" mb="100px">
                   <Box w="70%">
                     <Flex justify="space-between" pr="20px">
@@ -257,7 +258,8 @@ const Projects = () => {
                     />
                   </Box>
                 </Flex>
-              ) : (
+              {/* ) 
+              : (
                 <Flex
                   h="100%"
                   gap="10px"
@@ -313,7 +315,7 @@ const Projects = () => {
                     </Flex>
                   </Box>
                 </Flex>
-              )}
+              )} */}
             </Card>
           ))}
       </Flex>

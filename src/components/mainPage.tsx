@@ -22,6 +22,9 @@ const useStyles = createStyles((theme) => ({
         ? "black"
         : "white",
   },
+  mainPageCanvas: {
+
+  }
 }));
 
 const MainPage = () => {
@@ -68,6 +71,7 @@ const MainPage = () => {
           style={{
             height: '500px',
             width: '100%',
+            // border: "1px solid yellow"
           }}
           camera={{ position: [0.0, 0.0, 8.0] }}
         >

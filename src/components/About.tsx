@@ -38,6 +38,8 @@ const About = () => {
   return (
     <>
       <Grid
+        w="100%"
+        mx="0"
         h={{ lg: '600px', xl: '650px' }}
         pt={{ lg: '30px', xl: '40px' }}
         mb="0"

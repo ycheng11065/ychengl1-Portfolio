@@ -1,7 +1,5 @@
 Portfolio todos:
 
-- Create arrow under blob
-- Fix light mode backgrounds
 - Create a link from MainPage to About page
 - Look into shaders to make blob more customizable
 - Update abouts page
