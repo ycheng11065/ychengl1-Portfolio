@@ -1,8 +1,8 @@
 // @ts-nocheck
-
 import { useState, useContext } from 'react';
 import { ModeContext } from '../App';
 import { Link } from 'react-router-dom';
+import { Link as ScrollLink } from 'react-scroll';
 import {
   Flex,
   Container,
@@ -21,6 +21,7 @@ const useStyles = createStyles((theme) => ({
     backgroundColor: theme.colorScheme === 'dark' ? 'black' : 'white',
   },
   linkButton: {
+    cursor: 'pointer',
     textTransform: 'uppercase',
     fontSize: '15px',
     color:
@@ -72,6 +73,13 @@ const NavBar = () => {
       });
   };
 
+  const handleScroll = (ref) => {
+    window.scrollTo({
+      top: ref.current.offsetTop,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <>
       <Flex
@@ -95,7 +103,7 @@ const NavBar = () => {
         </Container>
         <Container mx="0" mt="15px">
           <Flex gap="xl">
-            <Link
+            {/* <Link
               to="/"
               className={`${classes.linkButton} ${
                 activeLinkIndex === 0 ? classes.linkActive : ''
@@ -105,18 +113,32 @@ const NavBar = () => {
               }}
             >
               Home
-            </Link>
-            <Link
-              to="/about"
-              className={`${classes.linkButton} ${
-                activeLinkIndex === 1 ? classes.linkActive : ''
-              }`}
-              onClick={(event) => {
-                setActiveLink(1);
-              }}
+            </Link> */}
+            <ScrollLink
+               to="about" smooth={true} duration={500}
+               className={classes.linkButton}
+              // className={`${classes.linkButton} ${
+              //   activeLinkIndex === 1 ? classes.linkActive : ''
+              // }`}
+              // onClick={(event) => {
+              //   setActiveLink(1);
+              // }}
             >
               About
-            </Link>
+            </ScrollLink>
+            <ScrollLink
+              to="project" smooth={true} duration={500}
+              className={classes.linkButton}
+
+              // className={`${classes.linkButton} ${
+              //   activeLinkIndex === 2 ? classes.linkActive : ''
+              // }`}
+              // onClick={(event) => {
+              //   setActiveLink(2);
+              // }}
+            >
+              Project
+            </ScrollLink>
             <Link className={classes.linkButton} onClick={openPDF}>
               Resume
             </Link>

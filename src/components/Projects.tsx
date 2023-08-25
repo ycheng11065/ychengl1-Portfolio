@@ -41,20 +41,20 @@ interface project {
 
 const useStyles = createStyles((theme) => ({
   projectCard: {
-    cursor: "pointer",
+    cursor: 'pointer',
     backgroundColor:
       theme.colorScheme === 'dark'
         ? theme.colors.dark[9]
         : theme.colors.gray[1],
     backgroundImage:
       theme.colorScheme === 'dark'
-        ? 'linear-gradient(to bottom right, #101113, #101113, #101113, #101113, #7C44FF)'
-        : 'linear-gradient(to bottom right, #F1F3F5, #F1F3F5, #F1F3F5, #F1F3F5, #7C44FF)',
+        ? 'linear-gradient(to bottom right, #7C44FF, #101113, #101113, #101113, #B12BFF)'
+        : 'linear-gradient(to bottom right, #23A3FF, #F1F3F5, #F1F3F5, #F1F3F5, #6782FF)',
 
     // border: "3px solid linear-gradient(to bottom right, #101113, #101113, #101113, #101113, #101113, #101113, #7C44FF, #BC2EFF)"
   },
   projectCardOdd: {
-    cursor: "pointer",
+    cursor: 'pointer',
     backgroundColor:
       theme.colorScheme === 'dark'
         ? theme.colors.dark[9]
@@ -65,11 +65,8 @@ const useStyles = createStyles((theme) => ({
         : 'linear-gradient(to bottom left, #F1F3F5, #F1F3F5, #F1F3F5, #F1F3F5, #7C44FF)',
   },
   projectTitle: {
-    color:
-      theme.colorScheme === 'dark'
-        ? "white"
-        : "black",
-    fontSize: '2rem'
+    color: theme.colorScheme === 'dark' ? 'white' : 'black',
+    fontSize: '2rem',
   },
 }));
 
@@ -192,7 +189,7 @@ const Projects = () => {
 
   return (
     <>
-      <Flex pb="40px" gap="lg" direction="column" align="center" mt="40px">
+      <Flex pb="40px" gap="lg" direction="column" align="center" mt="60px">
         {projectArray &&
           projectArray.map((p, index) => (
             <Card
@@ -201,121 +198,52 @@ const Projects = () => {
               maw="1000px"
               w="1100px"
               h="285px"
-              className={ classes.projectCard}
-              // className={
-              //   index % 2 === 0 ? classes.projectCard : classes.projectCardOdd
-              // }
+              className={classes.projectCard}
               onClick={(event) => redirect(p.url)}
             >
-              {/* {index % 2 === 0 ? ( */}
-                <Flex h="100%" gap="10px" justify="space-between" mb="100px">
-                  <Box w="70%">
-                    <Flex justify="space-between" pr="20px">
-                      <Text className={classes.projectTitle}>
-                        {p.name}
-                      </Text>
-                      <Group mt="md" mb="xs">
-                        <Badge color="blue" variant="outline">
-                          {p.category}
-                        </Badge>
-                      </Group>
-                    </Flex>
-                    <Flex
-                      h="200px"
-                      direction="column"
-                      style={{ position: 'relative' }}
-                    >
-                      {/* <Text>August 2023</Text> */}
-                      <Text mt="15px">{p.description}</Text>
-                      <Flex
-                        mt="55px"
-                        gap="sm"
-                        style={{ position: 'absolute', bottom: '0' }}
-                      >
-                        {p.tech &&
-                          p.tech.map((t) => (
-                            <Badge key={t.id} color={t.color} variant="light">
-                              {t.name}
-                            </Badge>
-                          ))}
-                      </Flex>
-                    </Flex>
-                  </Box>
-                  <Box
-                    p="0"
-                    w="500px"
-                    h="255px"
-                    style={{ borderRadius: '10px' }}
+              <Flex h="100%" gap="10px" justify="space-between" mb="100px">
+                <Box w="70%">
+                  <Flex justify="space-between" pr="20px">
+                    <Text className={classes.projectTitle}>{p.name}</Text>
+                    <Group mt="md" mb="xs">
+                      <Badge color="blue" variant="outline">
+                        {p.category}
+                      </Badge>
+                    </Group>
+                  </Flex>
+                  <Flex
+                    h="200px"
+                    direction="column"
+                    style={{ position: 'relative' }}
                   >
-                    <BackgroundImage
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        border: '1px solid grey',
-                      }}
-                      radius="md"
-                      src={p.image}
-                    />
-                  </Box>
-                </Flex>
-              {/* ) 
-              : (
-                <Flex
-                  h="100%"
-                  gap="10px"
-                  justify="space-between"
-                  mb="100px"
-                  mr="0"
-                >
-                  <Box
-                    p="0"
-                    w="500px"
-                    h="255px"
-                    style={{ borderRadius: '10px' }}
-                  >
-                    <BackgroundImage
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        border: '1px solid grey',
-                      }}
-                      radius="md"
-                      src={p.image}
-                    />
-                  </Box>
-                  <Box w="70%" pl="20px">
-                    <Flex justify="space-between" pr="20px">
-                      <Text className={classes.projectTitle}>
-                        {p.name}
-                      </Text>
-                      <Group mt="md" mb="xs">
-                        <Badge color="blue" variant="outline">
-                          {p.category}
-                        </Badge>
-                      </Group>
-                    </Flex>
+                    {/* <Text>August 2023</Text> */}
+                    <Text mt="15px">{p.description}</Text>
                     <Flex
-                      h="200px"
-                      direction="column"
-                      style={{ position: 'relative' }}
+                      mt="55px"
+                      gap="sm"
+                      style={{ position: 'absolute', bottom: '0' }}
                     >
-                      <Text mt="5px">{p.description}</Text>
-                      <Flex
-                        mt="55px"
-                        gap="sm"
-                        style={{ position: 'absolute', bottom: '0' }}
-                      >
-                        {p.tech &&
-                          p.tech.map((t) => (
-                            <Badge key={t.id} color={t.color} variant="light">
-                              {t.name}
-                            </Badge>
-                          ))}
-                      </Flex>
+                      {p.tech &&
+                        p.tech.map((t) => (
+                          <Badge key={t.id} color={t.color} variant="light">
+                            {t.name}
+                          </Badge>
+                        ))}
                     </Flex>
-                  </Box>
-                </Flex>
-              )} */}
+                  </Flex>
+                </Box>
+                <Box p="0" w="500px" h="255px" style={{ borderRadius: '10px' }}>
+                  <BackgroundImage
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      border: '1px solid grey',
+                    }}
+                    radius="md"
+                    src={p.image}
+                  />
+                </Box>
+              </Flex>
             </Card>
           ))}
       </Flex>
