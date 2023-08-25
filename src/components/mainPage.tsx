@@ -1,5 +1,12 @@
 // @ts-nocheck
-import { useRef, useMemo, Suspense, useContext } from 'react';
+import {
+  useRef,
+  useMemo,
+  Suspense,
+  useContext,
+  useEffect,
+  forwardRef,
+} from 'react';
 import * as THREE from 'three';
 import { useLoader } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
@@ -11,35 +18,46 @@ import { ModeContext } from '../App';
 import Project from './Projects';
 import About from './About';
 import { IconChevronsDown, IconChevronDown } from '@tabler/icons-react';
+import { Element } from 'react-scroll';
+
+// type MainPageProps = {
+//   mainRef: React.MutableRefObject<null>;
+//   aboutRef: React.MutableRefObject<null>;
+//   projectRef: React.MutableRefObject<null>;
+// };
 
 const useStyles = createStyles((theme) => ({
   mainPageBox: {
-    color: theme.colorScheme === 'dark'
-        ? "white"
-        : "black",
-    backgroundColor:
-      theme.colorScheme === 'dark'
-        ? "black"
-        : "white",
+    color: theme.colorScheme === 'dark' ? 'white' : 'black',
+    backgroundColor: theme.colorScheme === 'dark' ? 'black' : 'white',
   },
-  mainPageCanvas: {
-
-  }
+  mainPageCanvas: {},
 }));
 
 const MainPage = () => {
   const { classes } = useStyles();
   // const gltf = useLoader(GLTFLoader, 'model/low_poly_praying_temple.glb');
 
+  // useEffect(() => {
+  //   const hash = window.location.hash;
+  //   if (hash) {
+  //     const element = document.querySelector(hash);
+  //     if (element) {
+  //       element.scrollIntoView({ behavior: 'smooth' });
+  //     }
+  //   }
+  // });
+
   return (
     <Box
-      mx="0" 
-      style={{ 
-        height: '100%', 
-        width: '100%', 
-        // border:"1px solid red" 
-      }} 
-      className={classes.mainPageBox}>
+      mx="0"
+      style={{
+        height: '100%',
+        width: '100%',
+        // border:"1px solid red"
+      }}
+      className={classes.mainPageBox}
+    >
       <Box w="100%" height="100%" style={{ position: 'relative' }}>
         <IconChevronsDown
           size="2rem"
@@ -78,74 +96,121 @@ const MainPage = () => {
           <Blob />
         </Canvas>
       </Box>
-      <Flex mt="200px" justify="center" alignItems="center">
-        <Box
-          style={{
-            position: 'relative', // Set the position to relative
-            paddingLeft: '10px', // Add some padding to the left
-            paddingRight: '10px', // Add some padding to the right
-          }}
-        >
+
+      <Element name="about">
+        <Flex mt="200px" justify="center" align="center">
           <Box
             style={{
-              borderTop: '1px solid grey',
-              content: '', // Required for pseudo-elements
-              position: 'absolute', // Set the position to absolute
-              left: '-400px', // Position it to the left of the text
-              top: '50%', // Center it vertically
-              height: '1px', // Set the height of the line
-              width: '400px', // Set the width of the line
-              backgroundColor: 'grey', // Set the line color
+              position: 'relative', // Set the position to relative
+              paddingLeft: '10px', // Add some padding to the left
+              paddingRight: '10px', // Add some padding to the right
             }}
-          />
-        </Box>
-        <Text
-          fz="xl"
-          fw="300"
-          style={{
-            fontColor: "white",
-            fontSize: '2.7rem',
-            zIndex: 1, // Ensure the text is on top of the lines
-          }}
-        >
-          Projects
-        </Text>
-        <Box
-          style={{
-            position: 'relative', // Set the position to relative
-            paddingLeft: '10px', // Add some padding to the left
-            paddingRight: '10px', // Add some padding to the right
-          }}
-        >
+          >
+            <Box
+              style={{
+                borderTop: '1px solid grey',
+                content: '', // Required for pseudo-elements
+                position: 'absolute', // Set the position to absolute
+                left: '-400px', // Position it to the left of the text
+                top: '50%', // Center it vertically
+                height: '1px', // Set the height of the line
+                width: '400px', // Set the width of the line
+                backgroundColor: 'grey', // Set the line color
+              }}
+            />
+          </Box>
+          <Text
+            fz="xl"
+            fw="300"
+            style={{
+              fontColor: 'white',
+              fontSize: '2.7rem',
+              zIndex: 1, // Ensure the text is on top of the lines
+            }}
+          >
+            About
+          </Text>
           <Box
             style={{
-              borderTop: '1px solid grey',
-              content: '', // Required for pseudo-elements
-              position: 'absolute', // Set the position to absolute
-              right: '-400px', // Position it to the right of the text
-              top: '50%', // Center it vertically
-              height: '1px', // Set the height of the line
-              width: '400px', // Set the width of the line
-              backgroundColor: 'grey', // Set the line color
+              position: 'relative', // Set the position to relative
+              paddingLeft: '10px', // Add some padding to the left
+              paddingRight: '10px', // Add some padding to the right
             }}
-          />
-        </Box>
-      </Flex>
+          >
+            <Box
+              style={{
+                borderTop: '1px solid grey',
+                content: '', // Required for pseudo-elements
+                position: 'absolute', // Set the position to absolute
+                right: '-400px', // Position it to the right of the text
+                top: '50%', // Center it vertically
+                height: '1px', // Set the height of the line
+                width: '400px', // Set the width of the line
+                backgroundColor: 'grey', // Set the line color
+              }}
+            />
+          </Box>
+        </Flex>
+      </Element>
 
-      {/* <Flex mt="200px" justify="center">
-        <Box style={{ backgroundColor:"grey"}}>
+      <About />
 
-        </Box>
-        <Text
-          fz="xl"
-          fw="300"
-          style={{
-            fontSize: '2.7rem',
-          }}
-        >
-          Projects
-        </Text>
-      </Flex> */}
+      <Element name="project">
+        <Flex mt="50px" justify="center" align="center">
+          <Box
+            style={{
+              position: 'relative', // Set the position to relative
+              paddingLeft: '10px', // Add some padding to the left
+              paddingRight: '10px', // Add some padding to the right
+            }}
+          >
+            <Box
+              style={{
+                borderTop: '1px solid grey',
+                content: '', // Required for pseudo-elements
+                position: 'absolute', // Set the position to absolute
+                left: '-400px', // Position it to the left of the text
+                top: '50%', // Center it vertically
+                height: '1px', // Set the height of the line
+                width: '400px', // Set the width of the line
+                backgroundColor: 'grey', // Set the line color
+              }}
+            />
+          </Box>
+          <Text
+            fz="xl"
+            fw="300"
+            style={{
+              fontColor: 'white',
+              fontSize: '2.7rem',
+              zIndex: 1, // Ensure the text is on top of the lines
+            }}
+          >
+            Projects
+          </Text>
+          <Box
+            style={{
+              position: 'relative', // Set the position to relative
+              paddingLeft: '10px', // Add some padding to the left
+              paddingRight: '10px', // Add some padding to the right
+            }}
+          >
+            <Box
+              style={{
+                borderTop: '1px solid grey',
+                content: '', // Required for pseudo-elements
+                position: 'absolute', // Set the position to absolute
+                right: '-400px', // Position it to the right of the text
+                top: '50%', // Center it vertically
+                height: '1px', // Set the height of the line
+                width: '400px', // Set the width of the line
+                backgroundColor: 'grey', // Set the line color
+              }}
+            />
+          </Box>
+        </Flex>
+      </Element>
+
       <Project />
     </Box>
   );

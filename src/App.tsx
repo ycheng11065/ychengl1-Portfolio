@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, createContext, useRef } from 'react';
 import './App.css';
 import logo from './logo.svg';
 import About from './components/About';
@@ -25,6 +25,9 @@ export const ModeContext = createContext<ModeContextType | undefined>(
 );
 
 function App() {
+  const mainRef = useRef(null);
+  const aboutRef = useRef(null);
+  const projectRef = useRef(null);
   const [changed, setChanged] = useState(false);
   const [colorScheme, setColorScheme] = useState<ColorScheme>('dark');
   const toggleColorScheme = (value?: ColorScheme) =>
@@ -46,22 +49,11 @@ function App() {
           >
             <BrowserRouter>
               <NavBar />
+              {/* <MainPage /> */}
               <Routes>
                 <Route path="/" element={<MainPage />} />
-                <Route path="/about" element={<About />} />
               </Routes>
               <Footer />
-              {/* <AppShell
-                header={<NavBar />}
-                footer={<Footer />}
-                h="300px"
-                style={{ height: '10px' }}
-              >
-                <Routes>
-                  <Route path="/" element={<MainPage />} />
-                  <Route path="/about" element={<About />} />
-                </Routes>
-              </AppShell> */}
             </BrowserRouter>
           </MantineProvider>
         </ColorSchemeProvider>
