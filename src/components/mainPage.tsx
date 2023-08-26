@@ -1,5 +1,6 @@
 // @ts-nocheck
 import {
+  useState,
   useRef,
   useMemo,
   Suspense,
@@ -31,22 +32,74 @@ const useStyles = createStyles((theme) => ({
     color: theme.colorScheme === 'dark' ? 'white' : 'black',
     backgroundColor: theme.colorScheme === 'dark' ? 'black' : 'white',
   },
-  mainPageCanvas: {},
+  mainPageCanvas: {
+    height: '90vh',
+    width: '100%',
+    // border: "2px solid yellow",
+
+    [theme.fn.smallerThan('xl')]: {
+      height: '500px',
+    },
+  },
+  welcomeText: {
+    fontSize: '3.7rem',
+    position: 'absolute',
+    zIndex: '1',
+    left: '50%',
+    top: '42%',
+    transform: 'translate(-50%, -42%)',
+
+    [theme.fn.smallerThan('xl')]: {
+      fontSize: '2.7rem',
+    },
+  },
+  scrollDownIcon: {
+    zIndex: '1',
+    position: 'absolute',
+    left: '50%',
+    top: '90%',
+    transform: 'translate(-50%, -90%)',
+    animation: 'bounce 1s infinite',
+  },
 }));
 
 const MainPage = () => {
+  const [cameraPosition, setCameraPosition] = useState([0, 0, 0]);
   const { classes } = useStyles();
   // const gltf = useLoader(GLTFLoader, 'model/low_poly_praying_temple.glb');
 
-  // useEffect(() => {
-  //   const hash = window.location.hash;
-  //   if (hash) {
-  //     const element = document.querySelector(hash);
-  //     if (element) {
-  //       element.scrollIntoView({ behavior: 'smooth' });
-  //     }
-  //   }
-  // });
+  const checkScreenSize = () => {
+    // Checking if xl 88em
+    if (window.innerWidth >= 1408) {
+      setCameraPosition([0, 0, 14]);
+      // Checking if lg 75em
+    } else if (window.innerwidth >= 1200) {
+      setCameraPosition([0, 0, 8]);
+      // Checking if md 62em
+    } else if (window.innerwidth >= 922) {
+      setCameraPosition([0, 0, 8]);
+      // Checking if sm 48em
+    } else if (window.innerwidth >= 768) {
+      setCameraPosition([0, 0, 8]);
+      // Then has to be xs 36em
+    } else {
+      setCameraPosition([0, 0, 8]);
+    }
+  };
+
+  const handleResize = () => {
+    checkScreenSize();
+    window.location.reload();
+  };
+
+  useEffect(() => {
+    checkScreenSize();
+    window.addEventListener('resize', handleResize); // Listen for resize events
+
+    return () => {
+      window.removeEventListener('resize', handleResize); // Cleanup on component unmount
+    };
+  }, []);
 
   return (
     <Box
@@ -59,42 +112,36 @@ const MainPage = () => {
       className={classes.mainPageBox}
     >
       <Box w="100%" height="100%" style={{ position: 'relative' }}>
-        <IconChevronsDown
-          size="2rem"
-          style={{
-            zIndex: '1',
-            position: 'absolute',
-            left: '50%',
-            top: '90%',
-            transform: 'translate(-50%, -90%)',
-            animation: 'bounce 1s infinite',
-          }}
-          className={classes.downIcon}
-        />
+        <IconChevronsDown size="2rem" className={classes.scrollDownIcon} />
         <Text
-          fz="xl"
+          // fz="xl"
           fw="300"
-          style={{
-            fontSize: '2.7rem',
-            position: 'absolute',
-            zIndex: '1',
-            left: '50%',
-            top: '42%',
-            transform: 'translate(-50%, -42%)',
-          }}
+          // style={{
+          //   fontSize: '2.7rem',
+          //   position: 'absolute',
+          //   zIndex: '1',
+          //   left: '50%',
+          //   top: '42%',
+          //   transform: 'translate(-50%, -42%)',
+          // }}
+          className={classes.welcomeText}
         >
           Welcome, I'm Yu Cheng Li
         </Text>
-        <Canvas
-          style={{
-            height: '500px',
-            width: '100%',
-            // border: "1px solid yellow"
-          }}
-          camera={{ position: [0.0, 0.0, 8.0] }}
-        >
-          <Blob />
-        </Canvas>
+        <Box className={classes.mainPageCanvas}>
+          <Canvas
+            style={{
+              height: '100%',
+              width: '100%',
+              // border: "1px solid yellow"
+            }}
+            className="canvas"
+            // className={classes.mainPageCanvas}
+            camera={{ position: cameraPosition }}
+          >
+            <Blob cameraPosition={cameraPosition} />
+          </Canvas>
+        </Box>
       </Box>
 
       <Element name="about">
