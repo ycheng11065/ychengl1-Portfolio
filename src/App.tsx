@@ -45,6 +45,18 @@ function App() {
             withNormalizeCSS
             theme={{
               colorScheme: colorScheme,
+              colors: {
+                dark: [
+                  '#C1C2C5',
+                  '#A6A7AB',
+                  '#909296',
+                  '#5C5F66',
+                  '#373A40',
+                  '#2C2E33',
+                  '#25262B',
+                  '#000000',
+                ],
+              }
             }}
           >
             <BrowserRouter 

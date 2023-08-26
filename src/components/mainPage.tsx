@@ -82,9 +82,11 @@ const useStyles = createStyles((theme) => ({
 const MainPage = () => {
   const [cameraPosition, setCameraPosition] = useState(8);
   const { classes } = useStyles();
+  const resizeTimeoutRef = useRef(null);
   // const gltf = useLoader(GLTFLoader, 'model/low_poly_praying_temple.glb');
 
   const checkScreenSize = () => {
+    console.log("resizing");
     // Checking if xl 88em
     if (window.innerWidth >= 1408) {
       setCameraPosition(9);
@@ -109,6 +111,16 @@ const MainPage = () => {
   };
 
   useEffect(() => {
+    // const handleResizeWithDelay = () => {
+    //   if (resizeTimeoutRef.current) {
+    //     clearTimeout(resizeTimeoutRef.current);
+    //   }
+
+    //   resizeTimeoutRef.current = setTimeout(() => {
+    //     handleResize();
+    //   }, 200); // Adjust the delay as needed
+    // };
+
     checkScreenSize();
     window.addEventListener('resize', handleResize); // Listen for resize events
 
@@ -130,16 +142,7 @@ const MainPage = () => {
       <Box w="100%" height="100%" style={{ position: 'relative' }}>
         <IconChevronsDown size="2rem" className={classes.scrollDownIcon} />
         <Text
-          // fz="xl"
           fw="300"
-          // style={{
-          //   fontSize: '2.7rem',
-          //   position: 'absolute',
-          //   zIndex: '1',
-          //   left: '50%',
-          //   top: '42%',
-          //   transform: 'translate(-50%, -42%)',
-          // }}
           className={classes.welcomeText}
         >
           Welcome, I'm Yu Cheng Li
@@ -147,11 +150,12 @@ const MainPage = () => {
         <Box className={classes.mainPageCanvas}>
           <Canvas
             style={{
-              height: '100%',
+              height: '500px',
               width: '100%',
               // border: "1px solid yellow"
             }}
             className="canvas"
+            // camera={{ position: [0.0, 0.0, 8.0] }}
           >
             {cameraPosition && <CameraPos cameraPosition={cameraPosition} />}
             <Blob />
