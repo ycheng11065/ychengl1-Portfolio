@@ -2,7 +2,7 @@
 import React, { useEffect, useMemo, useRef, useContext } from 'react';
 import vertexShader from './vertexShader';
 import fragmentShader from './fragmentShader';
-import { useFrame, invalidate } from '@react-three/fiber';
+import { useFrame, invalidate, useThree } from '@react-three/fiber';
 import { MathUtils } from 'three';
 import { ModeContext } from '../App';
 
@@ -17,6 +17,13 @@ const Blob = () => {
     };
   }, []);
 
+  // useEffect(() => {
+  //   window.addEventListener('resize', invalidate());
+
+  //   return () => {
+  //     window.removeEventListener('resize', invalidate());
+  //   };
+  // }, []);
 
   useFrame((state) => {
     const { clock } = state;
@@ -31,14 +38,7 @@ const Blob = () => {
         0.02
       );
     }
-
     invalidate();
-
-
-    // if (changed === true) {
-    //   invalidate();
-    //   setChanged(false);
-    // }
   });
 
   return (

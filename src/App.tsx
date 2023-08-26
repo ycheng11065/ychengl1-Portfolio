@@ -47,7 +47,9 @@ function App() {
               colorScheme: colorScheme,
             }}
           >
-            <BrowserRouter>
+            <BrowserRouter 
+              // basename="/ychengl1-Portfolio"
+            >
               <NavBar />
               {/* <MainPage /> */}
               <Routes>
