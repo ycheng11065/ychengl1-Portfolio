@@ -43,7 +43,7 @@ const useStyles = createStyles((theme) => ({
     },
   },
   welcomeText: {
-    fontSize: '3.7rem',
+    fontSize: '3.9rem',
     position: 'absolute',
     zIndex: '1',
     left: '50%',
@@ -62,6 +62,21 @@ const useStyles = createStyles((theme) => ({
     transform: 'translate(-50%, -90%)',
     animation: 'bounce 1s infinite',
   },
+  sectionLineRight: {
+    borderTop: '1px solid grey',
+    position: 'absolute',
+    right: '-700px',
+    top: '50%',
+    height: '1px',
+    width: '700px',
+    backgroundColor: 'grey',
+
+    [theme.fn.smallerThan('xl')]: {
+      right: '-400px',
+      width: '400px',
+    },
+  },
+  seciontLineLeft: {},
 }));
 
 const MainPage = () => {
@@ -72,7 +87,7 @@ const MainPage = () => {
   const checkScreenSize = () => {
     // Checking if xl 88em
     if (window.innerWidth >= 1408) {
-      setCameraPosition(14);
+      setCameraPosition(9);
       // Checking if lg 75em
     } else if (window.innerwidth >= 1200) {
       setCameraPosition(8);
@@ -137,8 +152,6 @@ const MainPage = () => {
               // border: "1px solid yellow"
             }}
             className="canvas"
-            // className={classes.mainPageCanvas}
-            // camera={{ position: cameraPosition }}
           >
             {cameraPosition && <CameraPos cameraPosition={cameraPosition} />}
             <Blob />
@@ -147,116 +160,48 @@ const MainPage = () => {
       </Box>
 
       <Element name="about">
-        <Flex mt="200px" justify="center" align="center">
-          <Box
-            style={{
-              position: 'relative', // Set the position to relative
-              paddingLeft: '10px', // Add some padding to the left
-              paddingRight: '10px', // Add some padding to the right
-            }}
-          >
-            <Box
-              style={{
-                borderTop: '1px solid grey',
-                content: '', // Required for pseudo-elements
-                position: 'absolute', // Set the position to absolute
-                left: '-400px', // Position it to the left of the text
-                top: '50%', // Center it vertically
-                height: '1px', // Set the height of the line
-                width: '400px', // Set the width of the line
-                backgroundColor: 'grey', // Set the line color
-              }}
-            />
-          </Box>
+        <Flex
+          mx="120px"
+          mt="200px"
+          justify="left"
+          align="center"
+          style={{ borderTop: '1px solid grey' }}
+        >
           <Text
             fz="xl"
             fw="300"
             style={{
               fontColor: 'white',
-              fontSize: '2.7rem',
+              fontSize: '3rem',
               zIndex: 1, // Ensure the text is on top of the lines
             }}
           >
             About
           </Text>
-          <Box
-            style={{
-              position: 'relative', // Set the position to relative
-              paddingLeft: '10px', // Add some padding to the left
-              paddingRight: '10px', // Add some padding to the right
-            }}
-          >
-            <Box
-              style={{
-                borderTop: '1px solid grey',
-                content: '', // Required for pseudo-elements
-                position: 'absolute', // Set the position to absolute
-                right: '-400px', // Position it to the right of the text
-                top: '50%', // Center it vertically
-                height: '1px', // Set the height of the line
-                width: '400px', // Set the width of the line
-                backgroundColor: 'grey', // Set the line color
-              }}
-            />
-          </Box>
         </Flex>
       </Element>
 
       <About />
 
       <Element name="project">
-        <Flex mt="50px" justify="center" align="center">
-          <Box
-            style={{
-              position: 'relative', // Set the position to relative
-              paddingLeft: '10px', // Add some padding to the left
-              paddingRight: '10px', // Add some padding to the right
-            }}
-          >
-            <Box
-              style={{
-                borderTop: '1px solid grey',
-                content: '', // Required for pseudo-elements
-                position: 'absolute', // Set the position to absolute
-                left: '-400px', // Position it to the left of the text
-                top: '50%', // Center it vertically
-                height: '1px', // Set the height of the line
-                width: '400px', // Set the width of the line
-                backgroundColor: 'grey', // Set the line color
-              }}
-            />
-          </Box>
+        <Flex
+          mx="120px"
+          mt="200px"
+          justify="left"
+          align="center"
+          style={{ borderTop: '1px solid grey' }}
+        >
           <Text
             fz="xl"
             fw="300"
             style={{
               fontColor: 'white',
-              fontSize: '2.7rem',
+              fontSize: '3rem',
               zIndex: 1, // Ensure the text is on top of the lines
             }}
           >
             Projects
           </Text>
-          <Box
-            style={{
-              position: 'relative', // Set the position to relative
-              paddingLeft: '10px', // Add some padding to the left
-              paddingRight: '10px', // Add some padding to the right
-            }}
-          >
-            <Box
-              style={{
-                borderTop: '1px solid grey',
-                content: '', // Required for pseudo-elements
-                position: 'absolute', // Set the position to absolute
-                right: '-400px', // Position it to the right of the text
-                top: '50%', // Center it vertically
-                height: '1px', // Set the height of the line
-                width: '400px', // Set the width of the line
-                backgroundColor: 'grey', // Set the line color
-              }}
-            />
-          </Box>
         </Flex>
       </Element>
 
@@ -282,7 +227,10 @@ function CameraPos(cameraPosition) {
     const dummy = new THREE.Vector3();
     const step = 0.01;
     // state.camera.fov = THREE.MathUtils.lerp(state.camera.fov, 50, step);
-    state.camera.position.lerp(dummy.set(0, 0, cameraPosition["cameraPosition"]), step);
+    state.camera.position.lerp(
+      dummy.set(0, 0, cameraPosition['cameraPosition']),
+      step
+    );
     state.camera.lookAt(0, 0, 0);
     state.camera.updateProjectionMatrix();
   });
