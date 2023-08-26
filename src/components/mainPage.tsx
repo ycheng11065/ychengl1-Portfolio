@@ -34,9 +34,8 @@ const useStyles = createStyles((theme) => ({
     backgroundColor: theme.colorScheme === 'dark' ? 'black' : 'white',
   },
   mainPageCanvas: {
-    height: '90vh',
+    height: '800px',
     width: '100%',
-    // border: "2px solid yellow",
 
     [theme.fn.smallerThan('xl')]: {
       height: '500px',
@@ -107,19 +106,9 @@ const MainPage = () => {
 
   const handleResize = () => {
     checkScreenSize();
-    // window.location.reload();
   };
 
   useEffect(() => {
-    // const handleResizeWithDelay = () => {
-    //   if (resizeTimeoutRef.current) {
-    //     clearTimeout(resizeTimeoutRef.current);
-    //   }
-
-    //   resizeTimeoutRef.current = setTimeout(() => {
-    //     handleResize();
-    //   }, 200); // Adjust the delay as needed
-    // };
 
     checkScreenSize();
     window.addEventListener('resize', handleResize); // Listen for resize events
@@ -133,13 +122,19 @@ const MainPage = () => {
     <Box
       mx="0"
       style={{
-        height: '100%',
+        // height: '100%',
         width: '100%',
         // border:"1px solid red"
       }}
       className={classes.mainPageBox}
     >
-      <Box w="100%" height="100%" style={{ position: 'relative' }}>
+      <Box 
+        w="100%" 
+        height="600px" 
+        style={{ 
+          position: 'relative', 
+        }}
+      >
         <IconChevronsDown size="2rem" className={classes.scrollDownIcon} />
         <Text
           fw="300"
@@ -150,12 +145,9 @@ const MainPage = () => {
         <Box className={classes.mainPageCanvas}>
           <Canvas
             style={{
-              height: '500px',
+              height: '100%',
               width: '100%',
-              // border: "1px solid yellow"
             }}
-            className="canvas"
-            // camera={{ position: [0.0, 0.0, 8.0] }}
           >
             {cameraPosition && <CameraPos cameraPosition={cameraPosition} />}
             <Blob />
