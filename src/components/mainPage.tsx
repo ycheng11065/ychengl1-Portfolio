@@ -20,6 +20,7 @@ import Project from './Projects';
 import About from './About';
 import { IconChevronsDown, IconChevronDown } from '@tabler/icons-react';
 import { Element } from 'react-scroll';
+// import { OrbitControls } from '@react-three/drei';
 
 // type MainPageProps = {
 //   mainRef: React.MutableRefObject<null>;
@@ -64,32 +65,32 @@ const useStyles = createStyles((theme) => ({
 }));
 
 const MainPage = () => {
-  const [cameraPosition, setCameraPosition] = useState([0, 0, 0]);
+  const [cameraPosition, setCameraPosition] = useState(8);
   const { classes } = useStyles();
   // const gltf = useLoader(GLTFLoader, 'model/low_poly_praying_temple.glb');
 
   const checkScreenSize = () => {
     // Checking if xl 88em
     if (window.innerWidth >= 1408) {
-      setCameraPosition([0, 0, 14]);
+      setCameraPosition(14);
       // Checking if lg 75em
     } else if (window.innerwidth >= 1200) {
-      setCameraPosition([0, 0, 8]);
+      setCameraPosition(8);
       // Checking if md 62em
     } else if (window.innerwidth >= 922) {
-      setCameraPosition([0, 0, 8]);
+      setCameraPosition(8);
       // Checking if sm 48em
     } else if (window.innerwidth >= 768) {
-      setCameraPosition([0, 0, 8]);
+      setCameraPosition(8);
       // Then has to be xs 36em
     } else {
-      setCameraPosition([0, 0, 8]);
+      setCameraPosition(8);
     }
   };
 
   const handleResize = () => {
     checkScreenSize();
-    window.location.reload();
+    // window.location.reload();
   };
 
   useEffect(() => {
@@ -137,9 +138,10 @@ const MainPage = () => {
             }}
             className="canvas"
             // className={classes.mainPageCanvas}
-            camera={{ position: cameraPosition }}
+            // camera={{ position: cameraPosition }}
           >
-            <Blob cameraPosition={cameraPosition} />
+            {cameraPosition && <CameraPos cameraPosition={cameraPosition} />}
+            <Blob />
           </Canvas>
         </Box>
       </Box>
@@ -274,5 +276,16 @@ const MainPage = () => {
   //   </mesh>
   // </Canvas>
 };
+
+function CameraPos(cameraPosition) {
+  useFrame((state, delta) => {
+    const dummy = new THREE.Vector3();
+    const step = 0.01;
+    // state.camera.fov = THREE.MathUtils.lerp(state.camera.fov, 50, step);
+    state.camera.position.lerp(dummy.set(0, 0, cameraPosition["cameraPosition"]), step);
+    state.camera.lookAt(0, 0, 0);
+    state.camera.updateProjectionMatrix();
+  });
+}
 
 export default MainPage;

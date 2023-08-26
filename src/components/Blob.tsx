@@ -17,14 +17,6 @@ const Blob = () => {
     };
   }, []);
 
-  // useEffect(() => {
-  //   window.addEventListener('resize', invalidate());
-
-  //   return () => {
-  //     window.removeEventListener('resize', invalidate());
-  //   };
-  // }, []);
-
   useFrame((state) => {
     const { clock } = state;
 
