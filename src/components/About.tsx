@@ -11,6 +11,7 @@ import profile from '../images/me.jpg';
 const useStyles = createStyles((theme) => ({
   aboutPage: {
     backgroundColor: theme.colorScheme === 'dark' ? 'black' : 'white',
+    // border: "1px solid yellow"
   },
   titleDescription: {
     fontSize: '3rem',
@@ -38,8 +39,7 @@ const About = () => {
         mt="50px"
         w="100%"
         mx="0"
-        // h="100vh"
-        h={{ lg: '100vh', xl: '80vh' }}
+        // h={{ lg: '100vh', xl: '80vh' }}
         pt={{ lg: '30px', xl: '40px' }}
         mb="0"
         p="0"

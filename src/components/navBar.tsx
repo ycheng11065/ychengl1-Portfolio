@@ -18,6 +18,7 @@ import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 
 const useStyles = createStyles((theme) => ({
   navBar: {
+    fontColor: "white",
     backgroundColor: theme.colorScheme === 'dark' ? 'black' : 'white',
   },
   linkButton: {
@@ -76,7 +77,7 @@ const NavBar = () => {
   const handleScroll = (ref) => {
     window.scrollTo({
       top: ref.current.offsetTop,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
 
@@ -84,11 +85,22 @@ const NavBar = () => {
     <>
       <Flex
         pt="10px"
+        h="70px"
+        w={{ xl:"1800px", lg:"1200px" }}
         // mt="10px"
         direction="row"
         justify="space-between"
         className={classes.navBar}
-        // style={{ backgroundColor:"black" }}
+        style={{
+          borderRadius:"15px",
+          opacity: "0.95",
+          zIndex: '2',
+          position: 'sticky',
+          top: '0',
+          margin: '0 auto'
+          // transform: 'translate(-50%)',
+          // border:"1px solid red"
+        }}
       >
         <Container ml="10px" mr="0">
           <Link
@@ -103,48 +115,28 @@ const NavBar = () => {
         </Container>
         <Container mx="0" mt="15px">
           <Flex gap="xl">
-            {/* <Link
-              to="/"
-              className={`${classes.linkButton} ${
-                activeLinkIndex === 0 ? classes.linkActive : ''
-              }`}
-              onClick={(event) => {
-                setActiveLink(0);
-              }}
-            >
+            <Link to="/" className={classes.linkButton} >
               Home
-            </Link> */}
+            </Link>
             <ScrollLink
-               to="about" smooth={true} duration={500}
-               className={classes.linkButton}
-              // className={`${classes.linkButton} ${
-              //   activeLinkIndex === 1 ? classes.linkActive : ''
-              // }`}
-              // onClick={(event) => {
-              //   setActiveLink(1);
-              // }}
+              to="about"
+              smooth={true}
+              duration={500}
+              className={classes.linkButton}
             >
               About
             </ScrollLink>
             <ScrollLink
-              to="project" smooth={true} duration={500}
+              to="project"
+              smooth={true}
+              duration={500}
               className={classes.linkButton}
-
-              // className={`${classes.linkButton} ${
-              //   activeLinkIndex === 2 ? classes.linkActive : ''
-              // }`}
-              // onClick={(event) => {
-              //   setActiveLink(2);
-              // }}
             >
               Project
             </ScrollLink>
             <Link className={classes.linkButton} onClick={openPDF}>
               Resume
             </Link>
-            {/* <Button variant="outline" onClick={ openPDF() }>
-              Resume
-            </Button> */}
             <ActionIcon
               size="2.2rem"
               variant="outline"
