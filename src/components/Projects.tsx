@@ -50,17 +50,8 @@ const useStyles = createStyles((theme) => ({
       theme.colorScheme === 'dark'
         ? 'linear-gradient(to bottom right, #7C44FF, #101113, #101113, #101113, #B12BFF)'
         : 'linear-gradient(to bottom right, #23A3FF, #F1F3F5, #F1F3F5, #F1F3F5, #6782FF)',
-  },
-  projectCardOdd: {
-    cursor: 'pointer',
-    backgroundColor:
-      theme.colorScheme === 'dark'
-        ? theme.colors.dark[9]
-        : theme.colors.gray[1],
-    backgroundImage:
-      theme.colorScheme === 'dark'
-        ? 'linear-gradient(to bottom left, #101113, #101113, #101113, #101113, #7C44FF)'
-        : 'linear-gradient(to bottom left, #F1F3F5, #F1F3F5, #F1F3F5, #F1F3F5, #7C44FF)',
+        // : 'linear-gradient(to bottom right, #B12BFF, #E9ECEF, #E9ECEF,  #E9ECEF, #7C44FF)',
+
   },
   projectTitle: {
     color: theme.colorScheme === 'dark' ? 'white' : 'black',
@@ -148,22 +139,22 @@ const Projects = () => {
       url: 'https://github.com/ycheng11065/UBC-stack-BOT',
       id: useId(),
     },
-    {
-      name: 'Tic-Tac-Toe',
-      category: 'Web Application',
-      description: `A simple web-app with a very self explanatory name. Created back when I was still learning
-      the fundamentals of web development. Test yourself against AI adversaries with varying difficulties.
-      `,
-      date: 'March 2023',
-      image: tictactoe_img,
-      tech: [
-        { name: 'JavaScript', color: 'teal', id: useId() },
-        { name: 'HTML5', color: 'teal', id: useId() },
-        { name: 'CSS3', color: 'teal', id: useId() },
-      ],
-      url: 'https://github.com/ycheng11065/TicTacToe_app',
-      id: useId(),
-    },
+    // {
+    //   name: 'Tic-Tac-Toe',
+    //   category: 'Web Application',
+    //   description: `A simple web-app with a very self explanatory name. Created back when I was still learning
+    //   the fundamentals of web development. Test yourself against AI adversaries with varying difficulties.
+    //   `,
+    //   date: 'March 2023',
+    //   image: tictactoe_img,
+    //   tech: [
+    //     { name: 'JavaScript', color: 'teal', id: useId() },
+    //     { name: 'HTML5', color: 'teal', id: useId() },
+    //     { name: 'CSS3', color: 'teal', id: useId() },
+    //   ],
+    //   url: 'https://github.com/ycheng11065/TicTacToe_app',
+    //   id: useId(),
+    // },
     {
       name: 'Spotify Collage',
       category: 'Web Application',
@@ -247,11 +238,17 @@ const Projects = () => {
                       style={{ position: 'absolute', bottom: '0' }}
                     >
                       {p.tech &&
-                        p.tech.map((t) => (
-                          <Badge key={t.id} color={t.color} variant="light">
-                            {t.name}
-                          </Badge>
-                        ))}
+                        p.tech.map((t) =>
+                          colorScheme === 'dark' ? (
+                            <Badge key={t.id} color={t.color} variant="light">
+                              {t.name}
+                            </Badge>
+                          ) : (
+                            <Badge key={t.id} color={t.color} variant="light" >
+                              {t.name}
+                            </Badge>
+                          )
+                        )}
                     </Flex>
                   </Flex>
                 </Flex>
