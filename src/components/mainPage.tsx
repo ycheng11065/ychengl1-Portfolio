@@ -196,7 +196,7 @@ const MainPage = () => {
               zIndex: 1, // Ensure the text is on top of the lines
             }}
           >
-            Projects
+            Project
           </Text>
         </Flex>
       </Element>
