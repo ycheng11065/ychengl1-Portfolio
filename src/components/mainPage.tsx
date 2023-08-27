@@ -85,7 +85,7 @@ const MainPage = () => {
   // const gltf = useLoader(GLTFLoader, 'model/low_poly_praying_temple.glb');
 
   const checkScreenSize = () => {
-    console.log("resizing");
+    console.log('resizing');
     // Checking if xl 88em
     if (window.innerWidth >= 1408) {
       setCameraPosition(9);
@@ -109,7 +109,6 @@ const MainPage = () => {
   };
 
   useEffect(() => {
-
     checkScreenSize();
     window.addEventListener('resize', handleResize); // Listen for resize events
 
@@ -128,18 +127,15 @@ const MainPage = () => {
       }}
       className={classes.mainPageBox}
     >
-      <Box 
-        w="100%" 
-        height="600px" 
-        style={{ 
-          position: 'relative', 
+      <Box
+        w="100%"
+        height="600px"
+        style={{
+          position: 'relative',
         }}
       >
         <IconChevronsDown size="2rem" className={classes.scrollDownIcon} />
-        <Text
-          fw="300"
-          className={classes.welcomeText}
-        >
+        <Text fw="300" className={classes.welcomeText}>
           Welcome, I'm Yu Cheng Li
         </Text>
         <Box className={classes.mainPageCanvas}>
@@ -157,7 +153,8 @@ const MainPage = () => {
 
       <Element name="about">
         <Flex
-          mx="120px"
+          w={{ xl: "1700px", lg:"1100px" }}
+          mx="auto"
           mt="200px"
           justify="left"
           align="center"
@@ -181,7 +178,8 @@ const MainPage = () => {
 
       <Element name="project">
         <Flex
-          mx="120px"
+          w={{ xl: "1700px", lg:"1100px" }}
+          mx="auto"
           mt="200px"
           justify="left"
           align="center"
