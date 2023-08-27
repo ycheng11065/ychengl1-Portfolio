@@ -127,29 +127,31 @@ const MainPage = () => {
       }}
       className={classes.mainPageBox}
     >
-      <Box
-        w="100%"
-        height="600px"
-        style={{
-          position: 'relative',
-        }}
-      >
-        <IconChevronsDown size="2rem" className={classes.scrollDownIcon} />
-        <Text fw="300" className={classes.welcomeText}>
-          Welcome, I'm Yu Cheng Li
-        </Text>
-        <Box className={classes.mainPageCanvas}>
-          <Canvas
-            style={{
-              height: '100%',
-              width: '100%',
-            }}
-          >
-            {cameraPosition && <CameraPos cameraPosition={cameraPosition} />}
-            <Blob />
-          </Canvas>
+      <Element name="main">
+        <Box
+          w="100%"
+          height="600px"
+          style={{
+            position: 'relative',
+          }}
+        >
+          <IconChevronsDown size="2rem" className={classes.scrollDownIcon} />
+          <Text fw="300" className={classes.welcomeText}>
+            Welcome, I'm Yu Cheng Li
+          </Text>
+          <Box className={classes.mainPageCanvas}>
+            <Canvas
+              style={{
+                height: '100%',
+                width: '100%',
+              }}
+            >
+              {cameraPosition && <CameraPos cameraPosition={cameraPosition} />}
+              <Blob />
+            </Canvas>
+          </Box>
         </Box>
-      </Box>
+      </ Element>
 
       <Element name="about">
         <Flex
@@ -166,7 +168,7 @@ const MainPage = () => {
             style={{
               fontColor: 'white',
               fontSize: '3rem',
-              zIndex: 1, // Ensure the text is on top of the lines
+              zIndex: 1, 
             }}
           >
             About

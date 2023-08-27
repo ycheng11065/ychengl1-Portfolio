@@ -50,8 +50,6 @@ const useStyles = createStyles((theme) => ({
       theme.colorScheme === 'dark'
         ? 'linear-gradient(to bottom right, #7C44FF, #101113, #101113, #101113, #B12BFF)'
         : 'linear-gradient(to bottom right, #23A3FF, #F1F3F5, #F1F3F5, #F1F3F5, #6782FF)',
-
-    // border: "3px solid linear-gradient(to bottom right, #101113, #101113, #101113, #101113, #101113, #101113, #7C44FF, #BC2EFF)"
   },
   projectCardOdd: {
     cursor: 'pointer',
@@ -67,6 +65,10 @@ const useStyles = createStyles((theme) => ({
   projectTitle: {
     color: theme.colorScheme === 'dark' ? 'white' : 'black',
     fontSize: '2rem',
+  },
+  projectTextBox: {
+    position: 'relative',
+    border: '1px solid transparent',
   },
 }));
 
@@ -196,13 +198,31 @@ const Projects = () => {
               radius="md"
               key={p.id}
               // maw="1000px"
-              w={{ xl: "1300px", lg: "1000px" }}
-              h={{ xl: "300px", lg: "285px" }}
+              w={{ xl: '1300px', lg: '1000px' }}
+              h={{ xl: '300px', lg: '285px' }}
               className={classes.projectCard}
               onClick={(event) => redirect(p.url)}
             >
-              <Flex h="100%" gap="10px" justify="space-between" mb="100px">
-                <Box w="70%">
+              <Flex
+                h="100%"
+                gap={{ xl: '20px', lg: '10px' }}
+                justify="space-between"
+                style={
+                  {
+                    // border: "1px solid green"
+                  }
+                }
+              >
+                <Flex
+                  direction="column"
+                  w="70%"
+                  h="100%"
+                  style={
+                    {
+                      // border:"1px solid yellow",
+                    }
+                  }
+                >
                   <Flex justify="space-between" pr="20px">
                     <Text className={classes.projectTitle}>{p.name}</Text>
                     <Group mt="md" mb="xs">
@@ -212,12 +232,15 @@ const Projects = () => {
                     </Group>
                   </Flex>
                   <Flex
-                    h="200px"
+                    h="100%"
+                    pr="10px"
                     direction="column"
-                    style={{ position: 'relative' }}
+                    className={classes.projectTextBox}
                   >
-                    <Text>{p.date}</Text>
-                    <Text mt="15px">{p.description}</Text>
+                    <Text fz={{ xl: 'lg', lg: 'md' }}>{p.date}</Text>
+                    <Text mt="15px" fz={{ xl: 'lg', lg: 'md' }}>
+                      {p.description}
+                    </Text>
                     <Flex
                       mt="55px"
                       gap="sm"
@@ -231,13 +254,13 @@ const Projects = () => {
                         ))}
                     </Flex>
                   </Flex>
-                </Box>
+                </Flex>
                 <Box
                   my="auto"
-                  w="500px"
-                  h={{ xl: "270px", lg: "255px" }}
-                  style={{ 
-                    borderRadius: '10px' 
+                  w={{ lx: '550px', lg: '500px' }}
+                  h={{ xl: '270px', lg: '255px' }}
+                  style={{
+                    borderRadius: '10px',
                   }}
                 >
                   <BackgroundImage

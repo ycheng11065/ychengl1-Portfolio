@@ -18,7 +18,7 @@ import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 
 const useStyles = createStyles((theme) => ({
   navBar: {
-    fontColor: "white",
+    fontColor: 'white',
     backgroundColor: theme.colorScheme === 'dark' ? 'black' : 'white',
   },
   linkButton: {
@@ -75,7 +75,7 @@ const NavBar = () => {
   };
 
   const handleScroll = (ref) => {
-    window.scrollTo({
+    window.scrollToTop({
       top: ref.current.offsetTop,
       behavior: 'smooth',
     });
@@ -86,20 +86,18 @@ const NavBar = () => {
       <Flex
         pt="10px"
         h="70px"
-        w={{ xl:"1800px", lg:"1200px" }}
+        w={{ xl: '1800px', lg: '1200px' }}
         // mt="10px"
         direction="row"
         justify="space-between"
         className={classes.navBar}
         style={{
-          borderRadius:"15px",
-          opacity: "0.95",
+          borderRadius: '15px',
+          opacity: '0.95',
           zIndex: '2',
           position: 'sticky',
           top: '0',
-          margin: '0 auto'
-          // transform: 'translate(-50%)',
-          // border:"1px solid red"
+          margin: '0 auto',
         }}
       >
         <Container ml="10px" mr="0">
@@ -115,9 +113,14 @@ const NavBar = () => {
         </Container>
         <Container mx="0" mt="15px">
           <Flex gap="xl">
-            <Link to="/" className={classes.linkButton} >
+            <ScrollLink
+              to="main"
+              smooth={true}
+              duration={500}
+              className={classes.linkButton}
+            >
               Home
-            </Link>
+            </ScrollLink>
             <ScrollLink
               to="about"
               smooth={true}
