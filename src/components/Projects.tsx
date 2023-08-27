@@ -32,7 +32,7 @@ interface project {
   name: string;
   category: string;
   description: string;
-  year: number;
+  date: string;
   image: string;
   tech: tool[];
   url: string;
@@ -84,7 +84,7 @@ const Projects = () => {
       it offers UBC-exclusive sublet postings and detailed dormitory information,
       including Airbnb-like ratings for dorms and users.
       `,
-      year: 2023,
+      date: 'Aug 2023',
       image: subletter_img,
       tech: [
         { name: 'JavaScript', color: 'teal', id: useId() },
@@ -104,7 +104,7 @@ const Projects = () => {
        primarily for software engineer CVs. Additionally, it offers the convenience of one-click PDF.
        I use it for all my resumes, saved me from a lot of headaches. 
        `,
-      year: 2023,
+      date: 'May 2023',
       image: resumeBuilder_img,
       tech: [
         { name: 'JavaScript', color: 'teal', id: useId() },
@@ -122,7 +122,7 @@ const Projects = () => {
       The challenge involves four snakes, whoever survives the longest wins. My team and I crafted both showcased 
       snakes: SSSShark (blue), clinching the 2022 1st prize, and the more advanced Orion's Fang (purple), securing 2nd 
       place in 2023`,
-      year: 2023,
+      date: 'April 2023',
       image: snake_img,
       tech: [
         { name: 'Python', color: 'orange', id: useId() },
@@ -137,7 +137,7 @@ const Projects = () => {
       description: `Developed collaboratively by my team and me during the 2022 NwHacks, our Discord bot brings 
       innovation to UBC degree planning. It offers a user-friendly interface, simplifying access to essential 
       degree-related information and enhancing the planning experience for all UBC students.`,
-      year: 2023,
+      date: 'Jan 2023',
       image: naviBot_img,
       tech: [
         { name: 'Python', color: 'orange', id: useId() },
@@ -152,7 +152,7 @@ const Projects = () => {
       description: `A simple web-app with a very self explanatory name. Created back when I was still learning
       the fundamentals of web development. Test yourself against AI adversaries with varying difficulties.
       `,
-      year: 2023,
+      date: 'March 2023',
       image: tictactoe_img,
       tech: [
         { name: 'JavaScript', color: 'teal', id: useId() },
@@ -169,7 +169,7 @@ const Projects = () => {
       This application enabled users to craft captivating collages using album covers accessed through Spotify's API. 
       The collages could be tailored to different categories, encompassing options like a compilation of the user's favorite songs, 
       trending tracks, and an artist's top 10.`,
-      year: 2023,
+      date: 'Jan 2022',
       image: spotify_img,
       tech: [
         { name: 'Python', color: 'orange', id: useId() },
@@ -189,15 +189,15 @@ const Projects = () => {
 
   return (
     <>
-      <Flex pb="40px" gap="lg" direction="column" align="center" mt="60px">
+      <Flex py="40px" gap="lg" direction="column" align="center" mt="60px">
         {projectArray &&
           projectArray.map((p, index) => (
             <Card
               radius="md"
               key={p.id}
-              maw="1000px"
-              w="1100px"
-              h="285px"
+              // maw="1000px"
+              w={{ xl: "1300px", lg: "1000px" }}
+              h={{ xl: "300px", lg: "285px" }}
               className={classes.projectCard}
               onClick={(event) => redirect(p.url)}
             >
@@ -216,7 +216,7 @@ const Projects = () => {
                     direction="column"
                     style={{ position: 'relative' }}
                   >
-                    {/* <Text>August 2023</Text> */}
+                    <Text>{p.date}</Text>
                     <Text mt="15px">{p.description}</Text>
                     <Flex
                       mt="55px"
@@ -232,7 +232,14 @@ const Projects = () => {
                     </Flex>
                   </Flex>
                 </Box>
-                <Box p="0" w="500px" h="255px" style={{ borderRadius: '10px' }}>
+                <Box
+                  my="auto"
+                  w="500px"
+                  h={{ xl: "270px", lg: "255px" }}
+                  style={{ 
+                    borderRadius: '10px' 
+                  }}
+                >
                   <BackgroundImage
                     style={{
                       width: '100%',

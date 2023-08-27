@@ -48,12 +48,6 @@ const About = () => {
         className={classes.aboutPage}
         // style={{ border:"2px solid red" }}
       >
-        {/* <Grid.Col
-          p="0"
-          lg={5}
-          xl={3.5}
-          // style={{ border:"2px solid red" }}
-        > */}
         <Flex gap="20px" align="left" direction="column">
           <Flex direction="column">
             <Text ta="left" className={classes.titleDescription}>
@@ -83,8 +77,6 @@ const About = () => {
             Anyways, I hope you enjoy my corner of the web.
           </Text>
         </Flex>
-        {/* </Grid.Col>
-        <Grid.Col lg={4} xl={3}> */}
         <Box w="420px" h={{ lg: '500px', xl: '590px' }}>
           <BackgroundImage
             radius="md"
@@ -95,7 +87,6 @@ const About = () => {
             }}
           />
         </Box>
-        {/* </Grid.Col> */}
       </Flex>
     </>
   );
