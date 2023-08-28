@@ -87,8 +87,6 @@ const NavBar = () => {
         pt="10px"
         h="70px"
         w="100%"
-        // w={{ xl: '1800px', lg: '1200px', md: '1000px' }}
-        // mt="10px"
         direction="row"
         justify="space-between"
         className={classes.navBar}
