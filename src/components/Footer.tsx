@@ -5,13 +5,8 @@ import { inherits } from 'util';
 
 const useStyles = createStyles((theme) => ({
   footer: {
-    color: theme.colorScheme === 'dark'
-    ? "white"
-    : "black",
-    backgroundColor:
-      theme.colorScheme === 'dark'
-        ? "black"
-        : "white",
+    color: theme.colorScheme === 'dark' ? 'white' : 'black',
+    backgroundColor: theme.colorScheme === 'dark' ? 'black' : 'white',
     // backgroundImage:
     // theme.colorScheme === 'dark'
     //   ? 'linear-gradient(to bottom, #000000, #000000, #000000, #000000, #000000, #000000, #000000, #7C44FF)'
@@ -35,8 +30,11 @@ const useStyles = createStyles((theme) => ({
   },
   footerBorder: {
     borderTop: '2px solid grey',
-    borderTopColor: theme.colorScheme === 'dark' ? theme.colors.gray[7] : theme.colors.gray[3],
-  }
+    borderTopColor:
+      theme.colorScheme === 'dark'
+        ? theme.colors.gray[7]
+        : theme.colors.gray[3],
+  },
 }));
 
 const Footer = () => {
@@ -47,28 +45,40 @@ const Footer = () => {
   return (
     <>
       <Flex align="center" direction="column" className={classes.footer}>
-        <Box 
-          w={{ xl: "1700px", lg:"1100px" }}
-          h="50px" 
+        <Box
+          w={{ xl: '1700px', lg: '1100px' }}
+          h="50px"
           className={classes.footerBorder}
         >
-          <Flex 
-            mt="10px" 
-            justify="space-between" 
-            px="30px"
-          >
+          <Flex mt="10px" justify="space-between" px="30px">
             <Text mt="4px" fz="xl">
               Get in touch with me.
             </Text>
             <Group>
-              <Anchor href="https://www.linkedin.com/in/ychengl1/" color="inherit" target="_blank" className={classes.linkButton}>
+              <Anchor
+                href="https://www.linkedin.com/in/ychengl1/"
+                color="inherit"
+                target="_blank"
+                className={classes.linkButton}
+              >
                 <Text fz="xl">LinkedIn</Text>
               </Anchor>
-              <Anchor href="mailto:ychengli11065@gmail.com" color="inherit" className={classes.linkButton}>
-                <Text fz="xl">Email</Text>
-              </Anchor>
-              <Anchor href="https://github.com/ycheng11065" color="inherit" target="_blank" className={classes.linkButton}>
+
+              <Anchor
+                href="https://github.com/ycheng11065"
+                color="inherit"
+                target="_blank"
+                className={classes.linkButton}
+              >
                 <Text fz="xl">Github</Text>
+              </Anchor>
+
+              <Anchor
+                href="mailto:ychengli11065@gmail.com"
+                color="inherit"
+                className={classes.linkButton}
+              >
+                <Text fz="xl">Email</Text>
               </Anchor>
             </Group>
           </Flex>

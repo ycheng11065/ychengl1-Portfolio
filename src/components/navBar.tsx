@@ -86,13 +86,13 @@ const NavBar = () => {
       <Flex
         pt="10px"
         h="70px"
-        w={{ xl: '1800px', lg: '1200px' }}
+        w="100%"
+        // w={{ xl: '1800px', lg: '1200px', md: '1000px' }}
         // mt="10px"
         direction="row"
         justify="space-between"
         className={classes.navBar}
         style={{
-          borderRadius: '15px',
           opacity: '0.95',
           zIndex: '2',
           position: 'sticky',
