@@ -5,6 +5,7 @@ import {
   BackgroundImage,
   Box,
   createStyles,
+  Anchor,
 } from '@mantine/core';
 import profile from '../images/me.jpg';
 import { IconBrandLinkedin } from '@tabler/icons-react';
@@ -16,6 +17,7 @@ const useStyles = createStyles((theme) => ({
   aboutPage: {
     backgroundColor: theme.colorScheme === 'dark' ? 'black' : 'white',
     // border: "1px solid yellow"
+
   },
   titleDescription: {
     // fontFamily: "BlinkMacSystemFont",
@@ -32,6 +34,15 @@ const useStyles = createStyles((theme) => ({
     [theme.fn.smallerThan('xl')]: {
       fontSize: '16px',
     },
+  },
+  contactIcon: {
+    color: 'grey',
+    width: '2rem',
+    fontSize: '3rem',
+    padding: '15px 25px',
+    border: '0.5px solid grey',
+    borderRadius: '10px',
+    cursor: 'pointer',
   },
 }));
 
@@ -52,12 +63,9 @@ const About = () => {
       >
         <Flex
           w="100%"
-          mx="0"
-          // h={{ lg: '100vh', xl: '80vh' }}
-          mb="0"
-          p="0"
-          justify="space-between"
-          gap={{ xl: '80px', lg: '60px' }}
+          mx={{ md: '20px' }}
+          justify= {{ xl:"space-between", lg:"space-between", md:"center" }}
+          gap={{ xl: '80px', lg: '60px', md: '20px' }}
           className={classes.aboutPage}
           // style={{ border: '2px solid red' }}
         >
@@ -89,12 +97,39 @@ const About = () => {
             <Text className={classes.textDescription}>
               Anyways, I hope you enjoy my corner of the web.
             </Text>
+            <Flex
+          w="100%"
+          gap="2rem"
+          // style={{ border: "1px solid yellow" }}
+        >
+          <Flex gap="2rem">
+            <Anchor
+              href="https://www.linkedin.com/in/ychengl1/"
+              target="_blank"
+            >
+              <FontAwesomeIcon
+                icon={faLinkedinIn}
+                className={classes.contactIcon}
+              />
+            </Anchor>
+
+            <Anchor href="https://github.com/ycheng11065" target="_blank">
+              <FontAwesomeIcon
+                icon={faGithub}
+                className={classes.contactIcon}
+              />
+            </Anchor>
+
+            <Anchor href="mailto:ychengli11065@gmail.com" target="_blank">
+              <FontAwesomeIcon
+                icon={faEnvelope}
+                className={classes.contactIcon}
+              />
+            </Anchor>
           </Flex>
-          <Box
-            w="420px"
-            // mt="20px"
-            h={{ lg: 'full', xl: '590px' }}
-          >
+        </Flex>
+          </Flex>
+          <Box w="420px" h='full'>
             <BackgroundImage
               radius="md"
               src={profile}
@@ -104,48 +139,6 @@ const About = () => {
               }}
             />
           </Box>
-        </Flex>
-        <Flex
-          w="100%"
-          justify="space-between"
-          gap="2rem"
-          // style={{ border: "1px solid yellow" }}
-        >
-          <Flex gap="2rem">
-            <FontAwesomeIcon
-              icon={faLinkedinIn}
-              style={{
-                color: 'grey',
-                width: '2rem',
-                fontSize: '3rem',
-                padding: '15px 25px',
-                border: '0.5px solid grey',
-                borderRadius: '10px',
-              }}
-            />
-            <FontAwesomeIcon
-              icon={faGithub}
-              style={{
-                color: 'grey',
-                width: '2rem',
-                fontSize: '3rem',
-                padding: '15px 25px',
-                border: '1px solid grey',
-                borderRadius: '10px',
-              }}
-            />
-            <FontAwesomeIcon
-              icon={faEnvelope}
-              style={{
-                color: 'grey',
-                width: '2rem',
-                fontSize: '3rem',
-                padding: '15px 25px',
-                border: '1px solid grey',
-                borderRadius: '10px',
-              }}
-            />
-          </Flex>
         </Flex>
       </Flex>
     </>

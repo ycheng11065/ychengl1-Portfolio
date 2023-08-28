@@ -10,9 +10,7 @@ import {
 } from 'react';
 import * as THREE from 'three';
 import { useLoader } from '@react-three/fiber';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
 import { Text, Box, Flex, createStyles } from '@mantine/core';
 import Blob from './Blob';
 import { ModeContext } from '../App';
@@ -20,13 +18,7 @@ import Project from './Projects';
 import About from './About';
 import { IconChevronsDown, IconChevronDown } from '@tabler/icons-react';
 import { Element } from 'react-scroll';
-// import { OrbitControls } from '@react-three/drei';
 
-// type MainPageProps = {
-//   mainRef: React.MutableRefObject<null>;
-//   aboutRef: React.MutableRefObject<null>;
-//   projectRef: React.MutableRefObject<null>;
-// };
 
 const useStyles = createStyles((theme) => ({
   mainPageBox: {
@@ -40,6 +32,10 @@ const useStyles = createStyles((theme) => ({
     [theme.fn.smallerThan('xl')]: {
       height: '500px',
     },
+
+    [theme.fn.smallerThan('lg')]: {
+      height: '600px',
+    },
   },
   welcomeText: {
     fontSize: '3.9rem',
@@ -52,6 +48,10 @@ const useStyles = createStyles((theme) => ({
     [theme.fn.smallerThan('xl')]: {
       fontSize: '2.7rem',
     },
+
+    [theme.fn.smallerThan('lg')]: {
+      fontSize: '2.8rem',
+    },
   },
   scrollDownIcon: {
     zIndex: '1',
@@ -60,22 +60,7 @@ const useStyles = createStyles((theme) => ({
     top: '90%',
     transform: 'translate(-50%, -90%)',
     animation: 'bounce 1s infinite',
-  },
-  sectionLineRight: {
-    borderTop: '1px solid grey',
-    position: 'absolute',
-    right: '-700px',
-    top: '50%',
-    height: '1px',
-    width: '700px',
-    backgroundColor: 'grey',
-
-    [theme.fn.smallerThan('xl')]: {
-      right: '-400px',
-      width: '400px',
-    },
-  },
-  seciontLineLeft: {},
+  }
 }));
 
 const MainPage = () => {
@@ -94,26 +79,23 @@ const MainPage = () => {
       setCameraPosition(8);
       // Checking if md 62em
     } else if (window.innerwidth >= 922) {
-      setCameraPosition(8);
+      setCameraPosition(12);
       // Checking if sm 48em
     } else if (window.innerwidth >= 768) {
       setCameraPosition(8);
       // Then has to be xs 36em
     } else {
-      setCameraPosition(8);
+      setCameraPosition(9);
+      console.log(window.innerWidth);
     }
-  };
-
-  const handleResize = () => {
-    checkScreenSize();
   };
 
   useEffect(() => {
     checkScreenSize();
-    window.addEventListener('resize', handleResize); // Listen for resize events
+    window.addEventListener('resize', checkScreenSize); // Listen for resize events
 
     return () => {
-      window.removeEventListener('resize', handleResize); // Cleanup on component unmount
+      window.removeEventListener('resize', checkScreenSize); // Cleanup on component unmount
     };
   }, []);
 
@@ -136,7 +118,7 @@ const MainPage = () => {
           }}
         >
           <IconChevronsDown size="2rem" className={classes.scrollDownIcon} />
-          <Text fw="300" className={classes.welcomeText}>
+          <Text fw="300" w="100%" align='center' className={classes.welcomeText}>
             Welcome, I'm Yu Cheng Li
           </Text>
           <Box className={classes.mainPageCanvas}>
@@ -155,7 +137,7 @@ const MainPage = () => {
 
       <Element name="about">
         <Flex
-          w={{ xl: "1700px", lg:"1100px" }}
+          w={{ xl: "1700px", lg:"1100px", md: "970px" }}
           mx="auto"
           mt="200px"
           justify="left"
@@ -180,7 +162,7 @@ const MainPage = () => {
 
       <Element name="project">
         <Flex
-          w={{ xl: "1700px", lg:"1100px" }}
+          w={{ xl: "1700px", lg:"1100px", md: "970px" }}
           mx="auto"
           mt="200px"
           justify="left"
@@ -204,25 +186,12 @@ const MainPage = () => {
       <Project />
     </Box>
   );
-
-  // <Canvas style={{ height: "100%", width: "100%" }}>
-  //   <ambientLight intensity={1} />
-  //   {/* <pointLight intensity={10000} position={[0, 100, 0]}/> */}
-  //   <OrbitControls />
-  //   <mesh>
-  //     <primitive scale={0.05} object={gltf.scene} children-0-castShadow />
-  //     {/* <sphereGeometry>
-
-  //     </sphereGeometry> */}
-  //   </mesh>
-  // </Canvas>
 };
 
 function CameraPos(cameraPosition) {
   useFrame((state, delta) => {
     const dummy = new THREE.Vector3();
     const step = 0.01;
-    // state.camera.fov = THREE.MathUtils.lerp(state.camera.fov, 50, step);
     state.camera.position.lerp(
       dummy.set(0, 0, cameraPosition['cameraPosition']),
       step
