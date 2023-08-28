@@ -159,7 +159,13 @@ const About = () => {
           </Flex>
         </Flex>
       ) : (
-        <Flex mt="50px" direction="column" h="10000px" w="full" mb="200px">
+        <Flex 
+          mt="50px" 
+          direction="column" 
+          h="600px" 
+          w="full"
+          style={{ border: "2px solid red" }}
+        >
           <Box w="full" h="300px">
             <BackgroundImage
               radius="md"

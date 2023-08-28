@@ -18,7 +18,7 @@ import Project from './Projects';
 import About from './About';
 import { IconChevronsDown, IconChevronDown } from '@tabler/icons-react';
 import { Element } from 'react-scroll';
-
+import { isMobile } from 'react-device-detect';
 
 const useStyles = createStyles((theme) => ({
   mainPageBox: {
@@ -65,7 +65,7 @@ const useStyles = createStyles((theme) => ({
     top: '90%',
     transform: 'translate(-50%, -90%)',
     animation: 'bounce 1s infinite',
-  }
+  },
 }));
 
 const MainPage = () => {
@@ -85,8 +85,8 @@ const MainPage = () => {
     } else if (window.innerWidth >= 922) {
       setCameraPosition(9);
       // Checking if sm 48em
-    // } else if (window.innerWidth >= 768) {
-    //   setCameraPosition(8);
+      // } else if (window.innerWidth >= 768) {
+      //   setCameraPosition(8);
       // Then has to be xs 36em
     } else {
       setCameraPosition(11);
@@ -122,7 +122,12 @@ const MainPage = () => {
           }}
         >
           <IconChevronsDown size="2rem" className={classes.scrollDownIcon} />
-          <Text fw="300" w="100%" align='center' className={classes.welcomeText}>
+          <Text
+            fw="300"
+            w="100%"
+            align="center"
+            className={classes.welcomeText}
+          >
             Welcome, I'm Yu Cheng Li
           </Text>
           <Box className={classes.mainPageCanvas}>
@@ -137,57 +142,105 @@ const MainPage = () => {
             </Canvas>
           </Box>
         </Box>
-      </ Element>
-
-      <Element name="about">
-        <Flex
-          w={{ xl: "1700px", lg:"1100px", md: "970px", sm: "500px" }}
-          mx="auto"
-          mt="200px"
-          justify={{ xl: "left", lg: "left", md:"left", sm: "center" }}
-          // justify="center"
-          align="center"
-          style={{ borderTop: '1px solid grey' }}
-        >
-          <Text
-            fz="xl"
-            fw="300"
-            style={{
-              fontColor: 'white',
-              fontSize: '3rem',
-              zIndex: 1, 
-            }}
-          >
-            About
-          </Text>
-        </Flex>
       </Element>
+
+      {!isMobile ? (
+        <Element name="about">
+          <Flex
+            w={{ xl: '1700px', lg: '1100px', md: '970px'}}
+            mx="auto"
+            mt="200px"
+            justify="left"
+            align="center"
+            style={{ borderTop: '1px solid grey' }}
+          >
+            <Text
+              fz="xl"
+              fw="300"
+              style={{
+                fontColor: 'white',
+                fontSize: '3rem',
+                zIndex: 1,
+              }}
+            >
+              About
+            </Text>
+          </Flex>
+        </Element>
+      ) : (
+        <Element name="about">
+          <Flex
+            w='100%'
+            mx="auto"
+            mt="200px"
+            justify="center"
+            align="center"
+            style={{ borderTop: '1px solid grey' }}
+          >
+            <Text
+              fz="xl"
+              fw="300"
+              style={{
+                fontColor: 'white',
+                fontSize: '3rem',
+                zIndex: 1,
+              }}
+            >
+              About
+            </Text>
+          </Flex>
+        </Element>
+      )}
 
       <About />
 
-      <Element name="project">
-        <Flex
-          w={{ xl: "1700px", lg:"1100px", md: "970px", sm: "500px" }}
-          mx="auto"
-          mt="200px"
-          justify={{ xl: "left", lg: "left", md:"left", sm: "center" }}
-          align="center"
-          style={{ borderTop: '1px solid grey' }}
-        >
-          <Text
-            fz="xl"
-            fw="300"
-            style={{
-              fontColor: 'white',
-              fontSize: '3rem',
-              zIndex: 1, // Ensure the text is on top of the lines
-            }}
+      {!isMobile ? (
+        <Element name="project">
+          <Flex
+            w={{ xl: '1700px', lg: '1100px', md: '970px', sm: '500px' }}
+            mx="auto"
+            mt="200px"
+            justify="left"
+            align="center"
+            style={{ borderTop: '1px solid grey' }}
           >
-            Project
-          </Text>
-        </Flex>
-      </Element>
-
+            <Text
+              fz="xl"
+              fw="300"
+              style={{
+                fontColor: 'white',
+                fontSize: '3rem',
+                zIndex: 1, // Ensure the text is on top of the lines
+              }}
+            >
+              Project
+            </Text>
+          </Flex>
+        </Element>
+      ) : (
+        <Element name="project">
+          <Flex
+            w={{ xl: '1700px', lg: '1100px', md: '970px', sm: '500px' }}
+            mx="auto"
+            mt="50px"
+            justify="center"
+            align="center"
+            style={{ borderTop: '1px solid grey' }}
+          >
+            <Text
+              fz="xl"
+              fw="300"
+              style={{
+                fontColor: 'white',
+                fontSize: '3rem',
+                zIndex: 1, // Ensure the text is on top of the lines
+              }}
+            >
+              Project
+            </Text>
+          </Flex>
+        </Element>
+      )}
       <Project />
     </Box>
   );
