@@ -10,11 +10,16 @@ import {
   useMantineColorScheme,
   ActionIcon,
   createStyles,
+  Box,
 } from '@mantine/core';
-import { IconSun, IconMoon } from '@tabler/icons-react';
+import {
+  IconSun,
+  IconMoon,
+  IconBaselineDensityMedium,
+} from '@tabler/icons-react';
 import { Document, Page } from 'react-pdf';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
-// import resume from '../resume/ychengli_2023winter_resume.pdf';
+import { isMobile } from 'react-device-detect';
 
 const useStyles = createStyles((theme) => ({
   navBar: {
@@ -55,6 +60,11 @@ const useStyles = createStyles((theme) => ({
     color: theme.colorScheme === 'dark' ? 'white' : 'black',
     fontSize: '2rem',
   },
+  optionIcon: {
+    fontSize: '2rem',
+    margin: 'auto 0',
+    color: 'white',
+  },
 }));
 
 const NavBar = () => {
@@ -83,77 +93,117 @@ const NavBar = () => {
 
   return (
     <>
-      <Flex
-        pt="10px"
-        h="70px"
-        w="100%"
-        direction="row"
-        justify="space-between"
-        className={classes.navBar}
-        style={{
-          opacity: '0.95',
-          zIndex: '2',
-          position: 'sticky',
-          top: '0',
-          margin: '0 auto',
-        }}
-      >
-        <Container ml="10px" mr="0">
-          <Link
-            to="./"
-            onClick={(event) => {
-              setActiveLink(0);
+      {isMobile ? (
+        <Flex
+          // px="5px"
+          pt="10px"
+          px="20px"
+          h="60px"
+          w="100%"
+          direction="row"
+          justify="space-between"
+          className={classes.navBar}
+          style={{
+            opacity: '0.95',
+            zIndex: '2',
+            position: 'sticky',
+            top: '0',
+            margin: '0 auto',
+            // border: '2px solid red',
+          }}
+        >
+          <Box
+            h="100%"
+            style={{
+              // border: '2px solid blue',
             }}
-            className={classes.logoButton}
           >
-            YCL
-          </Link>
-        </Container>
-        <Container mx="0" mt="15px">
-          <Flex gap="xl">
-            <ScrollLink
-              to="main"
-              smooth={true}
-              duration={500}
-              className={classes.linkButton}
-            >
-              Home
-            </ScrollLink>
-            <ScrollLink
-              to="about"
-              smooth={true}
-              duration={500}
-              className={classes.linkButton}
-            >
-              About
-            </ScrollLink>
-            <ScrollLink
-              to="project"
-              smooth={true}
-              duration={500}
-              className={classes.linkButton}
-            >
-              Project
-            </ScrollLink>
-            <Link className={classes.linkButton} onClick={openPDF}>
-              Resume
-            </Link>
-            <ActionIcon
-              size="2.2rem"
-              variant="outline"
-              color={dark ? 'yellow' : 'blue'}
-              onClick={() => {
-                toggleColorScheme();
-                setChanged(true);
+            <Link
+              to="./"
+              onClick={(event) => {
+                setActiveLink(0);
               }}
-              title="Toggle color scheme"
-              // className={classes.colorModeButton}
+              className={classes.logoButton}
             >
-              {dark ? <IconSun size="2rem" /> : <IconMoon size="2rem" />}
-            </ActionIcon>
-          </Flex>
-        </Container>
-      </Flex>
+              YCL
+            </Link>
+          </Box>
+          <IconBaselineDensityMedium size="2rem" className={classes.optionIcon} />
+        </Flex>
+      ) : (
+        <Flex
+          px="10px"
+          pt="10px"
+          h="70px"
+          w="100%"
+          direction="row"
+          justify="space-between"
+          className={classes.navBar}
+          style={{
+            opacity: '0.95',
+            zIndex: '2',
+            position: 'sticky',
+            top: '0',
+            margin: '0 auto',
+          }}
+        >
+          <Container ml="10px" mr="0">
+            <Link
+              to="./"
+              onClick={(event) => {
+                setActiveLink(0);
+              }}
+              className={classes.logoButton}
+            >
+              YCL
+            </Link>
+          </Container>
+          <Container mx="0" mt="15px">
+            <Flex gap="xl">
+              <ScrollLink
+                to="main"
+                smooth={true}
+                duration={500}
+                className={classes.linkButton}
+              >
+                Home
+              </ScrollLink>
+              <ScrollLink
+                to="about"
+                smooth={true}
+                duration={500}
+                className={classes.linkButton}
+              >
+                About
+              </ScrollLink>
+              <ScrollLink
+                to="project"
+                smooth={true}
+                duration={500}
+                className={classes.linkButton}
+              >
+                Project
+              </ScrollLink>
+              <Link className={classes.linkButton} onClick={openPDF}>
+                Resume
+              </Link>
+              <ActionIcon
+                size="2.2rem"
+                variant="outline"
+                color={dark ? 'yellow' : 'blue'}
+                onClick={() => {
+                  toggleColorScheme();
+                  setChanged(true);
+                }}
+                title="Toggle color scheme"
+                // className={classes.colorModeButton}
+              >
+                {dark ? <IconSun size="2rem" /> : <IconMoon size="2rem" />}
+              </ActionIcon>
+            </Flex>
+          </Container>
+        </Flex>
+      )}
     </>
   );
 };

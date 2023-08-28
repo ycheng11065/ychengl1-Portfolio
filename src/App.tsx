@@ -60,7 +60,7 @@ function App() {
             }}
           >
             <BrowserRouter 
-              basename="/ychengl1-Portfolio"
+              // basename="/ychengl1-Portfolio"
             >
               <NavBar />
               {/* <MainPage /> */}

@@ -7,6 +7,7 @@ import resumeBuilder_img from '../images/resume_builder.png';
 import naviBot_img from '../images/naviBot.png';
 import subletter_img from '../images/subletter.png';
 import spotify_img from '../images/spotify.png';
+import { isMobile } from 'react-device-detect';
 
 import {
   Text,
@@ -50,8 +51,7 @@ const useStyles = createStyles((theme) => ({
       theme.colorScheme === 'dark'
         ? 'linear-gradient(to bottom right, #7C44FF, #101113, #101113, #101113, #B12BFF)'
         : 'linear-gradient(to bottom right, #23A3FF, #F1F3F5, #F1F3F5, #F1F3F5, #6782FF)',
-        // : 'linear-gradient(to bottom right, #B12BFF, #E9ECEF, #E9ECEF,  #E9ECEF, #7C44FF)',
-
+    // : 'linear-gradient(to bottom right, #B12BFF, #E9ECEF, #E9ECEF,  #E9ECEF, #7C44FF)',
   },
   projectTitle: {
     color: theme.colorScheme === 'dark' ? 'white' : 'black',
@@ -182,98 +182,102 @@ const Projects = () => {
 
   return (
     <>
-      <Flex py="40px" gap="lg" direction="column" align="center" mt="60px">
-        {projectArray &&
-          projectArray.map((p, index) => (
-            <Card
-              radius="md"
-              key={p.id}
-              w={{ xl: '1300px', lg: '1000px', md: '900px' }}
-              h={{ xl: '300px', lg: '285px', md: '310px' }}
-              className={classes.projectCard}
-              onClick={(event) => redirect(p.url)}
-            >
-              <Flex
-                h="100%"
-                gap={{ xl: '20px', lg: '10px' }}
-                justify="space-between"
-                style={
-                  {
-                    // border: "1px solid green"
-                  }
-                }
+      {isMobile ? (
+        <Flex> </Flex>
+      ) : (
+        <Flex py="40px" gap="lg" direction="column" align="center" mt="60px">
+          {projectArray &&
+            projectArray.map((p, index) => (
+              <Card
+                radius="md"
+                key={p.id}
+                w={{ xl: '1300px', lg: '1000px', md: '900px' }}
+                h={{ xl: '300px', lg: '285px', md: '310px' }}
+                className={classes.projectCard}
+                onClick={(event) => redirect(p.url)}
               >
                 <Flex
-                  direction="column"
-                  w="70%"
                   h="100%"
-                  mr= {{ md: '10px'}}
+                  gap={{ xl: '20px', lg: '10px' }}
+                  justify="space-between"
                   style={
                     {
-                      // border:"1px solid yellow",
+                      // border: "1px solid green"
                     }
                   }
                 >
-                  <Flex justify="space-between" pr="20px">
-                    <Text className={classes.projectTitle}>{p.name}</Text>
-                    <Group mt="md" mb="xs">
-                      <Badge color="blue" variant="outline">
-                        {p.category}
-                      </Badge>
-                    </Group>
-                  </Flex>
                   <Flex
-                    h="100%"
-                    pr="10px"
                     direction="column"
-                    className={classes.projectTextBox}
+                    w="70%"
+                    h="100%"
+                    mr={{ md: '10px' }}
+                    style={
+                      {
+                        // border:"1px solid yellow",
+                      }
+                    }
                   >
-                    <Text fz={{ xl: 'lg', lg: 'md' }}>{p.date}</Text>
-                    <Text mt="15px" fz={{ xl: 'lg', lg: 'md' }}>
-                      {p.description}
-                    </Text>
+                    <Flex justify="space-between" pr="20px">
+                      <Text className={classes.projectTitle}>{p.name}</Text>
+                      <Group mt="md" mb="xs">
+                        <Badge color="blue" variant="outline">
+                          {p.category}
+                        </Badge>
+                      </Group>
+                    </Flex>
                     <Flex
-                      mt="55px"
-                      gap="sm"
-                      style={{ position: 'absolute', bottom: '0' }}
+                      h="100%"
+                      pr="10px"
+                      direction="column"
+                      className={classes.projectTextBox}
                     >
-                      {p.tech &&
-                        p.tech.map((t) =>
-                          colorScheme === 'dark' ? (
-                            <Badge key={t.id} color={t.color} variant="light">
-                              {t.name}
-                            </Badge>
-                          ) : (
-                            <Badge key={t.id} color={t.color} variant="light" >
-                              {t.name}
-                            </Badge>
-                          )
-                        )}
+                      <Text fz={{ xl: 'lg', lg: 'md' }}>{p.date}</Text>
+                      <Text mt="15px" fz={{ xl: 'lg', lg: 'md' }}>
+                        {p.description}
+                      </Text>
+                      <Flex
+                        mt="55px"
+                        gap="sm"
+                        style={{ position: 'absolute', bottom: '0' }}
+                      >
+                        {p.tech &&
+                          p.tech.map((t) =>
+                            colorScheme === 'dark' ? (
+                              <Badge key={t.id} color={t.color} variant="light">
+                                {t.name}
+                              </Badge>
+                            ) : (
+                              <Badge key={t.id} color={t.color} variant="light">
+                                {t.name}
+                              </Badge>
+                            )
+                          )}
+                      </Flex>
                     </Flex>
                   </Flex>
-                </Flex>
-                <Box
-                  my="auto"
-                  w={{ lx: '550px', lg: '500px', md: '400px' }}
-                  h={{ xl: '270px', lg: '255px', md: '280px' }}
-                  style={{
-                    borderRadius: '10px',
-                  }}
-                >
-                  <BackgroundImage
+                  <Box
+                    my="auto"
+                    w={{ lx: '550px', lg: '500px', md: '400px' }}
+                    h={{ xl: '270px', lg: '255px', md: '280px' }}
                     style={{
-                      width: '100%',
-                      height: '100%',
-                      border: '1px solid grey',
+                      borderRadius: '10px',
                     }}
-                    radius="md"
-                    src={p.image}
-                  />
-                </Box>
-              </Flex>
-            </Card>
-          ))}
-      </Flex>
+                  >
+                    <BackgroundImage
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        border: '1px solid grey',
+                      }}
+                      radius="md"
+                      src={p.image}
+                    />
+                  </Box>
+                </Flex>
+              </Card>
+            ))}
+        </Flex>
+      )}
     </>
   );
 };
