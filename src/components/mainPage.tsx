@@ -52,6 +52,11 @@ const useStyles = createStyles((theme) => ({
     [theme.fn.smallerThan('lg')]: {
       fontSize: '2.8rem',
     },
+    [theme.fn.smallerThan('md')]: {
+      fontSize: '2.2rem',
+      top: '45%',
+      transform: 'translate(-50%, -45%)',
+    },
   },
   scrollDownIcon: {
     zIndex: '1',
@@ -66,11 +71,10 @@ const useStyles = createStyles((theme) => ({
 const MainPage = () => {
   const [cameraPosition, setCameraPosition] = useState(8);
   const { classes } = useStyles();
-  const resizeTimeoutRef = useRef(null);
-  // const gltf = useLoader(GLTFLoader, 'model/low_poly_praying_temple.glb');
 
   const checkScreenSize = () => {
-    console.log('resizing');
+    // console.log('resizing');
+
     // Checking if xl 88em
     if (window.innerWidth >= 1408) {
       setCameraPosition(9);
@@ -81,11 +85,11 @@ const MainPage = () => {
     } else if (window.innerWidth >= 922) {
       setCameraPosition(9);
       // Checking if sm 48em
-    } else if (window.innerWidth >= 768) {
-      setCameraPosition(8);
+    // } else if (window.innerWidth >= 768) {
+    //   setCameraPosition(8);
       // Then has to be xs 36em
     } else {
-      setCameraPosition(15);
+      setCameraPosition(11);
       console.log(window.innerWidth);
     }
   };
@@ -137,10 +141,11 @@ const MainPage = () => {
 
       <Element name="about">
         <Flex
-          w={{ xl: "1700px", lg:"1100px", md: "970px" }}
+          w={{ xl: "1700px", lg:"1100px", md: "970px", sm: "500px" }}
           mx="auto"
           mt="200px"
-          justify="left"
+          justify={{ xl: "left", lg: "left", md:"left", sm: "center" }}
+          // justify="center"
           align="center"
           style={{ borderTop: '1px solid grey' }}
         >
@@ -162,10 +167,10 @@ const MainPage = () => {
 
       <Element name="project">
         <Flex
-          w={{ xl: "1700px", lg:"1100px", md: "970px" }}
+          w={{ xl: "1700px", lg:"1100px", md: "970px", sm: "500px" }}
           mx="auto"
           mt="200px"
-          justify="left"
+          justify={{ xl: "left", lg: "left", md:"left", sm: "center" }}
           align="center"
           style={{ borderTop: '1px solid grey' }}
         >
