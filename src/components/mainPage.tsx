@@ -75,17 +75,17 @@ const MainPage = () => {
     if (window.innerWidth >= 1408) {
       setCameraPosition(9);
       // Checking if lg 75em
-    } else if (window.innerwidth >= 1200) {
+    } else if (window.innerWidth >= 1200) {
       setCameraPosition(8);
       // Checking if md 62em
-    } else if (window.innerwidth >= 922) {
-      setCameraPosition(12);
+    } else if (window.innerWidth >= 922) {
+      setCameraPosition(9);
       // Checking if sm 48em
-    } else if (window.innerwidth >= 768) {
+    } else if (window.innerWidth >= 768) {
       setCameraPosition(8);
       // Then has to be xs 36em
     } else {
-      setCameraPosition(9);
+      setCameraPosition(15);
       console.log(window.innerWidth);
     }
   };
