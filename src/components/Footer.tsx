@@ -39,14 +39,12 @@ const useStyles = createStyles((theme) => ({
 
 const Footer = () => {
   const { classes } = useStyles();
-  const location = useLocation();
-  const isMainPage = location.pathname !== '/';
 
   return (
     <>
       <Flex align="center" direction="column" className={classes.footer}>
         <Box
-          w={{ xl: '1700px', lg: '1100px' }}
+          w={{ xl: '1700px', lg: '1100px', md: '970px' }}
           h="50px"
           className={classes.footerBorder}
         >

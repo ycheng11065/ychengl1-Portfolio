@@ -188,9 +188,8 @@ const Projects = () => {
             <Card
               radius="md"
               key={p.id}
-              // maw="1000px"
-              w={{ xl: '1300px', lg: '1000px' }}
-              h={{ xl: '300px', lg: '285px' }}
+              w={{ xl: '1300px', lg: '1000px', md: '900px' }}
+              h={{ xl: '300px', lg: '285px', md: '310px' }}
               className={classes.projectCard}
               onClick={(event) => redirect(p.url)}
             >
@@ -208,6 +207,7 @@ const Projects = () => {
                   direction="column"
                   w="70%"
                   h="100%"
+                  mr= {{ md: '10px'}}
                   style={
                     {
                       // border:"1px solid yellow",
@@ -254,8 +254,8 @@ const Projects = () => {
                 </Flex>
                 <Box
                   my="auto"
-                  w={{ lx: '550px', lg: '500px' }}
-                  h={{ xl: '270px', lg: '255px' }}
+                  w={{ lx: '550px', lg: '500px', md: '400px' }}
+                  h={{ xl: '270px', lg: '255px', md: '280px' }}
                   style={{
                     borderRadius: '10px',
                   }}
