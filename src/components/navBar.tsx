@@ -122,6 +122,7 @@ const NavBar = () => {
             smooth={true}
             duration={500}
             className={classes.linkButton}
+            onClick={close}
           >
             Home
           </ScrollLink>
@@ -130,6 +131,7 @@ const NavBar = () => {
             smooth={true}
             duration={500}
             className={classes.linkButton}
+            onClick={close}
           >
             About
           </ScrollLink>
@@ -138,30 +140,35 @@ const NavBar = () => {
             smooth={true}
             duration={500}
             className={classes.linkButton}
+            onClick={close}
           >
             Project
           </ScrollLink>
-          <Link className={classes.linkButton} onClick={openPDF}>
+          <Link
+            className={classes.linkButton}
+            onClick={() => {
+              openPDF();
+              close();
+            }}
+          >
             Resume
           </Link>
-          {/* <ActionIcon
-            size="2.2rem"
-            variant="outline"
-            color={dark ? 'yellow' : 'blue'}
+          <Link
+            smooth={true}
+            duration={500}
+            className={classes.linkButton}
             onClick={() => {
               toggleColorScheme();
               setChanged(true);
+              close();
             }}
-            title="Toggle color scheme"
-            // className={classes.colorModeButton}
           >
-            {dark ? <IconSun size="2rem" /> : <IconMoon size="2rem" />}
-          </ActionIcon> */}
+            {dark ? 'Light' : 'Dark'}
+          </Link>
         </Flex>
       </Modal>
       {isMobile ? (
         <Flex
-          // px="5px"
           pt="10px"
           px="20px"
           h="60px"
@@ -200,6 +207,7 @@ const NavBar = () => {
             size="2rem"
             onClick={open}
             className={classes.optionIcon}
+            color={dark ? "white" : "black" }
           />
         </Flex>
       ) : (
