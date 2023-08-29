@@ -187,7 +187,7 @@ const Projects = () => {
               <Card
                 radius="md"
                 key={p.id}
-                h="650px"
+                h="680px"
                 className={classes.projectCard}
                 onClick={(event) => redirect(p.url)}
               >
