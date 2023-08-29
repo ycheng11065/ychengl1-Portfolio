@@ -3,22 +3,25 @@ import { useState, useContext } from 'react';
 import { ModeContext } from '../App';
 import { Link } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
+import { useDisclosure } from '@mantine/hooks';
 import {
   Flex,
   Container,
-  Button,
   useMantineColorScheme,
   ActionIcon,
   createStyles,
   Box,
+  Modal,
 } from '@mantine/core';
 import {
   IconSun,
   IconMoon,
   IconBaselineDensityMedium,
 } from '@tabler/icons-react';
-import { Document, Page } from 'react-pdf';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
+
 import { isMobile } from 'react-device-detect';
 
 const useStyles = createStyles((theme) => ({
@@ -42,6 +45,10 @@ const useStyles = createStyles((theme) => ({
     '&:hover': {
       color: theme.colorScheme === 'dark' ? theme.white : theme.black,
       textDecoration: 'none',
+    },
+
+    [theme.fn.smallerThan('md')]: {
+      fontSize: '4rem',
     },
   },
   linkActive: {
@@ -68,10 +75,10 @@ const useStyles = createStyles((theme) => ({
 }));
 
 const NavBar = () => {
+  const [opened, { open, close }] = useDisclosure(false);
   const { changed, setChanged } = useContext(ModeContext);
   const { classes } = useStyles();
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
-  const [activeLinkIndex, setActiveLink] = useState<number>(0);
   const dark = colorScheme === 'dark';
 
   const openPDF = () => {
@@ -93,6 +100,65 @@ const NavBar = () => {
 
   return (
     <>
+      <Modal
+        fullScreen="true"
+        opened={opened}
+        onClose={close}
+        withCloseButton={false}
+      >
+        <Flex direction="column" gap="xl">
+          <FontAwesomeIcon
+            icon={faXmark}
+            onClick={close}
+            style={{
+              fontSize: '3rem',
+              position: 'absolute',
+              top: '10px',
+              right: '15px',
+            }}
+          />
+          <ScrollLink
+            to="main"
+            smooth={true}
+            duration={500}
+            className={classes.linkButton}
+          >
+            Home
+          </ScrollLink>
+          <ScrollLink
+            to="about"
+            smooth={true}
+            duration={500}
+            className={classes.linkButton}
+          >
+            About
+          </ScrollLink>
+          <ScrollLink
+            to="project"
+            smooth={true}
+            duration={500}
+            className={classes.linkButton}
+          >
+            Project
+          </ScrollLink>
+          <Link className={classes.linkButton} onClick={openPDF}>
+            Resume
+          </Link>
+          {/* <ActionIcon
+            size="2.2rem"
+            variant="outline"
+            color={dark ? 'yellow' : 'blue'}
+            onClick={() => {
+              toggleColorScheme();
+              setChanged(true);
+            }}
+            title="Toggle color scheme"
+            // className={classes.colorModeButton}
+          >
+            {dark ? <IconSun size="2rem" /> : <IconMoon size="2rem" />}
+          </ActionIcon> */}
+        </Flex>
+      </Modal>
       {isMobile ? (
         <Flex
           // px="5px"
@@ -114,9 +180,11 @@ const NavBar = () => {
         >
           <Box
             h="100%"
-            style={{
-              // border: '2px solid blue',
-            }}
+            style={
+              {
+                // border: '2px solid blue',
+              }
+            }
           >
             <Link
               to="./"
@@ -128,7 +196,11 @@ const NavBar = () => {
               YCL
             </Link>
           </Box>
-          <IconBaselineDensityMedium size="2rem" className={classes.optionIcon} />
+          <IconBaselineDensityMedium
+            size="2rem"
+            onClick={open}
+            className={classes.optionIcon}
+          />
         </Flex>
       ) : (
         <Flex

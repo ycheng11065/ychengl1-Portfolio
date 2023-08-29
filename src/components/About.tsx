@@ -55,8 +55,8 @@ const useStyles = createStyles((theme) => ({
     cursor: 'pointer',
 
     [theme.fn.smallerThan('md')]: {
-      fontSize: '12px',
-      padding: '5px 15px',
+      fontSize: '1rem',
+      padding: '10px 20px',
     },
   },
 }));
@@ -162,7 +162,7 @@ const About = () => {
         <Flex 
           mt="50px" 
           direction="column" 
-          h="600px" 
+          h="100%" 
           w="full"
           // style={{ border: "2px solid red" }}
         >

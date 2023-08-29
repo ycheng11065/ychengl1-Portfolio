@@ -1,22 +1,16 @@
 // @ts-nocheck
 import {
   useState,
-  useRef,
-  useMemo,
-  Suspense,
-  useContext,
   useEffect,
-  forwardRef,
 } from 'react';
 import * as THREE from 'three';
-import { useLoader } from '@react-three/fiber';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Text, Box, Flex, createStyles } from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
+import { Text, Box, Flex, createStyles, Modal } from '@mantine/core';
 import Blob from './Blob';
-import { ModeContext } from '../App';
 import Project from './Projects';
 import About from './About';
-import { IconChevronsDown, IconChevronDown } from '@tabler/icons-react';
+import { IconChevronsDown } from '@tabler/icons-react';
 import { Element } from 'react-scroll';
 import { isMobile } from 'react-device-detect';
 
@@ -69,6 +63,7 @@ const useStyles = createStyles((theme) => ({
 }));
 
 const MainPage = () => {
+  const [opened, { open, close }] = useDisclosure(false);
   const [cameraPosition, setCameraPosition] = useState(8);
   const { classes } = useStyles();
 
@@ -210,7 +205,7 @@ const MainPage = () => {
               style={{
                 fontColor: 'white',
                 fontSize: '3rem',
-                zIndex: 1, // Ensure the text is on top of the lines
+                zIndex: 1,
               }}
             >
               Project
@@ -220,9 +215,9 @@ const MainPage = () => {
       ) : (
         <Element name="project">
           <Flex
-            w={{ xl: '1700px', lg: '1100px', md: '970px', sm: '500px' }}
+            w="100%"
             mx="auto"
-            mt="50px"
+            mt="100px"
             justify="center"
             align="center"
             style={{ borderTop: '1px solid grey' }}
@@ -233,7 +228,7 @@ const MainPage = () => {
               style={{
                 fontColor: 'white',
                 fontSize: '3rem',
-                zIndex: 1, // Ensure the text is on top of the lines
+                zIndex: 1, 
               }}
             >
               Project
