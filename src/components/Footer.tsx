@@ -47,10 +47,10 @@ const Footer = () => {
         <Flex mt="50px">
           <Box w="100%" h="50px" className={classes.footerBorder}>
             <Flex direction="column" mt="10px" align="center">
-              <Text mt="4px" fz="xl">
+              <Text mt="5px" fz="xl">
                 Get in touch with me.
               </Text>
-              <Group spacing="80px">
+              <Group mt="10px" spacing="80px">
                 <Anchor
                   href="https://www.linkedin.com/in/ychengl1/"
                   color="inherit"
