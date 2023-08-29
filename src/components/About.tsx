@@ -164,7 +164,7 @@ const About = () => {
           direction="column" 
           h="600px" 
           w="full"
-          style={{ border: "2px solid red" }}
+          // style={{ border: "2px solid red" }}
         >
           <Box w="full" h="300px">
             <BackgroundImage
@@ -187,7 +187,7 @@ const About = () => {
             </Text>
             <Text className={classes.textDescription}>
               When I'm not buried in assignments, you'll find me exploring the
-              realm of software and languages. There's nothing more furfilling
+              realm of software and languages. There's nothing more fulfilling
               to me than translating newfound skills into innovative and
               practical projects.
             </Text>

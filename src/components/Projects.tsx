@@ -8,7 +8,6 @@ import naviBot_img from '../images/naviBot.png';
 import subletter_img from '../images/subletter.png';
 import spotify_img from '../images/spotify.png';
 import { isMobile } from 'react-device-detect';
-
 import {
   Text,
   Flex,
@@ -21,7 +20,6 @@ import {
   createStyles,
 } from '@mantine/core';
 import { useId } from '@mantine/hooks';
-import { useNavigate } from 'react-router-dom';
 
 interface tool {
   name: string;
@@ -183,7 +181,97 @@ const Projects = () => {
   return (
     <>
       {isMobile ? (
-        <Flex> </Flex>
+        <Flex mt="50px" h="100%" direction="column" gap="20px">
+          {projectArray &&
+            projectArray.map((p, index) => (
+              <Card
+                radius="md"
+                key={p.id}
+                h="650px"
+                className={classes.projectCard}
+                onClick={(event) => redirect(p.url)}
+              >
+                <Flex
+                  direction="column"
+                  h="100%"
+                  style={
+                    {
+                      // border: "1px solid green"
+                    }
+                  }
+                >
+                  <Box
+                    my="auto"
+                    w="100%"
+                    h="280px"
+                    style={{
+                      borderRadius: '10px',
+                    }}
+                  >
+                    <BackgroundImage
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        border: '1px solid grey',
+                      }}
+                      radius="md"
+                      src={p.image}
+                    />
+                  </Box>
+                  <Flex
+                    direction="column"
+                    w="100%"
+                    h="70%"
+                    mr={{ md: '10px' }}
+                    style={
+                      {
+                        // border:"1px solid yellow",
+                      }
+                    }
+                  >
+                    <Flex justify="space-between" >
+                      <Text className={classes.projectTitle}>{p.name}</Text>
+                      <Group mt="md" mb="xs" mr="0">
+                        <Badge color="blue" variant="outline">
+                          {p.category}
+                        </Badge>
+                      </Group>
+                    </Flex>
+                    <Flex
+                      h="100%"
+                      pr="10px"
+                      direction="column"
+                      className={classes.projectTextBox}
+                    >
+                      <Text fz={{ xl: 'lg', lg: 'md' }}>{p.date}</Text>
+                      <Text mt="15px" fz={{ xl: 'lg', lg: 'md' }}>
+                        {p.description}
+                      </Text>
+                      <Flex
+                        w="100%"
+                        mt="55px"
+                        gap="sm"
+                        style={{ position: 'absolute', bottom: '0', flexWrap: 'wrap' }}
+                      >
+                        {p.tech &&
+                          p.tech.map((t) =>
+                            colorScheme === 'dark' ? (
+                              <Badge key={t.id} color={t.color} variant="light">
+                                {t.name}
+                              </Badge>
+                            ) : (
+                              <Badge key={t.id} color={t.color} variant="light">
+                                {t.name}
+                              </Badge>
+                            )
+                          )}
+                      </Flex>
+                    </Flex>
+                  </Flex>
+                </Flex>
+              </Card>
+            ))}
+        </Flex>
       ) : (
         <Flex py="40px" gap="lg" direction="column" align="center" mt="60px">
           {projectArray &&
