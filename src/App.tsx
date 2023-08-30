@@ -49,10 +49,10 @@ function App() {
           // basename="/ychengl1-Portfolio"
           >
             <NavBar />
-            {/* <MainPage /> */}
-            <Routes>
+            <MainPage />
+            {/* <Routes>
               <Route path="/" element={<MainPage />} />
-            </Routes>
+            </Routes> */}
             <Footer />
           </BrowserRouter>
         </MantineProvider>

@@ -46,13 +46,31 @@ const useStyles = createStyles((theme) => ({
       color: theme.colorScheme === 'dark' ? theme.white : theme.black,
       textDecoration: 'none',
     },
+  },
+  linkButtonMobile: {
+    fontSize: '2rem',
+    cursor: 'pointer',
+    textTransform: 'uppercase',
+    color:
+      theme.colorScheme === 'dark'
+        ? theme.colors.dark[1]
+        : theme.colors.gray[6],
+    padding: '5px',
+    borderBottom: `2px solid transparent`,
+    transition: 'border-color 100ms ease, color 100ms ease',
+    textDecoration: 'none',
 
-    [theme.fn.smallerThan('md')]: {
-      fontSize: '3.5rem',
+    '&:hover': {
+      color: theme.colorScheme === 'dark' ? theme.white : theme.black,
+      textDecoration: 'none',
     },
-    [theme.fn.smallerThan('sm')]: {
-      fontSize: '2rem',
-    },
+
+    // [theme.fn.smallerThan('md')]: {
+    //   fontSize: '2rem',
+    // },
+    // [theme.fn.smallerThan('sm')]: {
+    //   fontSize: '2rem',
+    // },
   },
   linkActive: {
     color: theme.colorScheme === 'dark' ? theme.white : theme.black,
@@ -84,7 +102,7 @@ const NavBar = () => {
   const dark = colorScheme === 'dark';
 
   const openPDF = () => {
-    const pdfPath = require('../resume/ychengli_2023winter_resume.pdf');
+    const pdfPath = '/image/resume/ychengli_2023winter_resume.pdf';
     fetch(pdfPath)
       .then((response) => response.blob())
       .then((blob) => {
@@ -101,7 +119,7 @@ const NavBar = () => {
         onClose={close}
         withCloseButton={false}
       >
-        <Flex direction="column" gap="xl">
+        <Flex mt="40px" direction="column" gap="xl">
           <FontAwesomeIcon
             icon={faXmark}
             onClick={close}
@@ -116,7 +134,7 @@ const NavBar = () => {
             to="main"
             smooth={true}
             duration={500}
-            className={classes.linkButton}
+            className={classes.linkButtonMobile}
             onClick={close}
           >
             Home
@@ -125,7 +143,7 @@ const NavBar = () => {
             to="about"
             smooth={true}
             duration={500}
-            className={classes.linkButton}
+            className={classes.linkButtonMobile}
             onClick={close}
           >
             About
@@ -134,32 +152,34 @@ const NavBar = () => {
             to="project"
             smooth={true}
             duration={500}
-            className={classes.linkButton}
+            className={classes.linkButtonMobile}
             onClick={close}
           >
             Project
           </ScrollLink>
           <Link
-            className={classes.linkButton}
+            className={classes.linkButtonMobile}
             onClick={() => {
               openPDF();
               close();
             }}
+            style={{ outline: 'none' }}
           >
             Resume
           </Link>
           <Link
             smooth={true}
             duration={500}
-            className={classes.linkButton}
+            className={classes.linkButtonMobile}
             onClick={() => {
               toggleColorScheme();
-              // setChanged(true);
               close();
             }}
+            style={{ outline: 'none' }}
           >
             {dark ? 'Light' : 'Dark'}
           </Link>
+          
         </Flex>
       </Modal>
       {isMobile ? (
