@@ -3,66 +3,15 @@ import { useState, useEffect } from 'react';
 import * as THREE from 'three';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useDisclosure } from '@mantine/hooks';
-import { Text, Box, Flex, createStyles, em } from '@mantine/core';
+import { Text, Box, Flex, createStyles } from '@mantine/core';
 import Blob from './Blob';
 import Project from './Projects';
 import About from './About';
 import { IconChevronsDown } from '@tabler/icons-react';
 import { Element } from 'react-scroll';
 import { isMobile } from 'react-device-detect';
+import { useStyles } from '../style/MainPageStyles';
 
-const useStyles = createStyles((theme) => ({
-  mainPageBox: {
-    color: theme.colorScheme === 'dark' ? 'white' : 'black',
-    backgroundColor: theme.colorScheme === 'dark' ? 'black' : 'white',
-  },
-  mainPageCanvas: {
-    height: '800px',
-    width: '100%',
-
-    [theme.fn.smallerThan('xl')]: {
-      height: '500px',
-    },
-
-    [theme.fn.smallerThan('lg')]: {
-      height: '600px',
-    },
-  },
-  welcomeText: {
-    fontSize: '3.9rem',
-    position: 'absolute',
-    zIndex: '1',
-    left: '50%',
-    top: '42%',
-    transform: 'translate(-50%, -42%)',
-
-    [theme.fn.smallerThan('xl')]: {
-      fontSize: '2.7rem',
-    },
-
-    [theme.fn.smallerThan('lg')]: {
-      fontSize: '2.8rem',
-    },
-    [theme.fn.smallerThan('md')]: {
-      fontSize: '2.5rem',
-      top: '45%',
-      transform: 'translate(-50%, -45%)',
-    },
-    [theme.fn.smallerThan('sm')]: {
-      fontSize: '2rem',
-      top: '45%',
-      transform: 'translate(-50%, -45%)',
-    },
-  },
-  scrollDownIcon: {
-    zIndex: '1',
-    position: 'absolute',
-    left: '50%',
-    top: '90%',
-    transform: 'translate(-50%, -90%)',
-    animation: 'bounce 1s infinite',
-  },
-}));
 
 const MainPage = () => {
   const [opened, { open, close }] = useDisclosure(false);
@@ -108,7 +57,6 @@ const MainPage = () => {
       mx="0"
       style={{
         width: '100%',
-        // border:"1px solid red"
       }}
       className={classes.mainPageBox}
     >
@@ -143,31 +91,7 @@ const MainPage = () => {
         </Box>
       </Element>
 
-      {!isMobile ? (
-        <Element name="about">
-          <Flex
-            w="90%"
-            mx="auto"
-            mt="200px"
-            justify="left"
-            align="center"
-            style={{ borderTop: '1px solid grey' }}
-          >
-            <Text
-              pl="20px"
-              fz="xl"
-              fw="300"
-              style={{
-                fontColor: 'white',
-                fontSize: '3rem',
-                zIndex: 1,
-              }}
-            >
-              About
-            </Text>
-          </Flex>
-        </Element>
-      ) : (
+      {isMobile ? (
         <Element name="about">
           <Flex
             w="100%"
@@ -190,12 +114,8 @@ const MainPage = () => {
             </Text>
           </Flex>
         </Element>
-      )}
-
-      <About />
-
-      {!isMobile ? (
-        <Element name="project">
+      ) : (
+        <Element name="about">
           <Flex
             w="90%"
             mx="auto"
@@ -214,11 +134,15 @@ const MainPage = () => {
                 zIndex: 1,
               }}
             >
-              Project
+              About
             </Text>
           </Flex>
         </Element>
-      ) : (
+      )}
+
+      <About />
+
+      {isMobile ? (
         <Element name="project">
           <Flex
             w="100%"
@@ -241,13 +165,37 @@ const MainPage = () => {
             </Text>
           </Flex>
         </Element>
+      ) : (
+        <Element name="project">
+          <Flex
+            w="90%"
+            mx="auto"
+            mt="200px"
+            justify="left"
+            align="center"
+            style={{ borderTop: '1px solid grey' }}
+          >
+            <Text
+              pl="20px"
+              fz="xl"
+              fw="300"
+              style={{
+                fontColor: 'white',
+                fontSize: '3rem',
+                zIndex: 1,
+              }}
+            >
+              Project
+            </Text>
+          </Flex>
+        </Element>
       )}
       <Project />
     </Box>
   );
 };
 
-function CameraPos(cameraPosition) {
+const CameraPos = (cameraPosition) => {
   useFrame((state, delta) => {
     const dummy = new THREE.Vector3();
     const step = 0.01;
@@ -258,6 +206,6 @@ function CameraPos(cameraPosition) {
     state.camera.lookAt(0, 0, 0);
     state.camera.updateProjectionMatrix();
   });
-}
+};
 
 export default MainPage;

@@ -1,15 +1,10 @@
-import React, { useState, createContext, useRef } from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import logo from './logo.svg';
-import About from './components/About';
 import NavBar from './components/NavBar';
-import Projects from './components/Projects';
 import Footer from './components/Footer';
 import MainPage from './components/MainPage';
-import Model from './components/Model';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import {
-  AppShell,
   MantineProvider,
   ColorSchemeProvider,
   ColorScheme,
@@ -45,14 +40,9 @@ function App() {
             },
           }}
         >
-          <BrowserRouter
-          // basename="/ychengl1-Portfolio"
-          >
+          <BrowserRouter>
             <NavBar />
             <MainPage />
-            {/* <Routes>
-              <Route path="/" element={<MainPage />} />
-            </Routes> */}
             <Footer />
           </BrowserRouter>
         </MantineProvider>
