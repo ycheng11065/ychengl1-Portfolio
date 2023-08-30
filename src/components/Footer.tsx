@@ -84,7 +84,7 @@ const Footer = () => {
       ) : (
         <Flex align="center" direction="column" className={classes.footer}>
           <Box
-            w={{ xl: '1700px', lg: '1100px', md: '970px' }}
+            w="90%"
             h="50px"
             className={classes.footerBorder}
           >

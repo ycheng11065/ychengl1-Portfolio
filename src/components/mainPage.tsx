@@ -146,7 +146,7 @@ const MainPage = () => {
       {!isMobile ? (
         <Element name="about">
           <Flex
-            w={{ xl: '1700px', lg: '1100px', md: '970px' }}
+            w="90%"
             mx="auto"
             mt="200px"
             justify="left"
@@ -154,6 +154,7 @@ const MainPage = () => {
             style={{ borderTop: '1px solid grey' }}
           >
             <Text
+              pl="20px"
               fz="xl"
               fw="300"
               style={{
@@ -196,7 +197,7 @@ const MainPage = () => {
       {!isMobile ? (
         <Element name="project">
           <Flex
-            w={{ xl: '1700px', lg: '1100px', md: '970px', sm: '500px' }}
+            w="90%"
             mx="auto"
             mt="200px"
             justify="left"
@@ -204,6 +205,7 @@ const MainPage = () => {
             style={{ borderTop: '1px solid grey' }}
           >
             <Text
+              pl="20px"
               fz="xl"
               fw="300"
               style={{
