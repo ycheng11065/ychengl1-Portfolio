@@ -50,6 +50,15 @@ const useStyles = createStyles((theme) => ({
         ? 'linear-gradient(to bottom right, #7C44FF, #101113, #101113, #101113, #B12BFF)'
         : 'linear-gradient(to bottom right, #23A3FF, #F1F3F5, #F1F3F5, #F1F3F5, #6782FF)',
     // : 'linear-gradient(to bottom right, #B12BFF, #E9ECEF, #E9ECEF,  #E9ECEF, #7C44FF)',
+    [theme.fn.smallerThan('md') && theme.fn.largerThan('xs')]: {
+      margin: "0 auto",
+      width: "700px",
+      height: "680px",
+    },
+    [theme.fn.smallerThan('sm')]: {
+      height: "680px"
+    },
+
   },
   projectTitle: {
     color: theme.colorScheme === 'dark' ? 'white' : 'black',
@@ -59,6 +68,17 @@ const useStyles = createStyles((theme) => ({
     position: 'relative',
     border: '1px solid transparent',
   },
+  projectImage: {
+    borderRadius: '10px',
+
+    [theme.fn.smallerThan('md') && theme.fn.largerThan('xs')]: {
+      height:"600px",
+    },
+    [theme.fn.smallerThan('sm')]: {
+      height:"280px",
+    },
+
+  }
 }));
 
 const Projects = () => {
@@ -187,7 +207,6 @@ const Projects = () => {
               <Card
                 radius="md"
                 key={p.id}
-                h="680px"
                 className={classes.projectCard}
                 onClick={(event) => redirect(p.url)}
               >
@@ -201,12 +220,7 @@ const Projects = () => {
                   }
                 >
                   <Box
-                    my="auto"
-                    w="100%"
-                    h="280px"
-                    style={{
-                      borderRadius: '10px',
-                    }}
+                    className={classes.projectImage}
                   >
                     <BackgroundImage
                       style={{
