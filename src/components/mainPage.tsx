@@ -49,7 +49,7 @@ const useStyles = createStyles((theme) => ({
       transform: 'translate(-50%, -45%)',
     },
     [theme.fn.smallerThan('sm')]: {
-      fontSize: '2.2rem',
+      fontSize: '2rem',
       top: '45%',
       transform: 'translate(-50%, -45%)',
     },
@@ -90,7 +90,7 @@ const MainPage = () => {
       // Then has to be xs 36em
     } else {
       console.log('xs');
-      setCameraPosition(11);
+      setCameraPosition(12);
     }
   };
 
