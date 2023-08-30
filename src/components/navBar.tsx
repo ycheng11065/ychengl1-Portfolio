@@ -48,6 +48,9 @@ const useStyles = createStyles((theme) => ({
     },
 
     [theme.fn.smallerThan('md')]: {
+      fontSize: '3.5rem',
+    },
+    [theme.fn.smallerThan('sm')]: {
       fontSize: '4rem',
     },
   },

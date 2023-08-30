@@ -72,7 +72,7 @@ const useStyles = createStyles((theme) => ({
     borderRadius: '10px',
 
     [theme.fn.smallerThan('md') && theme.fn.largerThan('xs')]: {
-      height:"600px",
+      height:"70%",
     },
     [theme.fn.smallerThan('sm')]: {
       height:"280px",
