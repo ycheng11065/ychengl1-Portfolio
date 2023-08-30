@@ -7,7 +7,6 @@ import { MathUtils } from 'three';
 import { ModeContext } from '../App';
 
 const Blob = () => {
-  const { changed, setChanged } = useContext(ModeContext);
   const hover = useRef(false);
   const mesh = useRef();
   const uniforms = useMemo(() => {

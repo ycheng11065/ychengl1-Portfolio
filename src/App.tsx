@@ -15,63 +15,58 @@ import {
   ColorScheme,
 } from '@mantine/core';
 
-type ModeContextType = {
-  changed: boolean;
-  setChanged: React.Dispatch<React.SetStateAction<boolean>>;
-};
+// type ModeContextType = {
+//   changed: boolean;
+//   setChanged: React.Dispatch<React.SetStateAction<boolean>>;
+// };
 
-export const ModeContext = createContext<ModeContextType | undefined>(
-  undefined
-);
+// export const ModeContext = createContext<ModeContextType | undefined>(
+//   undefined
+// );
 
 function App() {
-  const mainRef = useRef(null);
-  const aboutRef = useRef(null);
-  const projectRef = useRef(null);
-  const [changed, setChanged] = useState(false);
+  // const [changed, setChanged] = useState(false);
   const [colorScheme, setColorScheme] = useState<ColorScheme>('dark');
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
 
   return (
     <>
-      <ModeContext.Provider value={{ changed, setChanged }}>
-        <ColorSchemeProvider
-          colorScheme={colorScheme}
-          toggleColorScheme={toggleColorScheme}
+      <ColorSchemeProvider
+        colorScheme={colorScheme}
+        toggleColorScheme={toggleColorScheme}
+      >
+        <MantineProvider
+          withGlobalStyles
+          withNormalizeCSS
+          theme={{
+            colorScheme: colorScheme,
+            colors: {
+              dark: [
+                '#C1C2C5',
+                '#A6A7AB',
+                '#909296',
+                '#5C5F66',
+                '#373A40',
+                '#2C2E33',
+                '#25262B',
+                '#000000',
+              ],
+            },
+          }}
         >
-          <MantineProvider
-            withGlobalStyles
-            withNormalizeCSS
-            theme={{
-              colorScheme: colorScheme,
-              colors: {
-                dark: [
-                  '#C1C2C5',
-                  '#A6A7AB',
-                  '#909296',
-                  '#5C5F66',
-                  '#373A40',
-                  '#2C2E33',
-                  '#25262B',
-                  '#000000',
-                ],
-              }
-            }}
+          <BrowserRouter
+          // basename="/ychengl1-Portfolio"
           >
-            <BrowserRouter 
-              // basename="/ychengl1-Portfolio"
-            >
-              <NavBar />
-              {/* <MainPage /> */}
-              <Routes>
-                <Route path="/" element={<MainPage />} />
-              </Routes>
-              <Footer />
-            </BrowserRouter>
-          </MantineProvider>
-        </ColorSchemeProvider>
-      </ModeContext.Provider>
+            <NavBar />
+            {/* <MainPage /> */}
+            <Routes>
+              <Route path="/" element={<MainPage />} />
+            </Routes>
+            <Footer />
+          </BrowserRouter>
+        </MantineProvider>
+      </ColorSchemeProvider>
     </>
   );
 }

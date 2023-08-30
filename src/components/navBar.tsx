@@ -76,7 +76,6 @@ const useStyles = createStyles((theme) => ({
 
 const NavBar = () => {
   const [opened, { open, close }] = useDisclosure(false);
-  const { changed, setChanged } = useContext(ModeContext);
   const { classes } = useStyles();
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const dark = colorScheme === 'dark';
@@ -152,7 +151,7 @@ const NavBar = () => {
             className={classes.linkButton}
             onClick={() => {
               toggleColorScheme();
-              setChanged(true);
+              // setChanged(true);
               close();
             }}
           >
@@ -200,7 +199,7 @@ const NavBar = () => {
             size="2rem"
             onClick={open}
             className={classes.optionIcon}
-            color={dark ? "white" : "black" }
+            color={dark ? 'white' : 'black'}
           />
         </Flex>
       ) : (
@@ -266,7 +265,7 @@ const NavBar = () => {
                 color={dark ? 'yellow' : 'blue'}
                 onClick={() => {
                   toggleColorScheme();
-                  setChanged(true);
+                  // setChanged(true);
                 }}
                 title="Toggle color scheme"
                 // className={classes.colorModeButton}
