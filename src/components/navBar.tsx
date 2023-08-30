@@ -51,7 +51,7 @@ const useStyles = createStyles((theme) => ({
       fontSize: '3.5rem',
     },
     [theme.fn.smallerThan('sm')]: {
-      fontSize: '4rem',
+      fontSize: '2rem',
     },
   },
   linkActive: {

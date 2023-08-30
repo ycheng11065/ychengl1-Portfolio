@@ -15,17 +15,7 @@ import {
   ColorScheme,
 } from '@mantine/core';
 
-// type ModeContextType = {
-//   changed: boolean;
-//   setChanged: React.Dispatch<React.SetStateAction<boolean>>;
-// };
-
-// export const ModeContext = createContext<ModeContextType | undefined>(
-//   undefined
-// );
-
 function App() {
-  // const [changed, setChanged] = useState(false);
   const [colorScheme, setColorScheme] = useState<ColorScheme>('dark');
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
