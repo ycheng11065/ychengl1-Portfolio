@@ -14,9 +14,8 @@ import {
   IconSun,
   IconMoon,
   IconBaselineDensityMedium,
+  IconX
 } from '@tabler/icons-react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { isMobile } from 'react-device-detect';
 import { useStyles } from '../style/NavBarStyles';
 
@@ -45,11 +44,10 @@ const NavBar = () => {
         withCloseButton={false}
       >
         <Flex mt="40px" direction="column" gap="xl">
-          <FontAwesomeIcon
-            icon={faXmark}
+          <IconX
+            size="2.5rem"
             onClick={close}
             style={{
-              fontSize: '3rem',
               position: 'absolute',
               top: '10px',
               right: '15px',
