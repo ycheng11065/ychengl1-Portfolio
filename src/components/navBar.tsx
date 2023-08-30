@@ -91,17 +91,10 @@ const NavBar = () => {
       });
   };
 
-  const handleScroll = (ref) => {
-    window.scrollToTop({
-      top: ref.current.offsetTop,
-      behavior: 'smooth',
-    });
-  };
-
   return (
     <>
       <Modal
-        fullScreen="true"
+        fullScreen="True"
         opened={opened}
         onClose={close}
         withCloseButton={false}

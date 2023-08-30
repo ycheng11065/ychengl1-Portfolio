@@ -28,6 +28,9 @@ const useStyles = createStyles((theme) => ({
     },
 
     [theme.fn.smallerThan('md')]: {
+      fontSize: '2rem',
+    },
+    [theme.fn.smallerThan('sm')]: {
       fontSize: '1rem',
       margin: '0 10px',
     },
@@ -41,6 +44,9 @@ const useStyles = createStyles((theme) => ({
     },
 
     [theme.fn.smallerThan('md')]: {
+      fontSize: '14px',
+    },
+    [theme.fn.smallerThan('sm')]: {
       fontSize: '12px',
       margin: '0 10px',
     },
@@ -55,8 +61,41 @@ const useStyles = createStyles((theme) => ({
     cursor: 'pointer',
 
     [theme.fn.smallerThan('md')]: {
+      fontSize: '2rem',
+      padding: '10px 20px',
+    },
+    [theme.fn.smallerThan('sm')]: {
       fontSize: '1rem',
       padding: '10px 20px',
+    },
+  },
+  aboutText: {
+    position: "relative",
+    width: '700px',
+
+    [theme.fn.smallerThan('sm')]: {
+      width: '100%',
+    },
+  },
+  aboutImage: {
+    width: '700px',
+
+    [theme.fn.smallerThan('sm')]: {
+      width: '100%',
+    },
+  },
+  contactIconContainer1: {
+    marginTop: "15px",
+    position: 'absolute',
+    right: "0",
+
+    [theme.fn.smallerThan('sm')]: {
+      display: 'none',
+    },
+  },
+  contactIconContainer2: {
+    [theme.fn.smallerThan('md') && theme.fn.largerThan('xs')]: {
+      display: 'none',
     },
   },
 }));
@@ -159,14 +198,14 @@ const About = () => {
           </Flex>
         </Flex>
       ) : (
-        <Flex 
-          mt="50px" 
-          direction="column" 
-          h="100%" 
+        <Flex
+          mt="50px"
+          direction="column"
+          h="100%"
           w="full"
-          // style={{ border: "2px solid red" }}
+          // style={{ border: '2px solid red' }}
         >
-          <Box w="full" h="300px">
+          <Box className={classes.aboutImage} h="300px" mx="auto">
             <BackgroundImage
               radius="md"
               src={profile}
@@ -176,7 +215,15 @@ const About = () => {
               }}
             />
           </Box>
-          <Flex mt="10px" gap="20px" align="left" direction="column">
+          <Flex
+            mx="auto"
+            mt="10px"
+            gap="20px"
+            align="left"
+            direction="column"
+            className={classes.aboutText}
+            // style={{ border: '1px solid green' }}
+          >
             <Text ta="left" pt="0" className={classes.titleDescription}>
               Hi there, I'm YuCheng
             </Text>
@@ -199,8 +246,43 @@ const About = () => {
             <Text className={classes.textDescription}>
               Anyways, I hope you enjoy my corner of the web.
             </Text>
+            <Flex
+              direction="column"
+              gap="2rem"
+              justify="center"
+              className={classes.contactIconContainer1}
+            >
+              <Anchor
+                href="https://www.linkedin.com/in/ychengl1/"
+                target="_blank"
+              >
+                <FontAwesomeIcon
+                  icon={faLinkedinIn}
+                  className={classes.contactIcon}
+                />
+              </Anchor>
+
+              <Anchor href="https://github.com/ycheng11065" target="_blank">
+                <FontAwesomeIcon
+                  icon={faGithub}
+                  className={classes.contactIcon}
+                />
+              </Anchor>
+
+              <Anchor href="mailto:ychengli11065@gmail.com" target="_blank">
+                <FontAwesomeIcon
+                  icon={faEnvelope}
+                  className={classes.contactIcon}
+                />
+              </Anchor>
+            </Flex>
           </Flex>
-          <Flex mt="30px" gap="2rem" justify="center">
+          <Flex
+            mt="30px"
+            gap="2rem"
+            justify="center"
+            className={classes.contactIconContainer2}
+          >
             <Anchor
               href="https://www.linkedin.com/in/ychengl1/"
               target="_blank"

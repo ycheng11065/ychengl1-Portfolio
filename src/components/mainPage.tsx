@@ -1,12 +1,9 @@
 // @ts-nocheck
-import {
-  useState,
-  useEffect,
-} from 'react';
+import { useState, useEffect } from 'react';
 import * as THREE from 'three';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useDisclosure } from '@mantine/hooks';
-import { Text, Box, Flex, createStyles, Modal } from '@mantine/core';
+import { Text, Box, Flex, createStyles, em } from '@mantine/core';
 import Blob from './Blob';
 import Project from './Projects';
 import About from './About';
@@ -47,6 +44,11 @@ const useStyles = createStyles((theme) => ({
       fontSize: '2.8rem',
     },
     [theme.fn.smallerThan('md')]: {
+      fontSize: '2.5rem',
+      top: '45%',
+      transform: 'translate(-50%, -45%)',
+    },
+    [theme.fn.smallerThan('sm')]: {
       fontSize: '2.2rem',
       top: '45%',
       transform: 'translate(-50%, -45%)',
@@ -68,33 +70,36 @@ const MainPage = () => {
   const { classes } = useStyles();
 
   const checkScreenSize = () => {
-    // console.log('resizing');
-
+    console.log(window.innerWidth);
     // Checking if xl 88em
     if (window.innerWidth >= 1408) {
+      console.log('xl');
       setCameraPosition(9);
       // Checking if lg 75em
     } else if (window.innerWidth >= 1200) {
+      console.log('lg');
       setCameraPosition(8);
       // Checking if md 62em
     } else if (window.innerWidth >= 922) {
+      console.log('md');
       setCameraPosition(9);
       // Checking if sm 48em
-      // } else if (window.innerWidth >= 768) {
-      //   setCameraPosition(8);
+    } else if (window.innerWidth >= 768) {
+      console.log('sm');
+      setCameraPosition(10);
       // Then has to be xs 36em
     } else {
+      console.log('xs');
       setCameraPosition(11);
-      console.log(window.innerWidth);
     }
   };
 
   useEffect(() => {
     checkScreenSize();
-    window.addEventListener('resize', checkScreenSize); // Listen for resize events
+    window.addEventListener('resize', checkScreenSize);
 
     return () => {
-      window.removeEventListener('resize', checkScreenSize); // Cleanup on component unmount
+      window.removeEventListener('resize', checkScreenSize);
     };
   }, []);
 
@@ -102,7 +107,6 @@ const MainPage = () => {
     <Box
       mx="0"
       style={{
-        // height: '100%',
         width: '100%',
         // border:"1px solid red"
       }}
@@ -142,7 +146,7 @@ const MainPage = () => {
       {!isMobile ? (
         <Element name="about">
           <Flex
-            w={{ xl: '1700px', lg: '1100px', md: '970px'}}
+            w={{ xl: '1700px', lg: '1100px', md: '970px' }}
             mx="auto"
             mt="200px"
             justify="left"
@@ -165,7 +169,7 @@ const MainPage = () => {
       ) : (
         <Element name="about">
           <Flex
-            w='100%'
+            w="100%"
             mx="auto"
             mt="200px"
             justify="center"
@@ -228,7 +232,7 @@ const MainPage = () => {
               style={{
                 fontColor: 'white',
                 fontSize: '3rem',
-                zIndex: 1, 
+                zIndex: 1,
               }}
             >
               Project
