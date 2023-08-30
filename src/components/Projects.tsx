@@ -1,12 +1,8 @@
-import text_img from '../images/Orchard-Commons.jpg';
-import tower_img from '../images/tower.jpg';
-import desert_img from '../images/desert.jpg';
-import tictactoe_img from '../images/tictactoe.png';
-import snake_img from '../images/snake.png';
-import resumeBuilder_img from '../images/resume_builder.png';
-import naviBot_img from '../images/naviBot.png';
-import subletter_img from '../images/subletter.png';
-import spotify_img from '../images/spotify.png';
+import snake_img from '../../public/image/project/snake.png';
+import resumeBuilder_img from '../../public/image/project/resume_builder.png';
+import naviBot_img from '../../public/image/project/naviBot.png';
+import subletter_img from '../../public/image/project/subletter.png';
+import spotify_img from '../../public/image/project/spotify.png';
 import { isMobile } from 'react-device-detect';
 import {
   Text,
@@ -51,14 +47,13 @@ const useStyles = createStyles((theme) => ({
         : 'linear-gradient(to bottom right, #23A3FF, #F1F3F5, #F1F3F5, #F1F3F5, #6782FF)',
     // : 'linear-gradient(to bottom right, #B12BFF, #E9ECEF, #E9ECEF,  #E9ECEF, #7C44FF)',
     [theme.fn.smallerThan('md') && theme.fn.largerThan('xs')]: {
-      margin: "0 auto",
-      width: "700px",
-      height: "680px",
+      margin: '0 auto',
+      width: '700px',
+      height: '680px',
     },
     [theme.fn.smallerThan('sm')]: {
-      height: "680px"
+      height: '680px',
     },
-
   },
   projectTitle: {
     color: theme.colorScheme === 'dark' ? 'white' : 'black',
@@ -72,13 +67,12 @@ const useStyles = createStyles((theme) => ({
     borderRadius: '10px',
 
     [theme.fn.smallerThan('md') && theme.fn.largerThan('xs')]: {
-      height:"70%",
+      height: '70%',
     },
     [theme.fn.smallerThan('sm')]: {
-      height:"280px",
+      height: '280px',
     },
-
-  }
+  },
 }));
 
 const Projects = () => {
@@ -96,7 +90,7 @@ const Projects = () => {
       including Airbnb-like ratings for dorms and users.
       `,
       date: 'Aug 2023',
-      image: subletter_img,
+      image: '/image/project/subletter.png',
       tech: [
         { name: 'JavaScript', color: 'teal', id: useId() },
         { name: 'NodeJS', color: 'teal', id: useId() },
@@ -116,7 +110,7 @@ const Projects = () => {
        I use it for all my resumes, saved me from a lot of headaches. 
        `,
       date: 'May 2023',
-      image: resumeBuilder_img,
+      image: '/image/project/resume_builder.png',
       tech: [
         { name: 'JavaScript', color: 'teal', id: useId() },
         { name: 'ReactJS', color: 'teal', id: useId() },
@@ -134,7 +128,7 @@ const Projects = () => {
       snakes: SSSShark (blue), clinching the 2022 1st prize, and the more advanced Orion's Fang (purple), securing 2nd 
       place in 2023`,
       date: 'April 2023',
-      image: snake_img,
+      image: '/image/project/snake.png',
       tech: [
         { name: 'Python', color: 'orange', id: useId() },
         { name: 'DigitalOcean', color: 'pink', id: useId() },
@@ -149,7 +143,7 @@ const Projects = () => {
       innovation to UBC degree planning. It offers a user-friendly interface, simplifying access to essential 
       degree-related information and enhancing the planning experience for all UBC students.`,
       date: 'Jan 2023',
-      image: naviBot_img,
+      image: '/image/project/naviBot.png',
       tech: [
         { name: 'Python', color: 'orange', id: useId() },
         { name: 'JSON', color: 'pink', id: useId() },
@@ -181,7 +175,7 @@ const Projects = () => {
       The collages could be tailored to different categories, encompassing options like a compilation of the user's favorite songs, 
       trending tracks, and an artist's top 10.`,
       date: 'Jan 2022',
-      image: spotify_img,
+      image: '/image/project/spotify.png',
       tech: [
         { name: 'Python', color: 'orange', id: useId() },
         { name: 'HTML5', color: 'teal', id: useId() },
@@ -219,9 +213,7 @@ const Projects = () => {
                     }
                   }
                 >
-                  <Box
-                    className={classes.projectImage}
-                  >
+                  <Box className={classes.projectImage}>
                     <BackgroundImage
                       style={{
                         width: '100%',
@@ -243,7 +235,7 @@ const Projects = () => {
                       }
                     }
                   >
-                    <Flex justify="space-between" >
+                    <Flex justify="space-between">
                       <Text className={classes.projectTitle}>{p.name}</Text>
                       <Group mt="md" mb="xs" mr="0">
                         <Badge color="blue" variant="outline">
@@ -257,15 +249,17 @@ const Projects = () => {
                       direction="column"
                       className={classes.projectTextBox}
                     >
-                      <Text fz={{ xl: 'lg', lg: 'md' }}>{p.date}</Text>
-                      <Text mt="15px" fz={{ xl: 'lg', lg: 'md' }}>
-                        {p.description}
-                      </Text>
+                      <Text>{p.date}</Text>
+                      <Text mt="15px">{p.description}</Text>
                       <Flex
                         w="100%"
                         mt="55px"
                         gap="sm"
-                        style={{ position: 'absolute', bottom: '0', flexWrap: 'wrap' }}
+                        style={{
+                          position: 'absolute',
+                          bottom: '0',
+                          flexWrap: 'wrap',
+                        }}
                       >
                         {p.tech &&
                           p.tech.map((t) =>

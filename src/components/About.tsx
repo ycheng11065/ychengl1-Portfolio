@@ -7,7 +7,7 @@ import {
   createStyles,
   Anchor,
 } from '@mantine/core';
-import profile from '../images/me.jpg';
+import profile from '/../public/image/profile/me.jpg';
 import { IconBrandLinkedin } from '@tabler/icons-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
@@ -130,7 +130,7 @@ const About = () => {
                   Hi there
                 </Text>
                 <Text ta="left" className={classes.titleDescription}>
-                  I'm YuCheng
+                  I'm Yu Cheng
                 </Text>
               </Flex>
               <Text className={classes.textDescription}>
@@ -188,7 +188,7 @@ const About = () => {
             <Box w="420px" h="full">
               <BackgroundImage
                 radius="md"
-                src={profile}
+                src={'/image/profile/me.jpg'}
                 style={{
                   width: '100%',
                   height: '100%',
@@ -208,7 +208,7 @@ const About = () => {
           <Box className={classes.aboutImage} h="300px" mx="auto">
             <BackgroundImage
               radius="md"
-              src={profile}
+              src={'/image/profile/me.jpg'}
               style={{
                 width: '100%',
                 height: '100%',
@@ -225,7 +225,7 @@ const About = () => {
             // style={{ border: '1px solid green' }}
           >
             <Text ta="left" pt="0" className={classes.titleDescription}>
-              Hi there, I'm YuCheng
+              Hi there, I'm Yu Cheng
             </Text>
             <Text className={classes.textDescription}>
               I am a Vancouver based software engineer. Having grown up between
