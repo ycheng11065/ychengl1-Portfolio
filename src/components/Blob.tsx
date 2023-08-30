@@ -1,10 +1,9 @@
 // @ts-nocheck
-import React, { useEffect, useMemo, useRef, useContext } from 'react';
+import React, { useMemo, useRef } from 'react';
 import vertexShader from './vertexShader';
 import fragmentShader from './fragmentShader';
-import { useFrame, invalidate, useThree } from '@react-three/fiber';
+import { useFrame, invalidate } from '@react-three/fiber';
 import { MathUtils } from 'three';
-import { ModeContext } from '../App';
 
 const Blob = () => {
   const hover = useRef(false);

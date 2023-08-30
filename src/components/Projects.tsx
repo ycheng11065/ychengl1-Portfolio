@@ -1,8 +1,3 @@
-import snake_img from '../../public/image/project/snake.png';
-import resumeBuilder_img from '../../public/image/project/resume_builder.png';
-import naviBot_img from '../../public/image/project/naviBot.png';
-import subletter_img from '../../public/image/project/subletter.png';
-import spotify_img from '../../public/image/project/spotify.png';
 import { isMobile } from 'react-device-detect';
 import {
   Text,
@@ -13,9 +8,9 @@ import {
   Group,
   Badge,
   useMantineColorScheme,
-  createStyles,
 } from '@mantine/core';
 import { useId } from '@mantine/hooks';
+import { useStyles } from '../style/ProjectStyles';
 
 interface tool {
   name: string;
@@ -34,50 +29,9 @@ interface project {
   id: string;
 }
 
-const useStyles = createStyles((theme) => ({
-  projectCard: {
-    cursor: 'pointer',
-    backgroundColor:
-      theme.colorScheme === 'dark'
-        ? theme.colors.dark[9]
-        : theme.colors.gray[1],
-    backgroundImage:
-      theme.colorScheme === 'dark'
-        ? 'linear-gradient(to bottom right, #7C44FF, #101113, #101113, #101113, #B12BFF)'
-        : 'linear-gradient(to bottom right, #23A3FF, #F1F3F5, #F1F3F5, #F1F3F5, #6782FF)',
-    // : 'linear-gradient(to bottom right, #B12BFF, #E9ECEF, #E9ECEF,  #E9ECEF, #7C44FF)',
-    [theme.fn.smallerThan('md') && theme.fn.largerThan('xs')]: {
-      margin: '0 auto',
-      width: '700px',
-      height: '680px',
-    },
-    [theme.fn.smallerThan('sm')]: {
-      height: '680px',
-    },
-  },
-  projectTitle: {
-    color: theme.colorScheme === 'dark' ? 'white' : 'black',
-    fontSize: '2rem',
-  },
-  projectTextBox: {
-    position: 'relative',
-    border: '1px solid transparent',
-  },
-  projectImage: {
-    borderRadius: '10px',
-
-    [theme.fn.smallerThan('md') && theme.fn.largerThan('xs')]: {
-      height: '70%',
-    },
-    [theme.fn.smallerThan('sm')]: {
-      height: '280px',
-    },
-  },
-}));
-
 const Projects = () => {
   const { classes } = useStyles();
-  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+  const { colorScheme } = useMantineColorScheme();
   const dark = colorScheme === 'dark';
 
   const projectArray: project[] = [
@@ -151,22 +105,6 @@ const Projects = () => {
       url: 'https://github.com/ycheng11065/UBC-stack-BOT',
       id: useId(),
     },
-    // {
-    //   name: 'Tic-Tac-Toe',
-    //   category: 'Web Application',
-    //   description: `A simple web-app with a very self explanatory name. Created back when I was still learning
-    //   the fundamentals of web development. Test yourself against AI adversaries with varying difficulties.
-    //   `,
-    //   date: 'March 2023',
-    //   image: tictactoe_img,
-    //   tech: [
-    //     { name: 'JavaScript', color: 'teal', id: useId() },
-    //     { name: 'HTML5', color: 'teal', id: useId() },
-    //     { name: 'CSS3', color: 'teal', id: useId() },
-    //   ],
-    //   url: 'https://github.com/ycheng11065/TicTacToe_app',
-    //   id: useId(),
-    // },
     {
       name: 'Spotify Collage',
       category: 'Web Application',
@@ -204,15 +142,7 @@ const Projects = () => {
                 className={classes.projectCard}
                 onClick={(event) => redirect(p.url)}
               >
-                <Flex
-                  direction="column"
-                  h="100%"
-                  style={
-                    {
-                      // border: "1px solid green"
-                    }
-                  }
-                >
+                <Flex direction="column" h="100%">
                   <Box className={classes.projectImage}>
                     <BackgroundImage
                       style={{
@@ -224,17 +154,7 @@ const Projects = () => {
                       src={p.image}
                     />
                   </Box>
-                  <Flex
-                    direction="column"
-                    w="100%"
-                    h="70%"
-                    mr={{ md: '10px' }}
-                    style={
-                      {
-                        // border:"1px solid yellow",
-                      }
-                    }
-                  >
+                  <Flex direction="column" w="100%" h="70%" mr={{ md: '10px' }}>
                     <Flex justify="space-between">
                       <Text className={classes.projectTitle}>{p.name}</Text>
                       <Group mt="md" mb="xs" mr="0">
@@ -263,7 +183,7 @@ const Projects = () => {
                       >
                         {p.tech &&
                           p.tech.map((t) =>
-                            colorScheme === 'dark' ? (
+                            dark ? (
                               <Badge key={t.id} color={t.color} variant="light">
                                 {t.name}
                               </Badge>
@@ -296,23 +216,8 @@ const Projects = () => {
                   h="100%"
                   gap={{ xl: '20px', lg: '10px' }}
                   justify="space-between"
-                  style={
-                    {
-                      // border: "1px solid green"
-                    }
-                  }
                 >
-                  <Flex
-                    direction="column"
-                    w="70%"
-                    h="100%"
-                    mr={{ md: '10px' }}
-                    style={
-                      {
-                        // border:"1px solid yellow",
-                      }
-                    }
-                  >
+                  <Flex direction="column" w="70%" h="100%" mr={{ md: '10px' }}>
                     <Flex justify="space-between" pr="20px">
                       <Text className={classes.projectTitle}>{p.name}</Text>
                       <Group mt="md" mb="xs">
@@ -338,7 +243,7 @@ const Projects = () => {
                       >
                         {p.tech &&
                           p.tech.map((t) =>
-                            colorScheme === 'dark' ? (
+                            dark ? (
                               <Badge key={t.id} color={t.color} variant="light">
                                 {t.name}
                               </Badge>

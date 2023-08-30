@@ -1,6 +1,4 @@
 // @ts-nocheck
-import { useState, useContext } from 'react';
-import { ModeContext } from '../App';
 import { Link } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
 import { useDisclosure } from '@mantine/hooks';
@@ -9,7 +7,6 @@ import {
   Container,
   useMantineColorScheme,
   ActionIcon,
-  createStyles,
   Box,
   Modal,
 } from '@mantine/core';
@@ -20,80 +17,8 @@ import {
 } from '@tabler/icons-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
-
 import { isMobile } from 'react-device-detect';
-
-const useStyles = createStyles((theme) => ({
-  navBar: {
-    fontColor: 'white',
-    backgroundColor: theme.colorScheme === 'dark' ? 'black' : 'white',
-  },
-  linkButton: {
-    cursor: 'pointer',
-    textTransform: 'uppercase',
-    fontSize: '15px',
-    color:
-      theme.colorScheme === 'dark'
-        ? theme.colors.dark[1]
-        : theme.colors.gray[6],
-    padding: '5px',
-    borderBottom: `2px solid transparent`,
-    transition: 'border-color 100ms ease, color 100ms ease',
-    textDecoration: 'none',
-
-    '&:hover': {
-      color: theme.colorScheme === 'dark' ? theme.white : theme.black,
-      textDecoration: 'none',
-    },
-  },
-  linkButtonMobile: {
-    fontSize: '2rem',
-    cursor: 'pointer',
-    textTransform: 'uppercase',
-    color:
-      theme.colorScheme === 'dark'
-        ? theme.colors.dark[1]
-        : theme.colors.gray[6],
-    padding: '5px',
-    borderBottom: `2px solid transparent`,
-    transition: 'border-color 100ms ease, color 100ms ease',
-    textDecoration: 'none',
-
-    '&:hover': {
-      color: theme.colorScheme === 'dark' ? theme.white : theme.black,
-      textDecoration: 'none',
-    },
-
-    // [theme.fn.smallerThan('md')]: {
-    //   fontSize: '2rem',
-    // },
-    // [theme.fn.smallerThan('sm')]: {
-    //   fontSize: '2rem',
-    // },
-  },
-  linkActive: {
-    color: theme.colorScheme === 'dark' ? theme.white : theme.black,
-    borderBottomColor:
-      theme.colors[theme.primaryColor][theme.colorScheme === 'dark' ? 5 : 6],
-  },
-  colorModeButton: {
-    color:
-      theme.colorScheme === 'dark'
-        ? theme.colors.dark[1]
-        : theme.colors.gray[6],
-  },
-  logoButton: {
-    textDecoration: 'none',
-    color: theme.colorScheme === 'dark' ? 'white' : 'black',
-    fontSize: '2rem',
-  },
-  optionIcon: {
-    fontSize: '2rem',
-    margin: 'auto 0',
-    color: 'white',
-  },
-}));
+import { useStyles } from '../style/NavBarStyles';
 
 const NavBar = () => {
   const [opened, { open, close }] = useDisclosure(false);
@@ -179,7 +104,6 @@ const NavBar = () => {
           >
             {dark ? 'Light' : 'Dark'}
           </Link>
-          
         </Flex>
       </Modal>
       {isMobile ? (
@@ -197,17 +121,9 @@ const NavBar = () => {
             position: 'sticky',
             top: '0',
             margin: '0 auto',
-            // border: '2px solid red',
           }}
         >
-          <Box
-            h="100%"
-            style={
-              {
-                // border: '2px solid blue',
-              }
-            }
-          >
+          <Box h="100%">
             <Link
               to="./"
               onClick={(event) => {
@@ -288,10 +204,8 @@ const NavBar = () => {
                 color={dark ? 'yellow' : 'blue'}
                 onClick={() => {
                   toggleColorScheme();
-                  // setChanged(true);
                 }}
                 title="Toggle color scheme"
-                // className={classes.colorModeButton}
               >
                 {dark ? <IconSun size="2rem" /> : <IconMoon size="2rem" />}
               </ActionIcon>
