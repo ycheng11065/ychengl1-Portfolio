@@ -6,8 +6,6 @@ of my best work, demonstrating my skills, creativity and dedication.
 Built using Typescript, ReactJS, Mantine, React Three Fiber and hosted on Firebase
 
 ![](portfolio.gif)
-*The web portfolio's landing page*
-
 
 The blob was created from this tutorial by Chetan Verma: https://blog.chetanverma.com/how-to-create-an-awesome-blob-with-react-three-fiber
 
