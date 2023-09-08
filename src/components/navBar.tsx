@@ -26,7 +26,7 @@ const NavBar = () => {
   const dark = colorScheme === 'dark';
 
   const openPDF = () => {
-    const pdfPath = '/image/resume/ychengli_2023winter_resume.pdf';
+    const pdfPath = '/image/resume/yuchengli_resume_spring2024.pdf';
     fetch(pdfPath)
       .then((response) => response.blob())
       .then((blob) => {
