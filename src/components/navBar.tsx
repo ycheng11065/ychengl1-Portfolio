@@ -1,7 +1,7 @@
 // @ts-nocheck
-import { Link } from 'react-router-dom';
-import { Link as ScrollLink } from 'react-scroll';
-import { useDisclosure } from '@mantine/hooks';
+import { Link } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
+import { useDisclosure } from "@mantine/hooks";
 import {
   Flex,
   Container,
@@ -9,29 +9,29 @@ import {
   ActionIcon,
   Box,
   Modal,
-} from '@mantine/core';
+} from "@mantine/core";
 import {
   IconSun,
   IconMoon,
   IconBaselineDensityMedium,
-  IconX
-} from '@tabler/icons-react';
-import { isMobile } from 'react-device-detect';
-import { useStyles } from '../style/NavBarStyles';
+  IconX,
+} from "@tabler/icons-react";
+import { isMobile } from "react-device-detect";
+import { useStyles } from "../style/NavBarStyles";
 
 const NavBar = () => {
   const [opened, { open, close }] = useDisclosure(false);
   const { classes } = useStyles();
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
-  const dark = colorScheme === 'dark';
+  const dark = colorScheme === "dark";
 
   const openPDF = () => {
-    const pdfPath = '/image/resume/yuchengli_resume_spring2024.pdf';
+    const pdfPath = "/image/resume/Bruce_Li_Resume.pdf";
     fetch(pdfPath)
       .then((response) => response.blob())
       .then((blob) => {
         const pdfUrl = URL.createObjectURL(blob);
-        window.open(pdfUrl, '_blank');
+        window.open(pdfUrl, "_blank");
       });
   };
 
@@ -48,9 +48,9 @@ const NavBar = () => {
             size="2.5rem"
             onClick={close}
             style={{
-              position: 'absolute',
-              top: '10px',
-              right: '15px',
+              position: "absolute",
+              top: "10px",
+              right: "15px",
             }}
           />
           <ScrollLink
@@ -86,7 +86,7 @@ const NavBar = () => {
               openPDF();
               close();
             }}
-            style={{ outline: 'none' }}
+            style={{ outline: "none" }}
           >
             Resume
           </Link>
@@ -98,9 +98,9 @@ const NavBar = () => {
               toggleColorScheme();
               close();
             }}
-            style={{ outline: 'none' }}
+            style={{ outline: "none" }}
           >
-            {dark ? 'Light' : 'Dark'}
+            {dark ? "Light" : "Dark"}
           </Link>
         </Flex>
       </Modal>
@@ -114,11 +114,11 @@ const NavBar = () => {
           justify="space-between"
           className={classes.navBar}
           style={{
-            opacity: '0.95',
-            zIndex: '2',
-            position: 'sticky',
-            top: '0',
-            margin: '0 auto',
+            opacity: "0.95",
+            zIndex: "2",
+            position: "sticky",
+            top: "0",
+            margin: "0 auto",
           }}
         >
           <Box h="100%">
@@ -136,7 +136,7 @@ const NavBar = () => {
             size="2rem"
             onClick={open}
             className={classes.optionIcon}
-            color={dark ? 'white' : 'black'}
+            color={dark ? "white" : "black"}
           />
         </Flex>
       ) : (
@@ -149,11 +149,11 @@ const NavBar = () => {
           justify="space-between"
           className={classes.navBar}
           style={{
-            opacity: '0.95',
-            zIndex: '2',
-            position: 'sticky',
-            top: '0',
-            margin: '0 auto',
+            opacity: "0.95",
+            zIndex: "2",
+            position: "sticky",
+            top: "0",
+            margin: "0 auto",
           }}
         >
           <Container ml="10px" mr="0">
@@ -193,13 +193,21 @@ const NavBar = () => {
               >
                 Project
               </ScrollLink>
+              <ScrollLink
+                to="footer"
+                smooth={true}
+                duration={500}
+                className={classes.linkButton}
+              >
+                Contact
+              </ScrollLink>
               <Link className={classes.linkButton} onClick={openPDF}>
                 Resume
               </Link>
               <ActionIcon
                 size="2.2rem"
                 variant="outline"
-                color={dark ? 'yellow' : 'blue'}
+                color={dark ? "yellow" : "blue"}
                 onClick={() => {
                   toggleColorScheme();
                 }}
