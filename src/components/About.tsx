@@ -37,7 +37,7 @@ const About = () => {
             className={classes.aboutText}
           >
             <Text ta="left" pt="0" className={classes.titleDescription}>
-              Hello, I'm Yu Cheng
+              Hello, I'm Bruce
             </Text>
             <Text className={classes.textDescription}>
               I am a Vancouver based software engineer. Having grown up between
@@ -126,7 +126,7 @@ const About = () => {
           pt={{ lg: '30px', xl: '40px' }}
           direction="column"
           align="center"
-          w="1000px"
+          w="1200px"
           mx="auto"
           gap="40px"
         >
@@ -140,14 +140,14 @@ const About = () => {
             <Flex gap="20px" align="left" direction="column">
               <Flex direction="column">
                 <Text ta="left" pt="0" className={classes.titleDescription}>
-                  Hello,
+                  Hi there!
                 </Text>
                 <Text ta="left" className={classes.titleDescription}>
-                  I'm Yu Cheng
+                  I'm Bruce
                 </Text>
               </Flex>
               <Text className={classes.textDescription}>
-                I am a Vancouver based software engineer. Having grown up
+                I'm a Vancouver based software engineer. Having grown up
                 between the vibrant cities of Montreal and Calgary, I am now a
                 senior computer science student at the University of British
                 Columbia.
@@ -194,10 +194,10 @@ const About = () => {
                 </Flex>
               </Flex>
             </Flex>
-            <Box w="420px" h="full">
+            <Box w="620px" h="full">
               <BackgroundImage
                 radius="md"
-                src={'/image/profile/me.jpg'}
+                src={'/image/profile/sakurajima.jpg'}
                 style={{
                   width: '100%',
                   height: '100%',
