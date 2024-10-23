@@ -75,7 +75,7 @@ const MainPage = () => {
             align="center"
             className={classes.welcomeText}
           >
-            Welcome, I'm Yu Cheng Li
+            Welcome, I'm Bruce Li
           </Text>
           <Box className={classes.mainPageCanvas}>
             <Canvas
