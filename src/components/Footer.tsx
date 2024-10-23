@@ -83,7 +83,7 @@ const Footer = () => {
               </Group>
             </Flex>
           </Box>
-          <Text mb="15px">Developed by ©YuChengLi 2023</Text>
+          <Text mb="15px">Developed by ©BruceLi 2023</Text>
         </Flex>
       )}
     </>

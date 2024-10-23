@@ -7,6 +7,7 @@ import { Text, Box, Flex, createStyles } from '@mantine/core';
 import Blob from './Blob';
 import Project from './Projects';
 import About from './About';
+import Footer from './Footer'
 import { IconChevronsDown } from '@tabler/icons-react';
 import { Element } from 'react-scroll';
 import { isMobile } from 'react-device-detect';
@@ -191,6 +192,7 @@ const MainPage = () => {
         </Element>
       )}
       <Project />
+      <Element name="footer"> </Element>
     </Box>
   );
 };
