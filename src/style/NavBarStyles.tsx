@@ -16,7 +16,7 @@ const useStyles = createStyles((theme) => ({
         : theme.colors.gray[6],
     padding: '5px',
     borderBottom: `2px solid transparent`,
-    transition: 'border-color 100ms ease, color 100ms ease',
+    transition: 'border-color 1s ease, color 1s ease',
     textDecoration: 'none',
 
     '&:hover': {
