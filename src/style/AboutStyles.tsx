@@ -56,6 +56,13 @@ const useStyles = createStyles((theme) => ({
       padding: '10px 20px',
     },
   },
+  contactIconWrapper: {
+    '&:hover svg': {
+      color: theme.colorScheme === 'dark' ? 'white' : 'black',
+      borderColor: theme.colorScheme === 'dark' ? 'white' : 'black',
+      transition: 'color 0.4s ease, border-color 0.4s ease', 
+    },
+  },
   aboutText: {
     position: 'relative',
     width: '700px',

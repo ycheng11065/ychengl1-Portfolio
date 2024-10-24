@@ -55,13 +55,13 @@ const Footer = () => {
             className={classes.footerBorder}
             sx={{
               [`@media (min-width: 1024px)`]: {
-                width: '700px', // Small laptops (1024px and above)
+                width: '875px', // Small laptops (1024px and above)
               },
               [`@media (min-width: 1280px)`]: {
-                width: '900px', // Laptops (1280px and above)
+                width: '1050px', // Laptops (1280px and above)
               },
               [`@media (min-width: 1440px)`]: {
-                width: '1300px', // Desktops (1440px and above)
+                width: '1400px', // Desktops (1440px and above)
               },
               [`@media (min-width: 1600px)`]: {
                 width: '1700px', // Larger desktops (1600px and above)
