@@ -18,7 +18,7 @@ import {
   IconX,
 } from "@tabler/icons-react";
 import { isMobile } from "react-device-detect";
-import { useStyles } from "../style/NavbarStyles";
+import { useStyles } from "../style/TempNavbarStyles";
 
 const Navbar = () => {
   const [opened, { open, close }] = useDisclosure(false);
