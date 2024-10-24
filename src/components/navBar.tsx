@@ -90,6 +90,15 @@ const NavBar = () => {
           >
             Project
           </ScrollLink>
+          <ScrollLink
+            to="footer"
+            smooth={true}
+            duration={500}
+            className={classes.linkButtonMobile}
+            onClick={close}
+          >
+            Contact
+          </ScrollLink>
           <Link
             className={classes.linkButtonMobile}
             onClick={() => {
@@ -156,8 +165,8 @@ const NavBar = () => {
           pt="10px"
           h="70px"
           w="100%"
-          justify="center" // Centers horizontally
-          align="center" // Centers vertically
+          justify="center" 
+          align="center" 
           className={classes.navBar}
           style={{
             opacity: "0.95",
@@ -165,7 +174,6 @@ const NavBar = () => {
             position: "sticky",
             top: "0",
             margin: "0 auto",
-            // backgroundColor: "blue",
           }}
         >
           <Flex

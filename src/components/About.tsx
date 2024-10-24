@@ -1,15 +1,9 @@
-import {
-  Flex,
-  Text,
-  BackgroundImage,
-  Box,
-  Anchor,
-} from '@mantine/core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
-import { faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
-import { isMobile } from 'react-device-detect';
-import { useStyles } from '../style/AboutStyles';
+import { Flex, Text, BackgroundImage, Box, Anchor } from "@mantine/core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
+import { faLinkedinIn, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { isMobile } from "react-device-detect";
+import { useStyles } from "../style/AboutStyles";
 
 const About = () => {
   const { classes } = useStyles();
@@ -21,10 +15,10 @@ const About = () => {
           <Box className={classes.aboutImage} h="300px" mx="auto">
             <BackgroundImage
               radius="md"
-              src={'/image/profile/sakurajima.jpg'}
+              src={"/image/profile/sakurajima.jpg"}
               style={{
-                width: '100%',
-                height: '100%',
+                width: "100%",
+                height: "100%",
               }}
             />
           </Box>
@@ -52,9 +46,9 @@ const About = () => {
             </Text>
             <Text className={classes.textDescription}>
               Off-screen, you'll find me enjoying a game of badminton, delving
-              into the intricacies of the Japanese language, humbling
-              myself in the world of Summoner's Rift, or wandering through 
-              different corners of the world.
+              into the intricacies of the Japanese language, humbling myself in
+              the world of Summoner's Rift, or wandering through different
+              corners of the world.
             </Text>
             <Text className={classes.textDescription}>
               Anyways, I hope you enjoy my corner of the web.
@@ -124,7 +118,7 @@ const About = () => {
       ) : (
         <Flex
           mt="50px"
-          pt={{ lg: '30px', xl: '40px' }}
+          pt={{ lg: "30px", xl: "40px" }}
           direction="column"
           align="center"
           w="1200px"
@@ -133,25 +127,25 @@ const About = () => {
         >
           <Flex
             w="100%"
-            mx={{ md: '20px' }}
-            justify={{ xl: 'space-between', lg: 'space-between', md: 'center' }}
-            gap={{ xl: '80px', lg: '60px', md: '20px' }}
+            mx={{ md: "20px" }}
+            justify={{ xl: "space-between", lg: "space-between", md: "center" }}
+            gap={{ xl: "80px", lg: "60px", md: "20px" }}
             className={classes.aboutPage}
           >
             <Flex gap="20px" align="left" direction="column">
               <Flex direction="column">
                 <Text ta="left" pt="0" className={classes.introTitle}>
-                  Hi there! 
+                  Hi there!
                 </Text>
                 <Text ta="left" className={classes.titleDescription}>
                   I'm Bruce
                 </Text>
               </Flex>
               <Text className={classes.textDescription}>
-                I'm a Canadian software engineer based in Vancouver. Having grown up
-                between the vibrant cities of Montreal and Calgary, I am now a
-                senior computer science student at the University of British
-                Columbia.
+                I'm a Canadian software engineer based in Vancouver. Having
+                grown up between the vibrant cities of Montreal and Calgary, I
+                am now a senior computer science student at the University of
+                British Columbia.
               </Text>
               <Text className={classes.textDescription}>
                 When I'm not buried in assignments, you'll find me exploring the
@@ -161,9 +155,9 @@ const About = () => {
               </Text>
               <Text className={classes.textDescription}>
                 Off-screen, you'll find me enjoying a game of badminton, delving
-                into the intricacies of the Japanese language, humbling
-                myself in the world of Summoner's Rift, or wandering through 
-                different corners of the world.
+                into the intricacies of the Japanese language, humbling myself
+                in the world of Summoner's Rift, or wandering through different
+                corners of the world.
               </Text>
               <Text className={classes.textDescription}>
                 Anyways, I hope you enjoy my corner of the web.
@@ -173,6 +167,7 @@ const About = () => {
                   <Anchor
                     href="https://www.linkedin.com/in/ychengl1/"
                     target="_blank"
+                    className={classes.contactIconWrapper}
                   >
                     <FontAwesomeIcon
                       icon={faLinkedinIn}
@@ -180,14 +175,22 @@ const About = () => {
                     />
                   </Anchor>
 
-                  <Anchor href="https://github.com/ycheng11065" target="_blank">
+                  <Anchor
+                    href="https://github.com/ycheng11065"
+                    target="_blank"
+                    className={classes.contactIconWrapper}
+                  >
                     <FontAwesomeIcon
                       icon={faGithub}
                       className={classes.contactIcon}
                     />
                   </Anchor>
 
-                  <Anchor href="mailto:ychengli11065@gmail.com" target="_blank">
+                  <Anchor
+                    href="mailto:ychengli11065@gmail.com"
+                    target="_blank"
+                    className={classes.contactIconWrapper}
+                  >
                     <FontAwesomeIcon
                       icon={faEnvelope}
                       className={classes.contactIcon}
@@ -199,10 +202,10 @@ const About = () => {
             <Box w="620px" h="full">
               <BackgroundImage
                 radius="md"
-                src={'/image/profile/sakurajima.jpg'}
+                src={"/image/profile/sakurajima.jpg"}
                 style={{
-                  width: '100%',
-                  height: '100%',
+                  width: "100%",
+                  height: "100%",
                 }}
               />
             </Box>
