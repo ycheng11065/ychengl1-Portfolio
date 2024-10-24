@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/Navbar";
 import Footer from "./components/Footer";
 import MainPage from "./components/MainPage";
 import { BrowserRouter } from "react-router-dom";
