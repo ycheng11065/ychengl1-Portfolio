@@ -118,12 +118,26 @@ const MainPage = () => {
       ) : (
         <Element name="about">
           <Flex
-            w="90%"
+            // w="1400px"
             mx="auto"
             mt="200px"
             justify="left"
             align="center"
             style={{ borderTop: '1px solid grey' }}
+            sx={{
+              [`@media (min-width: 1024px)`]: {
+                width: '700px', // Small laptops (1024px and above)
+              },
+              [`@media (min-width: 1280px)`]: {
+                width: '900px', // Laptops (1280px and above)
+              },
+              [`@media (min-width: 1440px)`]: {
+                width: '1300px', // Desktops (1440px and above)
+              },
+              [`@media (min-width: 1600px)`]: {
+                width: '1700px', // Larger desktops (1600px and above)
+              },
+            }}
           >
             <Text
               pl="20px"
@@ -169,12 +183,26 @@ const MainPage = () => {
       ) : (
         <Element name="project">
           <Flex
-            w="90%"
+            // w="1400px"
             mx="auto"
             mt="200px"
             justify="left"
             align="center"
             style={{ borderTop: '1px solid grey' }}
+            sx={{
+              [`@media (min-width: 1024px)`]: {
+                width: '700px', // Small laptops (1024px and above)
+              },
+              [`@media (min-width: 1280px)`]: {
+                width: '900px', // Laptops (1280px and above)
+              },
+              [`@media (min-width: 1440px)`]: {
+                width: '1300px', // Desktops (1440px and above)
+              },
+              [`@media (min-width: 1600px)`]: {
+                width: '1700px', // Larger desktops (1600px and above)
+              },
+            }}
           >
             <Text
               pl="20px"

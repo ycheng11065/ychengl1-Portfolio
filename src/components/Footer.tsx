@@ -49,7 +49,25 @@ const Footer = () => {
         </Flex>
       ) : (
         <Flex align="center" direction="column" className={classes.footer}>
-          <Box w="90%" h="50px" className={classes.footerBorder}>
+          <Box 
+            // w="1400px" 
+            h="50px" 
+            className={classes.footerBorder}
+            sx={{
+              [`@media (min-width: 1024px)`]: {
+                width: '700px', // Small laptops (1024px and above)
+              },
+              [`@media (min-width: 1280px)`]: {
+                width: '900px', // Laptops (1280px and above)
+              },
+              [`@media (min-width: 1440px)`]: {
+                width: '1300px', // Desktops (1440px and above)
+              },
+              [`@media (min-width: 1600px)`]: {
+                width: '1700px', // Larger desktops (1600px and above)
+              },
+            }}
+          >
             <Flex mt="10px" justify="space-between" px="30px">
               <Text mt="4px" fz="xl">
                 Get in touch with me.
