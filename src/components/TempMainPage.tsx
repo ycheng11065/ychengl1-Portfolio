@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react';
 import * as THREE from 'three';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { useDisclosure } from '@mantine/hooks';
 import { Text, Box, Flex} from '@mantine/core';
 import Blob from './Blob';
 import Project from './Projects';

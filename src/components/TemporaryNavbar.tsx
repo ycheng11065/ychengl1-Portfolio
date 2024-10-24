@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
-import { useDisclosure } from "@mantine/hooks";
 import {
   Flex,
   Container,
@@ -21,19 +20,9 @@ import { isMobile } from "react-device-detect";
 import { useStyles } from "../style/TempNavbarStyles";
 
 const Navbar = () => {
-  const [opened, { open, close }] = useDisclosure(false);
   const { classes } = useStyles();
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const dark = colorScheme === "dark";
-  const [initialWidth, setInitialWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    // Store the initial screen width when the component mounts
-    const handleResize = () => setInitialWidth(window.innerWidth);
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   const openPDF = () => {
     const pdfPath = "/image/resume/Bruce_Li_Resume.pdf";
