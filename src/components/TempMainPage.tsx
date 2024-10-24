@@ -3,11 +3,10 @@ import { useState, useEffect } from 'react';
 import * as THREE from 'three';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useDisclosure } from '@mantine/hooks';
-import { Text, Box, Flex, createStyles } from '@mantine/core';
+import { Text, Box, Flex} from '@mantine/core';
 import Blob from './Blob';
 import Project from './Projects';
 import About from './About';
-import Footer from './Footer'
 import { IconChevronsDown } from '@tabler/icons-react';
 import { Element } from 'react-scroll';
 import { isMobile } from 'react-device-detect';
@@ -15,7 +14,6 @@ import { useStyles } from '../style/MainPageStyles';
 
 
 const MainPage = () => {
-  const [opened, { open, close }] = useDisclosure(false);
   const [cameraPosition, setCameraPosition] = useState(8);
   const { classes } = useStyles();
 
