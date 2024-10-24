@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import NavBar from "./components/TemporaryNavbar";
 import Footer from "./components/Footer";
-import MainPage from "./components/MainPage";
+import MainPage from "./components/TempMainPage";
 import { BrowserRouter } from "react-router-dom";
 import {
   MantineProvider,
