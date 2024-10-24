@@ -60,7 +60,7 @@ const useStyles = createStyles((theme) => ({
     '&:hover svg': {
       color: theme.colorScheme === 'dark' ? 'white' : 'black',
       borderColor: theme.colorScheme === 'dark' ? 'white' : 'black',
-      transition: 'color 0.4s ease, border-color 0.4s ease', 
+      transition: 'color 1s ease, border-color 1s ease', 
     },
   },
   aboutText: {

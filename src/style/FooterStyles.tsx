@@ -2,7 +2,7 @@ import { createStyles } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   footer: {
-    color: theme.colorScheme === 'dark' ? 'white' : 'black',
+    color: theme.colorScheme === 'dark' ? 'light grey' : 'black',
     backgroundColor: theme.colorScheme === 'dark' ? 'black' : 'white',
   },
   linkButton: {
@@ -14,6 +14,7 @@ const useStyles = createStyles((theme) => ({
     '&:hover': {
       color: theme.colorScheme === 'dark' ? theme.white : theme.colors.gray[6],
       textDecoration: 'none',
+      transition: 'color 1s ease, border-color 1s ease', 
     },
   },
   linkActive: {
