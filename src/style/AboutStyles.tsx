@@ -4,6 +4,9 @@ const useStyles = createStyles((theme) => ({
   aboutPage: {
     backgroundColor: theme.colorScheme === 'dark' ? 'black' : 'white',
   },
+  introTitle: {
+    fontSize: '2rem'
+  },
   titleDescription: {
     fontSize: '3rem',
 

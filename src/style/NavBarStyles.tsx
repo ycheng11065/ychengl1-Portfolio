@@ -4,6 +4,7 @@ const useStyles = createStyles((theme) => ({
   navBar: {
     fontColor: 'white',
     backgroundColor: theme.colorScheme === 'dark' ? 'black' : 'white',
+    // backgroundColor: 'red',
   },
   linkButton: {
     cursor: 'pointer',

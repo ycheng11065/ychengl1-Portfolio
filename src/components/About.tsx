@@ -21,7 +21,7 @@ const About = () => {
           <Box className={classes.aboutImage} h="300px" mx="auto">
             <BackgroundImage
               radius="md"
-              src={'/image/profile/me.jpg'}
+              src={'/image/profile/sakurajima.jpg'}
               style={{
                 width: '100%',
                 height: '100%',
@@ -37,7 +37,7 @@ const About = () => {
             className={classes.aboutText}
           >
             <Text ta="left" pt="0" className={classes.titleDescription}>
-              Hello, I'm Bruce
+              Hi there! I'm Bruce
             </Text>
             <Text className={classes.textDescription}>
               I am a Vancouver based software engineer. Having grown up between
@@ -52,8 +52,9 @@ const About = () => {
             </Text>
             <Text className={classes.textDescription}>
               Off-screen, you'll find me enjoying a game of badminton, delving
-              into the intricacies of the Japanese language, or humbling myself
-              in the world of Summoner's Rift.
+              into the intricacies of the Japanese language, humbling
+              myself in the world of Summoner's Rift, or wandering through 
+              different corners of the world.
             </Text>
             <Text className={classes.textDescription}>
               Anyways, I hope you enjoy my corner of the web.
@@ -139,15 +140,15 @@ const About = () => {
           >
             <Flex gap="20px" align="left" direction="column">
               <Flex direction="column">
-                <Text ta="left" pt="0" className={classes.titleDescription}>
-                  Hi there!
+                <Text ta="left" pt="0" className={classes.introTitle}>
+                  Hi there! 
                 </Text>
                 <Text ta="left" className={classes.titleDescription}>
                   I'm Bruce
                 </Text>
               </Flex>
               <Text className={classes.textDescription}>
-                I'm a Vancouver based software engineer. Having grown up
+                I'm a Canadian software engineer based in Vancouver. Having grown up
                 between the vibrant cities of Montreal and Calgary, I am now a
                 senior computer science student at the University of British
                 Columbia.
@@ -160,8 +161,9 @@ const About = () => {
               </Text>
               <Text className={classes.textDescription}>
                 Off-screen, you'll find me enjoying a game of badminton, delving
-                into the intricacies of the Japanese language, or humbling
-                myself in the world of Summoner's Rift.
+                into the intricacies of the Japanese language, humbling
+                myself in the world of Summoner's Rift, or wandering through 
+                different corners of the world.
               </Text>
               <Text className={classes.textDescription}>
                 Anyways, I hope you enjoy my corner of the web.

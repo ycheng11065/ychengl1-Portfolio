@@ -1,4 +1,5 @@
 // @ts-nocheck
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import { useDisclosure } from "@mantine/hooks";
@@ -24,6 +25,15 @@ const NavBar = () => {
   const { classes } = useStyles();
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const dark = colorScheme === "dark";
+  const [initialWidth, setInitialWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    // Store the initial screen width when the component mounts
+    const handleResize = () => setInitialWidth(window.innerWidth);
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const openPDF = () => {
     const pdfPath = "/image/resume/Bruce_Li_Resume.pdf";
@@ -125,7 +135,8 @@ const NavBar = () => {
             <Link
               to="./"
               onClick={(event) => {
-                setActiveLink(0);
+                event.preventDefault(); // Prevents the default behavior of the Link component
+                window.location.href = "./"; // Forces the browser to reload the home page
               }}
               className={classes.logoButton}
             >
@@ -145,8 +156,8 @@ const NavBar = () => {
           pt="10px"
           h="70px"
           w="100%"
-          direction="row"
-          justify="space-between"
+          justify="center" // Centers horizontally
+          align="center" // Centers vertically
           className={classes.navBar}
           style={{
             opacity: "0.95",
@@ -154,69 +165,92 @@ const NavBar = () => {
             position: "sticky",
             top: "0",
             margin: "0 auto",
+            // backgroundColor: "blue",
           }}
         >
-          <Container ml="10px" mr="0">
-            <Link
-              to="./"
-              onClick={(event) => {
-                setActiveLink(0);
-              }}
-              className={classes.logoButton}
-            >
-              YCL
-            </Link>
-          </Container>
-          <Container mx="0" mt="15px">
-            <Flex gap="xl">
-              <ScrollLink
-                to="main"
-                smooth={true}
-                duration={500}
-                className={classes.linkButton}
-              >
-                Home
-              </ScrollLink>
-              <ScrollLink
-                to="about"
-                smooth={true}
-                duration={500}
-                className={classes.linkButton}
-              >
-                About
-              </ScrollLink>
-              <ScrollLink
-                to="project"
-                smooth={true}
-                duration={500}
-                className={classes.linkButton}
-              >
-                Project
-              </ScrollLink>
-              <ScrollLink
-                to="footer"
-                smooth={true}
-                duration={500}
-                className={classes.linkButton}
-              >
-                Contact
-              </ScrollLink>
-              <Link className={classes.linkButton} onClick={openPDF}>
-                Resume
-              </Link>
-              <ActionIcon
-                size="2.2rem"
-                variant="outline"
-                color={dark ? "yellow" : "blue"}
-                onClick={() => {
-                  toggleColorScheme();
+          <Flex
+            h="100%"
+            w="1600px"
+            direction="row"
+            justify="space-between"
+            className={classes.navBar}
+            sx={{
+              [`@media (min-width: 1024px)`]: {
+                width: '900px', // Small laptops (1024px and above)
+              },
+              [`@media (min-width: 1280px)`]: {
+                width: '1100px', // Laptops (1280px and above)
+              },
+              [`@media (min-width: 1440px)`]: {
+                width: '1500px', // Desktops (1440px and above)
+              },
+              [`@media (min-width: 1600px)`]: {
+                width: '1900px', // Larger desktops (1600px and above)
+              },
+            }}
+          >
+            <Container ml="10px" mr="0">
+              <Link
+                onClick={(event) => {
+                  event.preventDefault(); // Prevents the default behavior of the Link component
+                  window.location.href = "./"; // Forces the browser to reload the home page
                 }}
-                title="Toggle color scheme"
+                className={classes.logoButton}
               >
-                {dark ? <IconSun size="2rem" /> : <IconMoon size="2rem" />}
-              </ActionIcon>
-            </Flex>
-          </Container>
+                YCL
+              </Link>
+            </Container>
+            <Container mx="0" mt="15px">
+              <Flex gap="xl">
+                <ScrollLink
+                  to="main"
+                  smooth={true}
+                  duration={500}
+                  className={classes.linkButton}
+                >
+                  Home
+                </ScrollLink>
+                <ScrollLink
+                  to="about"
+                  smooth={true}
+                  duration={500}
+                  className={classes.linkButton}
+                >
+                  About
+                </ScrollLink>
+                <ScrollLink
+                  to="project"
+                  smooth={true}
+                  duration={500}
+                  className={classes.linkButton}
+                >
+                  Project
+                </ScrollLink>
+                <ScrollLink
+                  to="footer"
+                  smooth={true}
+                  duration={500}
+                  className={classes.linkButton}
+                >
+                  Contact
+                </ScrollLink>
+                <Link className={classes.linkButton} onClick={openPDF}>
+                  Resume
+                </Link>
+                <ActionIcon
+                  size="2.2rem"
+                  variant="outline"
+                  color={dark ? "yellow" : "blue"}
+                  onClick={() => {
+                    toggleColorScheme();
+                  }}
+                  title="Toggle color scheme"
+                >
+                  {dark ? <IconSun size="2rem" /> : <IconMoon size="2rem" />}
+                </ActionIcon>
+              </Flex>
+            </Container>
+          </Flex>
         </Flex>
       )}
     </>
