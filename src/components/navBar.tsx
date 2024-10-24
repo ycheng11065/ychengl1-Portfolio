@@ -18,9 +18,9 @@ import {
   IconX,
 } from "@tabler/icons-react";
 import { isMobile } from "react-device-detect";
-import { useStyles } from "../style/NavBarStyles";
+import { useStyles } from "../style/NavbarStyles";
 
-const NavBar = () => {
+const Navbar = () => {
   const [opened, { open, close }] = useDisclosure(false);
   const { classes } = useStyles();
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
@@ -265,4 +265,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default Navbar;
