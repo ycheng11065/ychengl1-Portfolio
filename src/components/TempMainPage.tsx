@@ -1,16 +1,15 @@
 // @ts-nocheck
-import { useState, useEffect } from 'react';
-import * as THREE from 'three';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Text, Box, Flex} from '@mantine/core';
-import Blob from './Blob';
-import Project from './Projects';
-import About from './About';
-import { IconChevronsDown } from '@tabler/icons-react';
-import { Element } from 'react-scroll';
-import { isMobile } from 'react-device-detect';
-import { useStyles } from '../style/MainPageStyles';
-
+import { useState, useEffect } from "react";
+import * as THREE from "three";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { Text, Box, Flex } from "@mantine/core";
+import Blob from "./Blob";
+import Project from "./Projects";
+import About from "./About";
+import { IconChevronsDown } from "@tabler/icons-react";
+import { Element } from "react-scroll";
+import { isMobile } from "react-device-detect";
+import { useStyles } from "../style/MainPageStyles";
 
 const MainPage = () => {
   const [cameraPosition, setCameraPosition] = useState(8);
@@ -20,33 +19,33 @@ const MainPage = () => {
     console.log(window.innerWidth);
     // Checking if xl 88em
     if (window.innerWidth >= 1408) {
-      console.log('xl');
+      console.log("xl");
       setCameraPosition(9);
       // Checking if lg 75em
     } else if (window.innerWidth >= 1200) {
-      console.log('lg');
+      console.log("lg");
       setCameraPosition(8);
       // Checking if md 62em
     } else if (window.innerWidth >= 922) {
-      console.log('md');
+      console.log("md");
       setCameraPosition(9);
       // Checking if sm 48em
     } else if (window.innerWidth >= 768) {
-      console.log('sm');
+      console.log("sm");
       setCameraPosition(10);
       // Then has to be xs 36em
     } else {
-      console.log('xs');
+      console.log("xs");
       setCameraPosition(12);
     }
   };
 
   useEffect(() => {
     checkScreenSize();
-    window.addEventListener('resize', checkScreenSize);
+    window.addEventListener("resize", checkScreenSize);
 
     return () => {
-      window.removeEventListener('resize', checkScreenSize);
+      window.removeEventListener("resize", checkScreenSize);
     };
   }, []);
 
@@ -54,7 +53,7 @@ const MainPage = () => {
     <Box
       mx="0"
       style={{
-        width: '100%',
+        width: "100%",
       }}
       className={classes.mainPageBox}
     >
@@ -63,7 +62,7 @@ const MainPage = () => {
           w="100%"
           height="600px"
           style={{
-            position: 'relative',
+            position: "relative",
           }}
         >
           <IconChevronsDown size="2rem" className={classes.scrollDownIcon} />
@@ -78,8 +77,8 @@ const MainPage = () => {
           <Box className={classes.mainPageCanvas}>
             <Canvas
               style={{
-                height: '100%',
-                width: '100%',
+                height: "100%",
+                width: "100%",
               }}
             >
               {cameraPosition && <CameraPos cameraPosition={cameraPosition} />}
@@ -97,14 +96,14 @@ const MainPage = () => {
             mt="200px"
             justify="center"
             align="center"
-            style={{ borderTop: '1px solid grey' }}
+            style={{ borderTop: "1px solid grey" }}
           >
             <Text
               fz="xl"
               fw="300"
               style={{
-                fontColor: 'white',
-                fontSize: '3rem',
+                fontColor: "white",
+                fontSize: "3rem",
                 zIndex: 1,
               }}
             >
@@ -120,19 +119,19 @@ const MainPage = () => {
             mt="200px"
             justify="left"
             align="center"
-            style={{ borderTop: '1px solid grey' }}
+            style={{ borderTop: "1px solid grey" }}
             sx={{
               [`@media (min-width: 1024px)`]: {
-                width: '875px', // Small laptops (1024px and above)
+                width: "875px", // Small laptops (1024px and above)
               },
               [`@media (min-width: 1280px)`]: {
-                width: '1050px', // Laptops (1280px and above)
+                width: "1050px", // Laptops (1280px and above)
               },
               [`@media (min-width: 1440px)`]: {
-                width: '1400px', // Desktops (1440px and above)
+                width: "1400px", // Desktops (1440px and above)
               },
               [`@media (min-width: 1600px)`]: {
-                width: '1700px', // Larger desktops (1600px and above)
+                width: "1700px", // Larger desktops (1600px and above)
               },
             }}
           >
@@ -141,8 +140,8 @@ const MainPage = () => {
               fz="xl"
               fw="300"
               style={{
-                fontColor: 'white',
-                fontSize: '3rem',
+                fontColor: "white",
+                fontSize: "3rem",
                 zIndex: 1,
               }}
             >
@@ -162,14 +161,14 @@ const MainPage = () => {
             mt="100px"
             justify="center"
             align="center"
-            style={{ borderTop: '1px solid grey' }}
+            style={{ borderTop: "1px solid grey" }}
           >
             <Text
               fz="xl"
               fw="300"
               style={{
-                fontColor: 'white',
-                fontSize: '3rem',
+                fontColor: "white",
+                fontSize: "3rem",
                 zIndex: 1,
               }}
             >
@@ -185,19 +184,19 @@ const MainPage = () => {
             mt="200px"
             justify="left"
             align="center"
-            style={{ borderTop: '1px solid grey' }}
+            style={{ borderTop: "1px solid grey" }}
             sx={{
               [`@media (min-width: 1024px)`]: {
-                width: '875px', // Small laptops (1024px and above)
+                width: "875px", // Small laptops (1024px and above)
               },
               [`@media (min-width: 1280px)`]: {
-                width: '1050px', // Laptops (1280px and above)
+                width: "1050px", // Laptops (1280px and above)
               },
               [`@media (min-width: 1440px)`]: {
-                width: '1400px', // Desktops (1440px and above)
+                width: "1400px", // Desktops (1440px and above)
               },
               [`@media (min-width: 1600px)`]: {
-                width: '1700px', // Larger desktops (1600px and above)
+                width: "1700px", // Larger desktops (1600px and above)
               },
             }}
           >
@@ -206,8 +205,8 @@ const MainPage = () => {
               fz="xl"
               fw="300"
               style={{
-                fontColor: 'white',
-                fontSize: '3rem',
+                fontColor: "white",
+                fontSize: "3rem",
                 zIndex: 1,
               }}
             >
@@ -227,7 +226,7 @@ const CameraPos = (cameraPosition) => {
     const dummy = new THREE.Vector3();
     const step = 0.01;
     state.camera.position.lerp(
-      dummy.set(0, 0, cameraPosition['cameraPosition']),
+      dummy.set(0, 0, cameraPosition["cameraPosition"]),
       step
     );
     state.camera.lookAt(0, 0, 0);
