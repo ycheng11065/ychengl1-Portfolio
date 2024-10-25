@@ -9,7 +9,7 @@ import {
   ColorSchemeProvider,
   ColorScheme,
 } from "@mantine/core";
-import "./firebase";
+import "./Firebase";
 
 function App() {
   const [colorScheme, setColorScheme] = useState<ColorScheme>("dark");
