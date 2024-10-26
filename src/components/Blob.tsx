@@ -1,11 +1,16 @@
 // @ts-nocheck
 import React, { useMemo, useRef } from 'react';
 import vertexShader from './vertexShader';
-import fragmentShader from './fragmentShader';
+import fragmentShaderDark from './fragmentShaderDark';
+import fragmentShaderLight from './fragmentShaderLight';
 import { useFrame, invalidate } from '@react-three/fiber';
 import { MathUtils } from 'three';
+import { useMantineColorScheme } from '@mantine/core';
+
+
 
 const Blob = () => {
+  const { colorScheme } = useMantineColorScheme();
   const hover = useRef(false);
   const mesh = useRef();
   const uniforms = useMemo(() => {
@@ -31,6 +36,10 @@ const Blob = () => {
     invalidate();
   });
 
+  const fragmentShader = useMemo(() => {
+    return colorScheme === 'dark' ? fragmentShaderDark : fragmentShaderLight;
+  }, [colorScheme]);
+
   return (
     <mesh
       ref={mesh}
@@ -40,7 +49,9 @@ const Blob = () => {
       onPointerOut={() => (hover.current = false)}
     >
       <icosahedronGeometry args={[2.2, 20]} />
+
       <shaderMaterial
+        key={colorScheme} // This forces a rerender when colorScheme changes
         vertexShader={vertexShader}
         fragmentShader={fragmentShader}
         uniforms={uniforms}
