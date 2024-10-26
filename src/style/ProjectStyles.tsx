@@ -9,7 +9,7 @@ const useStyles = createStyles((theme) => ({
         : theme.colors.gray[1],
     backgroundImage:
       theme.colorScheme === "dark"
-        ? "linear-gradient(to bottom right, #7C44FF, #101113, #101113, #101113, #B12BFF)"
+        ? "linear-gradient(to bottom right, #6782FF, #141a25, #141a25, #141a25, #23A3FF)"
         : "linear-gradient(to bottom right, #23A3FF, #F1F3F5, #F1F3F5, #F1F3F5, #6782FF)",
 
     // Alternative gradient
@@ -25,7 +25,7 @@ const useStyles = createStyles((theme) => ({
     "&:hover": {
       backgroundImage:
         theme.colorScheme === "dark"
-          ? "linear-gradient(to bottom right, #B12BFF, #101113, #101113, #101113, #7C44FF)"
+          ? "linear-gradient(to bottom right, #23A3FF, #141a25, #141a25, #141a25, #6782FF)"
           : "linear-gradient(to bottom right, #6782FF, #F1F3F5, #F1F3F5, #F1F3F5, #23A3FF)",
     },
   },
