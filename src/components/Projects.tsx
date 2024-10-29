@@ -34,6 +34,13 @@ const Projects = () => {
   const { colorScheme } = useMantineColorScheme();
   const dark = colorScheme === "dark";
 
+
+  // Technology color scheme:
+  //  Web dev (JS, Node, etc): Teal
+  //  Python: orange
+  //  Database: purple
+  //  Java: red
+  //  Misc: pink
   const projectArray: project[] = [
     {
       name: "Subletter",
@@ -122,6 +129,23 @@ const Projects = () => {
         { name: "Bootstrap", color: "teal", id: useId() },
       ],
       url: "https://github.com/imaadj10/spotify-collage",
+      id: useId(),
+    },
+    {
+      name: "Fortune Chaser",
+      category: "Video Game",
+      description: `A 2D game originally developed as a class project, 
+      now expanded with custom music, maps, and pixel art, where players collect fortune 
+      cookies to reveal hidden fortunes. The game includes smooth player movement, basic friendly AI, 
+      and a scoring system for an engaging experience.
+      `,
+      date: "Jan 2022",
+      image: "/image/project/javaGame.png",
+      tech: [
+        { name: "Java", color: "red", id: useId() },
+        { name: "Swing", color: "pink", id: useId() },
+      ],
+      url: "https://github.com/ycheng11065/Fortune-Chaser",
       id: useId(),
     },
   ];
