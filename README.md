@@ -7,8 +7,6 @@ Built using Typescript, ReactJS, Mantine, React Three Fiber and hosted on Fireba
 
 ![](portfolio.gif)
 
-The blob was created from this tutorial by Chetan Verma: https://blog.chetanverma.com/how-to-create-an-awesome-blob-with-react-three-fiber
-
 Future improvements:
 - Make the website render different kind of blobs everytime the website is visited
 - Make the blob lighting reflect to the background
