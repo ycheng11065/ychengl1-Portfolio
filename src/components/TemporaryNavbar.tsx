@@ -24,17 +24,7 @@ const Navbar = () => {
   const { classes } = useStyles();
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const dark = colorScheme === "dark";
-
-  const openPDF = () => {
-    const pdfPath = "/image/resume/Bruce_Li_Resume.pdf";
-    fetch(pdfPath)
-      .then((response) => response.blob())
-      .then((blob) => {
-        const pdfUrl = URL.createObjectURL(blob);
-        window.open(pdfUrl, "_blank");
-      });
-  };
-
+  
   return (
     <>
       <Modal
@@ -232,9 +222,14 @@ const Navbar = () => {
                 >
                   Contact
                 </ScrollLink>
-                <Link className={classes.linkButton} onClick={openPDF}>
+                <a 
+                  className={classes.linkButton} 
+                  href="https://drive.google.com/file/d/1rqiZBKy_uXh4AHth1_fvxl0UuoBfxfVX/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Resume
-                </Link>
+                </a>
                 <ActionIcon
                   size="2.2rem"
                   variant="outline"
