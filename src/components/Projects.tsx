@@ -45,10 +45,10 @@ const Projects = () => {
     {
       name: "Subletter",
       category: "Virtual Marketplace",
-      description: `A fullstack app developed for UBC's CPSC 304 database class, 
-      streamlines UBC dorm subletting. Addressing Facebook Marketplace's inefficiencies, 
-      it offers UBC-exclusive sublet postings and detailed dormitory information,
-      including Airbnb-like ratings for dorms and users.
+      description: `Born from the frustrations of dorm rentals, Subletter, inspired by Airbnb, offers a student-only alternative to 
+      Facebook Marketplace. It features detailed information about dorms across different universities, allows students to share insights 
+      and reviews about available dorms, provides reliable user profiles with sublet histories, and offers a secure platform for buying and 
+      selling items.
       `,
       date: "Aug 2023",
       image: "/image/project/subletter.png",
@@ -66,10 +66,9 @@ const Projects = () => {
     {
       name: "Resume Builder",
       category: "Web Tool",
-      description: `An automated resume templator that seamlessly formats your resume, 
-       primarily for software engineer CVs. Additionally, it offers the convenience of one-click PDF.
-       I use it for all my resumes, saved me from a lot of headaches. 
-       `,
+      description: `An automated resume templator that makes formatting simple and stress-free. Built mainly for basic software engineering CVs, 
+      it also lets you create a polished PDF with one click. The resume I created with this app actually helped me land my first internship.
+      `,
       date: "May 2023",
       image: "/image/project/resume_builder.png",
       tech: [
@@ -84,10 +83,9 @@ const Projects = () => {
     {
       name: "BattleSnake",
       category: "AI",
-      description: `An AI competition at RBC where I participated twice back when I was an intern.
-      The challenge involves four snakes, whoever survives the longest wins. My team and I crafted both showcased 
-      snakes: SSSShark (blue), clinching the 2022 1st prize, and the more advanced Orion's Fang (purple), securing 2nd 
-      place in 2023`,
+      description: `An AI coding competition at RBC where I participated twice during my internship. The challenge features four AI snakes 
+      battling to be the longest survivor. My team created and showcased two snakes: SSSShark (blue), which secured 1st place out of 17 in 
+      winter 2022, and Orion's Fang (purple), an advanced design that earned 2nd place out of 15 in spring 2023.`,
       date: "April 2023",
       image: "/image/project/snake.png",
       tech: [
@@ -100,7 +98,7 @@ const Projects = () => {
     {
       name: "Navi-Bot",
       category: "ChatBot",
-      description: `Developed collaboratively by my team and me during the 2022 NwHacks, our Discord bot brings 
+      description: `Developed collaboratively by my team and I during the 2022 NwHacks, our Discord bot brings 
       innovation to UBC degree planning. It offers a user-friendly interface, simplifying access to essential 
       degree-related information and enhancing the planning experience for all UBC students.`,
       date: "Jan 2023",
@@ -115,9 +113,9 @@ const Projects = () => {
     {
       name: "Spotify Collage",
       category: "Web Application",
-      description: `A creation built by me and my team during our first hackathon at the NwHacks 2021.  
+      description: `A creation built by my team and I during our first hackathon at the 2021 NwHacks.  
       This application enabled users to craft captivating collages using album covers accessed through Spotify's API. 
-      The collages could be tailored to different categories, encompassing options like a compilation of the user's favorite songs, 
+      The collages can be tailored to different categories, including options like a compilation of the user's favorite songs, 
       trending tracks, and an artist's top 10.`,
       date: "Jan 2022",
       image: "/image/project/spotify.png",
@@ -134,10 +132,9 @@ const Projects = () => {
     {
       name: "Fortune Chaser",
       category: "Video Game",
-      description: `A 2D game originally developed as a class project, 
-      now expanded with custom music, maps, and pixel art, where players collect fortune 
-      cookies to reveal hidden fortunes. The game includes smooth player movement, basic friendly AI, 
-      and a scoring system for an engaging experience.
+      description: `My first coding project and the spark that led me to pursue computer science. This 2D game, 
+      originally a class project, has grown to include custom music, maps, and pixel art. Players collect fortune cookies 
+      to uncover hidden fortunes, with features like smooth player movement, basic friendly AI, and a scoring system to enhance gameplay.
       `,
       date: "Jan 2022",
       image: "/image/project/javaGame.png",
