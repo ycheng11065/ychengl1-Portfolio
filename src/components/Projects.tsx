@@ -67,7 +67,7 @@ const Projects = () => {
       and reviews about available dorms, provides reliable user profiles with sublet histories, and offers a secure platform for buying and 
       selling items.
       `,
-      date: "Aug 2023",
+      date: "August 2023",
       image: "/image/project/subletter.png",
       tech: [
         { name: "JavaScript", color: "teal", id: useId() },
@@ -118,7 +118,7 @@ const Projects = () => {
       description: `Developed collaboratively by my team and I during the 2022 NwHacks, our Discord bot brings 
       innovation to UBC degree planning. It offers a user-friendly interface, simplifying access to essential 
       degree-related information and enhancing the planning experience for all UBC students.`,
-      date: "Jan 2023",
+      date: "January 2023",
       image: "/image/project/naviBot.png",
       tech: [
         { name: "Python", color: "orange", id: useId() },
@@ -134,7 +134,7 @@ const Projects = () => {
       This application enabled users to craft captivating collages using album covers accessed through Spotify's API. 
       The collages can be tailored to different categories, including options like a compilation of the user's favorite songs, 
       trending tracks, and an artist's top 10.`,
-      date: "Jan 2022",
+      date: "January 2022",
       image: "/image/project/spotify.png",
       tech: [
         { name: "Python", color: "orange", id: useId() },
@@ -153,7 +153,7 @@ const Projects = () => {
       originally a class project, has grown to include custom music, maps, and pixel art. Players collect fortune cookies 
       to uncover hidden fortunes, with features like smooth player movement, basic friendly AI, and a scoring system to enhance gameplay.
       `,
-      date: "Jan 2022",
+      date: "January 2022",
       image: "/image/project/javaGame.png",
       tech: [
         { name: "Java", color: "red", id: useId() },
