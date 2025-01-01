@@ -25,8 +25,8 @@ const useStyles = createStyles((theme) => ({
     "&:hover": {
       backgroundImage:
         theme.colorScheme === "dark"
-          ? "linear-gradient(to bottom right, #23A3FF, #141a25, #141a25, #141a25, #6782FF)"
-          : "linear-gradient(to bottom right, #6782FF, #F1F3F5, #F1F3F5, #F1F3F5, #23A3FF)",
+          ? "linear-gradient(to bottom right, #ed4c92, #141a25, #141a25, #141a25, #ed4c92)"
+          : "linear-gradient(to bottom right, #ed4c92, #F1F3F5, #F1F3F5, #F1F3F5, #ed4c92)",
     },
   },
   projectTitle: {

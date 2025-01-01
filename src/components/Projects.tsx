@@ -40,8 +40,25 @@ const Projects = () => {
   //  Python: orange
   //  Database: purple
   //  Java: red
+  //  C++/C: yellow
   //  Misc: pink
   const projectArray: project[] = [
+    {
+      name: "Boid Simulation",
+      category: "Interactive Simulation",
+      description: `I have always been fascinated by the idea of simulating real-world behavior within a digital space. The thought of mimicking real life entities using
+      complex algorithms has always been an endless inspiration of mine. When I first learned about the concept of boids, I immediately knew that it was something 
+      that I wanted to turn into a project. So, here it is, my attempt at simulating swarm intelligence. 
+      `,
+      date: "December 2024",
+      image: "/image/project/boidSimulation.png",
+      tech: [
+        { name: "C++", color: "yellow", id: useId(),},
+        { name: "CMake", color: "pink", id: useId(),}
+      ],
+      url: "https://github.com/thomasspina/Boid-Simulation",
+      id: useId(),
+    },
     {
       name: "Subletter",
       category: "Virtual Marketplace",
