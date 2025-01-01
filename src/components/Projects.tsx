@@ -40,8 +40,25 @@ const Projects = () => {
   //  Python: orange
   //  Database: purple
   //  Java: red
+  //  C++/C: yellow
   //  Misc: pink
   const projectArray: project[] = [
+    {
+      name: "Boid Simulation",
+      category: "Simulation",
+      description: `I have always been fascinated by the idea of simulating real-world behavior within a digital space. The thought of mimicking real life entities using
+      complex algorithms has always been an endless inspiration of mine. When I first learned about the concept of boids, I immediately knew that it was something 
+      that I wanted to turn into a project. So, here it is, my attempt at simulating swarm intelligence. 
+      `,
+      date: "December 2024",
+      image: "/image/project/boidSimulation.png",
+      tech: [
+        { name: "C++", color: "yellow", id: useId(),},
+        { name: "CMake", color: "pink", id: useId(),}
+      ],
+      url: "https://github.com/thomasspina/Boid-Simulation",
+      id: useId(),
+    },
     {
       name: "Subletter",
       category: "Virtual Marketplace",
@@ -50,7 +67,7 @@ const Projects = () => {
       and reviews about available dorms, provides reliable user profiles with sublet histories, and offers a secure platform for buying and 
       selling items.
       `,
-      date: "Aug 2023",
+      date: "August 2023",
       image: "/image/project/subletter.png",
       tech: [
         { name: "JavaScript", color: "teal", id: useId() },
@@ -101,7 +118,7 @@ const Projects = () => {
       description: `Developed collaboratively by my team and I during the 2022 NwHacks, our Discord bot brings 
       innovation to UBC degree planning. It offers a user-friendly interface, simplifying access to essential 
       degree-related information and enhancing the planning experience for all UBC students.`,
-      date: "Jan 2023",
+      date: "January 2023",
       image: "/image/project/naviBot.png",
       tech: [
         { name: "Python", color: "orange", id: useId() },
@@ -117,7 +134,7 @@ const Projects = () => {
       This application enabled users to craft captivating collages using album covers accessed through Spotify's API. 
       The collages can be tailored to different categories, including options like a compilation of the user's favorite songs, 
       trending tracks, and an artist's top 10.`,
-      date: "Jan 2022",
+      date: "January 2022",
       image: "/image/project/spotify.png",
       tech: [
         { name: "Python", color: "orange", id: useId() },
@@ -136,7 +153,7 @@ const Projects = () => {
       originally a class project, has grown to include custom music, maps, and pixel art. Players collect fortune cookies 
       to uncover hidden fortunes, with features like smooth player movement, basic friendly AI, and a scoring system to enhance gameplay.
       `,
-      date: "Jan 2022",
+      date: "January 2022",
       image: "/image/project/javaGame.png",
       tech: [
         { name: "Java", color: "red", id: useId() },
@@ -177,7 +194,11 @@ const Projects = () => {
                   </Box>
                   <Flex direction="column" w="100%" h="70%" mr={{ md: "10px" }}>
                     <Flex justify="space-between">
-                      <Text className={classes.projectTitle}>{p.name}</Text>
+                      <Text 
+                        className={classes.projectTitle}
+                      >  
+                          {p.name}
+                      </Text>
                       <Group mt="md" mb="xs" mr="0">
                         <Badge color="blue" variant="outline">
                           {p.category}
