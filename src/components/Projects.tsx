@@ -45,7 +45,7 @@ const Projects = () => {
   const projectArray: project[] = [
     {
       name: "Boid Simulation",
-      category: "Interactive Simulation",
+      category: "Simulation",
       description: `I have always been fascinated by the idea of simulating real-world behavior within a digital space. The thought of mimicking real life entities using
       complex algorithms has always been an endless inspiration of mine. When I first learned about the concept of boids, I immediately knew that it was something 
       that I wanted to turn into a project. So, here it is, my attempt at simulating swarm intelligence. 
@@ -194,7 +194,11 @@ const Projects = () => {
                   </Box>
                   <Flex direction="column" w="100%" h="70%" mr={{ md: "10px" }}>
                     <Flex justify="space-between">
-                      <Text className={classes.projectTitle}>{p.name}</Text>
+                      <Text 
+                        className={classes.projectTitle}
+                      >  
+                          {p.name}
+                      </Text>
                       <Group mt="md" mb="xs" mr="0">
                         <Badge color="blue" variant="outline">
                           {p.category}
