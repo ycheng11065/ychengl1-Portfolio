@@ -12,7 +12,12 @@ import {
 import { useId } from "@mantine/hooks";
 import { useStyles } from "../style/ProjectStyles";
 
-interface tool {
+
+interface ToolColor {
+  [key: string]: string;
+}
+
+interface Tool {
   name: string;
   color: string;
   id: string;
@@ -24,37 +29,63 @@ interface project {
   description: string;
   date: string;
   image: string;
-  tech: tool[];
+  tech: Tool[];
   url: string;
   id: string;
 }
+
+const toolColorScheme: ToolColor = {
+  python: "orange.6",      
+  java: "red",        
+  csharp: "blue",      
+  cppnc: "yellow",    
+  js: "teal.5",        
+  ts: "cyan.6",          
+  webDev: "indigo",   
+  ml: "grape",       
+  dataScience: "lime.6",  
+  gameDev: "violet", 
+  devOps: "green",    
+  databases: "blue.5",   
+  mobile: "pink.6",       
+  systems: "yellow.7",    
+  emergingTech: "pink",
+};
 
 const Projects = () => {
   const { classes } = useStyles();
   const { colorScheme } = useMantineColorScheme();
   const dark = colorScheme === "dark";
 
-
-  // Technology color scheme:
-  //  Web dev (JS, Node, etc): Teal
-  //  Python: orange
-  //  Database: purple
-  //  Java: red
-  //  C++/C: yellow
-  //  Misc: pink
   const projectArray: project[] = [
+    {
+      name: "A Big Hole",
+      category: "Video Game",
+      description: `Have you ever dreamed of falling to your death while dodging hundreds of miscellaneous objects 3000ft up in the air? 
+      Yeah!? Well, this game will ensure that your days of upright walking will finally come to an end. Goal of the game is simple: Reach the end of the hole or 
+      break your legs trying.
+      `,
+      date: "January 2025",
+      image: "/image/project/aBigHole.png",
+      tech: [
+        { name: "C#", color: toolColorScheme["csharp"], id: useId(),},
+        { name: "Unity", color: toolColorScheme["gameDev"], id: useId(),}
+      ],
+      url: "https://github.com/KeveenWong/mini-jam-gravity",
+      id: useId(),
+    },
     {
       name: "Boid Simulation",
       category: "Simulation",
-      description: `I have always been fascinated by the idea of simulating real-world behavior within a digital space. The thought of mimicking real life entities using
-      complex algorithms has always been an endless inspiration of mine. When I first learned about the concept of boids, I immediately knew that it was something 
-      that I wanted to turn into a project. So, here it is, my attempt at simulating swarm intelligence. 
+      description: `I have always been fascinated by the idea of simulating real-world behavior within a digital environment. The thought of mimicking real life entities using
+      complex algorithms has always sparked cool ideas. When I first learned about the concept of boids, I knew that it was the perfect inspiration for a new project. 
+      So, here it is, my attempt at simulating swarm intelligence. 
       `,
       date: "December 2024",
       image: "/image/project/boidSimulation.png",
       tech: [
-        { name: "C++", color: "yellow", id: useId(),},
-        { name: "CMake", color: "pink", id: useId(),}
+        { name: "C++", color: toolColorScheme["cppnc"], id: useId(),},
+        { name: "CMake", color: toolColorScheme["systems"], id: useId(),}
       ],
       url: "https://github.com/thomasspina/Boid-Simulation",
       id: useId(),
@@ -70,12 +101,12 @@ const Projects = () => {
       date: "August 2023",
       image: "/image/project/subletter.png",
       tech: [
-        { name: "JavaScript", color: "teal", id: useId() },
-        { name: "NodeJS", color: "teal", id: useId() },
-        { name: "Express", color: "teal", id: useId() },
-        { name: "ReactJS", color: "teal", id: useId() },
-        { name: "ChakraUI", color: "teal", id: useId() },
-        { name: "MySQL", color: "violet", id: useId() },
+        { name: "JavaScript", color: toolColorScheme["js"], id: useId() },
+        { name: "NodeJS", color: toolColorScheme["webDev"], id: useId() },
+        { name: "Express", color: toolColorScheme["webDev"], id: useId() },
+        { name: "ReactJS", color: toolColorScheme["webDev"], id: useId() },
+        { name: "ChakraUI", color: toolColorScheme["webDev"], id: useId() },
+        { name: "MySQL", color: toolColorScheme["databases"], id: useId() },
       ],
       url: "https://github.com/imaadj10/subletter",
       id: useId(),
@@ -83,16 +114,17 @@ const Projects = () => {
     {
       name: "Resume Builder",
       category: "Web Tool",
-      description: `An automated resume templator that makes formatting simple and stress-free. Built mainly for basic software engineering CVs, 
-      it also lets you create a polished PDF with one click. The resume I created with this app actually helped me land my first internship.
+      description: `An automated resume templator designed to make formatting software engineer CVs effortless and stress-free. 
+      While this may never replace LaTeX, it offers a no-brainer solution for those who just want to fill out simple forms. 
+      Plus, it lets you generate a polished PDF with a single click.
       `,
       date: "May 2023",
       image: "/image/project/resume_builder.png",
       tech: [
-        { name: "JavaScript", color: "teal", id: useId() },
-        { name: "ReactJS", color: "teal", id: useId() },
-        { name: "HTML5", color: "teal", id: useId() },
-        { name: "CSS3", color: "teal", id: useId() },
+        { name: "JavaScript", color: toolColorScheme["js"], id: useId() },
+        { name: "ReactJS", color: toolColorScheme["webDev"], id: useId() },
+        { name: "HTML5", color: toolColorScheme["webDev"], id: useId() },
+        { name: "CSS3", color: toolColorScheme["webDev"], id: useId() },
       ],
       url: "https://github.com/ycheng11065/Resume-Builder",
       id: useId(),
@@ -100,14 +132,14 @@ const Projects = () => {
     {
       name: "BattleSnake",
       category: "AI",
-      description: `An AI coding competition at RBC where I participated twice during my internship. The challenge features four AI snakes 
-      battling to be the longest survivor. My team created and showcased two snakes: SSSShark (blue), which secured 1st place out of 17 in 
-      winter 2022, and Orion's Fang (purple), an advanced design that earned 2nd place out of 15 in spring 2023.`,
+      description: `An AI coding competition hosted at RBC where I participated twice during my first internship. The challenge involves four AI snakes 
+      battling to be the longest survivor. My team created two snakes: SSSShark (blue), which secured 1st place out of 17 during the
+      winter 2022 event, and Orion's Fang (purple), a more advanced design that earned 2nd place out of 15 during the spring 2023 event.`,
       date: "April 2023",
       image: "/image/project/snake.png",
       tech: [
-        { name: "Python", color: "orange", id: useId() },
-        { name: "DigitalOcean", color: "pink", id: useId() },
+        { name: "Python", color: toolColorScheme["python"], id: useId() },
+        { name: "DigitalOcean", color: toolColorScheme["devOps"], id: useId() },
       ],
       url: "https://github.com/ycheng11065/2023-python-snake",
       id: useId(),
@@ -116,13 +148,15 @@ const Projects = () => {
       name: "Navi-Bot",
       category: "ChatBot",
       description: `Developed collaboratively by my team and I during the 2022 NwHacks, our Discord bot brings 
-      innovation to UBC degree planning. It offers a user-friendly interface, simplifying access to essential 
-      degree-related information and enhancing the planning experience for all UBC students.`,
+      simplicity to UBC degree planning. Offering a user-friendly interface, facilitating access to essential 
+      degree-related information and guiding the planning experience for all UBC students. So, if you ever find yourself 
+      stuck in the wrong class, it’s probably because you didn’t use Navi-Bot :/ .
+      `,
       date: "January 2023",
       image: "/image/project/naviBot.png",
       tech: [
-        { name: "Python", color: "orange", id: useId() },
-        { name: "JSON", color: "pink", id: useId() },
+        { name: "Python", color: toolColorScheme["python"], id: useId() },
+        { name: "JSON", color: toolColorScheme["devOps"], id: useId() },
       ],
       url: "https://github.com/ycheng11065/UBC-stack-BOT",
       id: useId(),
@@ -132,16 +166,16 @@ const Projects = () => {
       category: "Web Application",
       description: `A creation built by my team and I during our first hackathon at the 2021 NwHacks.  
       This application enabled users to craft captivating collages using album covers accessed through Spotify's API. 
-      The collages can be tailored to different categories, including options like a compilation of the user's favorite songs, 
-      trending tracks, and an artist's top 10.`,
+      The collages can be tailored to different categories, including options like trending tracks, artist's top 10 or the
+      user's most-listened songs. Now you can show your superior music taste visually.`,
       date: "January 2022",
       image: "/image/project/spotify.png",
       tech: [
-        { name: "Python", color: "orange", id: useId() },
-        { name: "HTML5", color: "teal", id: useId() },
-        { name: "CSS3", color: "teal", id: useId() },
-        { name: "Flask", color: "teal", id: useId() },
-        { name: "Bootstrap", color: "teal", id: useId() },
+        { name: "Python", color: toolColorScheme["python"], id: useId() },
+        { name: "HTML5", color: toolColorScheme["webDev"], id: useId() },
+        { name: "CSS3", color: toolColorScheme["webDev"], id: useId() },
+        { name: "Flask", color: toolColorScheme["webDev"], id: useId() },
+        { name: "Bootstrap", color: toolColorScheme["webDev"], id: useId() },
       ],
       url: "https://github.com/imaadj10/spotify-collage",
       id: useId(),
@@ -151,13 +185,12 @@ const Projects = () => {
       category: "Video Game",
       description: `My first coding project and the spark that led me to pursue computer science. This 2D game, 
       originally a class project, has grown to include custom music, maps, and pixel art. Players collect fortune cookies 
-      to uncover hidden fortunes, with features like smooth player movement, basic friendly AI, and a scoring system to enhance gameplay.
+      to uncover hidden messages, with features like smooth player movement, basic friendly AI, and a scoring system to enhance gameplay.
       `,
       date: "January 2022",
       image: "/image/project/javaGame.png",
       tech: [
-        { name: "Java", color: "red", id: useId() },
-        { name: "Swing", color: "pink", id: useId() },
+        { name: "Java", color: toolColorScheme["java"], id: useId() }
       ],
       url: "https://github.com/ycheng11065/Fortune-Chaser",
       id: useId(),
@@ -230,7 +263,7 @@ const Projects = () => {
                                 {t.name}
                               </Badge>
                             ) : (
-                              <Badge key={t.id} color={t.color} variant="light">
+                              <Badge key={t.id} color={t.color} variant="outline">
                                 {t.name}
                               </Badge>
                             )
@@ -290,7 +323,7 @@ const Projects = () => {
                                 {t.name}
                               </Badge>
                             ) : (
-                              <Badge key={t.id} color={t.color} variant="light">
+                              <Badge key={t.id} color={t.color} variant="outline">
                                 {t.name}
                               </Badge>
                             )
