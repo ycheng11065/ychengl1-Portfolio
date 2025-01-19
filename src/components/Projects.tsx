@@ -78,7 +78,7 @@ const Projects = () => {
       name: "Boid Simulation",
       category: "Simulation",
       description: `I have always been fascinated by the idea of simulating real-world behavior within a digital environment. The thought of mimicking real life entities using
-      complex algorithms has always sparked cool ideas. When I first learned about the concept of boids, I knew that it was the perfect inspiration for a new project. 
+      complex algorithms has always given me cool ideas. When I first learned about the concept of boids, I knew that it was the perfect inspiration for a new project. 
       So, here it is, my attempt at simulating swarm intelligence. 
       `,
       date: "December 2024",
