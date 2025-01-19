@@ -59,6 +59,22 @@ const Projects = () => {
 
   const projectArray: project[] = [
     {
+      name: "Chip-8 Emulator",
+      category: "Emulator",
+      description: `This is an emulator for CHIP-8, a simple virtual machine developed in the 1970s to enable game development 
+      on early computers. In other words, a software made for those that want to relive the nostalgic feeling of playing 
+      retro games on a highly constrained machine. I suppose this is the modern-day solution to a gamer's time machine.
+      `,
+      date: "January 2025",
+      image: "/image/project/chip8.png",
+      tech: [
+        { name: "C++", color: toolColorScheme["cppnc"], id: useId(),},
+        { name: "CMake", color: toolColorScheme["systems"], id: useId(),}
+      ],
+      url: "https://github.com/thomasspina/Chip-8_emulator",
+      id: useId(),
+    },
+    {
       name: "A Big Hole",
       category: "Video Game",
       description: `Have you ever dreamed of falling to your death while dodging hundreds of miscellaneous objects 3000ft up in the air? 
