@@ -68,7 +68,8 @@ const Projects = () => {
       date: "January 2025",
       image: "/image/project/chip8.png",
       tech: [
-        { name: "C++", color: toolColorScheme["cppnc"], id: useId(),}
+        { name: "C++", color: toolColorScheme["cppnc"], id: useId(),},
+        { name: "CMake", color: toolColorScheme["systems"], id: useId(),}
       ],
       url: "https://github.com/thomasspina/Chip-8_emulator",
       id: useId(),
