@@ -63,13 +63,19 @@ const Projects = () => {
       category: "Emulator",
       description: `This is an emulator for CHIP-8, a simple virtual machine developed in the 1970s to enable game development 
       on early computers. In other words, a software made for those that want to relive the nostalgic feeling of playing 
-      retro games on a highly constrained machine. I suppose this is the modern-day solution to a gamer's time machine.
+      retro games on a highly constrained machine. I suppose this is the modern-day solution to a gamer's time machine. Best of all,
+      It's fully functional on web—give it a try!
       `,
       date: "January 2025",
       image: "/image/project/chip8.png",
       tech: [
         { name: "C++", color: toolColorScheme["cppnc"], id: useId(),},
-        { name: "CMake", color: toolColorScheme["systems"], id: useId(),}
+        { name: "CMake", color: toolColorScheme["systems"], id: useId(),},
+        { name: "JavaScript", color: toolColorScheme["js"], id: useId() },
+        { name: "HTML5", color: toolColorScheme["webDev"], id: useId() },
+        { name: "CSS3", color: toolColorScheme["webDev"], id: useId() },
+        { name: "WASM", color: toolColorScheme["webDev"], id: useId() },
+
       ],
       url: "https://github.com/thomasspina/Chip-8_emulator",
       id: useId(),
