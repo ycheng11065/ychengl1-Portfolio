@@ -40,6 +40,16 @@ const Footer = () => {
                 >
                   <Text fz="xl">Email</Text>
                 </Anchor>
+
+                <Anchor
+                  href="https://www.https://x.com/devPR0G.com/in/ychengl1/"
+                  color="inherit"
+                  target="_blank"
+                  className={classes.linkButton}
+                >
+                  <Text fz="xl">X</Text>
+                </Anchor>
+
               </Group>
               <Text mt="20px" mb="15px">
                 Developed by ©YuChengLi 2023
@@ -97,6 +107,15 @@ const Footer = () => {
                   className={classes.linkButton}
                 >
                   <Text fz="xl">Email</Text>
+                </Anchor>
+
+                <Anchor
+                  href="https://www.https://x.com/devPR0G.com/in/ychengl1/"
+                  color="inherit"
+                  target="_blank"
+                  className={classes.linkButton}
+                >
+                  <Text fz="xl">X</Text>
                 </Anchor>
               </Group>
             </Flex>
