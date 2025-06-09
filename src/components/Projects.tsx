@@ -59,6 +59,48 @@ const Projects = () => {
 
   const projectArray: project[] = [
     {
+      name: "Heimdall",
+      category: "Geospatial Visualization Tool",
+        description: `Heimdall is a web-based geospatial visualization tool—imagine Google Earth 
+        enhanced with real-time data overlays. It brings satellites, earthquakes, ship movements, 
+        and other global phenomena to life, offering a unified and engaging way to explore Earth’s dynamic systems. 
+        The project is currently in development, with satellite visualization expected to be completed by the end of 
+        June and many more features planned.
+      `,
+      date: "In Progress",
+      image: "/image/project/heimdall.png",
+      tech: [
+        { name: "Java", color: toolColorScheme["java"], id: useId()},
+        { name: "SpringBoot", color: toolColorScheme["java"], id: useId()},
+        { name: "JAVASCRIPT", color: toolColorScheme["js"], id: useId()},
+        { name: "REACTJS", color: toolColorScheme["webDev"], id: useId()},
+        { name: "RUST", color: toolColorScheme["systems"], id: useId()},
+        { name: "POSTGRESQL", color: toolColorScheme["databases"], id: useId()},
+        { name: "DOCKER", color: toolColorScheme["devOps"], id: useId()},
+      ],
+      url: "https://github.com/ycheng11065/Heimdall",
+      id: useId(),
+    },
+    {
+      name: "Axis Render",
+      category: "3D Render Engine",
+      description: `Axis Render is a rasterization-based 3D model rendering engine designed to visualize OBJ models. 
+      This project serves as an initial step in developing a game engine, providing the foundational tools for rendering and 
+      interacting with 3D models. As a standalone application, Axis Render offers a straightforward UI that allows users to manipulate 
+      and explore 3D models and shaders in real-time.
+      `,
+      date: "March 2025",
+      image: "/image/project/axis.png",
+      tech: [
+        { name: "C++", color: toolColorScheme["cppnc"], id: useId()},
+        { name: "CMAKE", color: toolColorScheme["cppnc"], id: useId()},
+        { name: "OpenGL", color: toolColorScheme["gameDev"], id: useId()},
+        { name: "GLSL", color: toolColorScheme["gameDev"], id: useId()},
+      ],
+      url: "https://github.com/thomasspina/Axis-Render?tab=readme-ov-file",
+      id: useId(),
+    },
+    {
       name: "Chip-8 Emulator",
       category: "Emulator",
       description: `This is an emulator for CHIP-8, a simple virtual machine developed in the 1970s to enable game development 
